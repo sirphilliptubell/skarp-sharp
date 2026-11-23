@@ -1,0 +1,32 @@
+Skarp: analyze <root>, 2 files, health 7.4 average (10 = healthy)
+2 warnings, 10 notices at 6 places in 2 files.
+
+deep-nesting
+  notice Program.cs line 3 <top-level> deep-nesting: nesting depth 4 (limit 3) [984d5d0e]
+  notice src/OrderBook.cs line 45 OrderBook.Describe deep-nesting: nesting depth 4 (limit 3) [b4a90bd3]
+
+long-method
+  notice src/OrderBook.cs line 45 OrderBook.Describe long-method: physical lines 25 (limit 20) [9b6c4c34]
+  notice src/OrderBook.cs line 10 OrderBook.Total long-method: physical lines 21 (limit 20) [6e523882]
+
+large-type
+  notice src/OrderBook.cs line 5 type OrderBook large-type: WMC 21 (limit 20) [3877a10f]
+
+too-many-parameters
+  warning src/OrderBook.cs line 34 OrderBook.Add too-many-parameters: parameters 8 (limit at least 8) [1a9e9b41]
+
+complex-condition
+  notice src/OrderBook.cs line 27 OrderBook.Total complex-condition: boolean operators 2 (limit at least 2) [0ed1ff77]
+  notice src/OrderBook.cs line 8 OrderBook._net/lambda1 complex-condition: boolean operators 2 (limit at least 2) [0e8c0363]
+
+empty-catch
+  warning src/OrderBook.cs line 40 OrderBook.Add empty-catch: empty bare catch without a comment [4a5cab44]
+
+magic-number
+  notice Program.cs line 4 <top-level> magic-number: magic numbers 2 [9ed068cd]
+  notice src/OrderBook.cs line 51 OrderBook.Describe magic-number: magic numbers 6 [b6370087]
+  notice src/OrderBook.cs line 19 OrderBook.Total magic-number: magic numbers 5 [7c6de4dd]
+
+No baseline file: `skarp baseline` records one; later runs then mark findings new or worse.
+History and semantic analysis were off. `skarp analyze --verbose` shows the run details.
+About the rules: `skarp explain <rule>` eg: `skarp explain deep-nesting`

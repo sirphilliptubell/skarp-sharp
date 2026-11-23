@@ -1,0 +1,21 @@
+# Weekly dependency updates: one grouped pull request per ecosystem. CI builds and tests each one.
+version: 2
+updates:
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      nuget:
+        patterns: ["*"]
+    ignore:
+      # Verify releases after 32.0.0 carry a paid maintenance fee; this project stays on exactly 32.0.0 (see tests/SkarpSharp.Tests).
+      - dependency-name: "Verify"
+      - dependency-name: "Verify.*"
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]

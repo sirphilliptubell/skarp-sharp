@@ -1,0 +1,16 @@
+Skarp: worst 2 of 2 files with findings in <root> (syntax tier), sorted by health
+
+src/OrderBook.cs health 6.9 (problematic; 10 = healthy)
+  warning line 34 OrderBook.Add too-many-parameters: parameters 8 (limit at least 8) [1a9e9b41]
+  warning line 40 OrderBook.Add empty-catch: empty bare catch without a comment [4a5cab44]
+  notice line 45 OrderBook.Describe deep-nesting: nesting depth 4 (limit 3) [b4a90bd3]
+  +7 more in this file
+
+Program.cs health 9.5 (healthy)
+  notice line 3 <top-level> deep-nesting: nesting depth 4 (limit 3) [984d5d0e]
+  notice line 4 <top-level> magic-number: magic numbers 2 [9ed068cd]
+
+1 of these 2 are healthy (9 or more)
+Semantic tier: not evaluated: no .sln or .slnx file found (the semantic tier needs a solution; pass one with --solution <file> or use --no-semantic)
+Not looked at at syntax depth: class coupling, god classes, unused code, namespace cycles.
+About the rules: `skarp explain <rule>` eg: `skarp explain too-many-parameters`

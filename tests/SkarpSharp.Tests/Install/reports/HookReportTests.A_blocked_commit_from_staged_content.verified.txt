@@ -1,0 +1,14 @@
+Skarp stopped this commit: 1 new problem in 1 staged file; health past its limit in 1 staged file.
+
+src/A.cs health 10.0 -> 7.2 (down 2.8, limit under 1.0) (10 = healthy)
+  new line 3 type A large-type (notice): WMC 481 (limit 20) [780964ba]
+  new line 5 A.F brain-method: long (84 physical lines), complex (cognitive complexity 1,120), deeply nested (nesting depth 4) [42b76a88]
+  new line 5 A.F path-explosion (notice): NPath 9223372036854780000 (limit 200) [5c6fac22]
+  new line 7 A.F complex-condition (notice): boolean operators 2 (limit at least 2) [30f7d6c2]
+  new line 9 A.F magic-number (notice): magic numbers 386 [bdca1534]
+
+What you can do:
+  1. Fix them, then stage and commit again.
+  2. Accept them as known:   `skarp baseline . && git add .skarp-baseline.json`   then commit
+  3. Skip the check once:  `git commit --no-verify`
+About the rules: `skarp explain <rule>` eg: `skarp explain large-type`

@@ -1,0 +1,55 @@
+# Skarp
+
+> Skarp is a free, open-source (MIT) command-line tool that measures C# code health with Roslyn. It gives each file a health score from 1 to 10, reports findings (complex, long or deeply nested methods, large types, long parameter lists, duplicate code, and with a solution coupling, god classes and unused code), finds git-history hotspots, keeps baselines and a CI gate, writes SARIF, and offers hooks and an MCP server for AI coding agents (experimental). Install with `dotnet tool install -g Skarp` (.NET 10).
+
+## Start here
+
+- [README](README.md): what Skarp is, install, first run, links to everything.
+- [Getting started](docs/getting-started.md): install, first run, reading the output.
+- [Installation](docs/installation.md): .NET tool, release archives, requirements.
+
+## Reference
+
+- [Rules](docs/rules.md): every rule, what it measures, how to improve flagged code.
+- [Presets](docs/presets.md): threshold presets and their sources.
+- [Explain](docs/explain.md): the `skarp explain` command.
+- [Settings](docs/settings.md): settings levels, .skarp.json, per-path overrides.
+- [Health score](docs/health-score.md): how the 1 to 10 score is computed.
+- [Baselines and gate](docs/baselines-and-gate.md): baselines, --new-only, the CI gate.
+- [History and hotspots](docs/history-and-hotspots.md): git history and hotspot tables.
+- [Semantic tier](docs/semantic-tier.md): solution-level analysis (coupling, unused code, cycles).
+- [Coverage](docs/coverage.md): Cobertura coverage reports.
+- [Conditional compilation](docs/conditional-compilation.md): how #if code is handled.
+- [Reports and SARIF](docs/reports-and-sarif.md): text, JSON, Markdown, GitHub and SARIF output.
+- [Contracts](docs/contracts.md): JSON schemas, exit codes, settings keys, finding ids.
+
+## AI coding agents
+
+- [Check and agents](docs/check-and-agents.md): skarp check, skarp show and the MCP server (experimental).
+- [Claude Code](docs/agents/claude-code.md): hooks and MCP for Claude Code (experimental).
+- [Git hooks](docs/git-hooks.md): checks on each commit (experimental).
+
+## Examples
+
+- [First run on an existing repository](docs/examples/first-run-on-an-existing-repository.md): baseline and first cleanup.
+- [Adding a CI gate](docs/examples/adding-a-ci-gate.md): fail a build on new or worse findings.
+- [Team and personal settings](docs/examples/team-and-personal-settings.md): which settings level to use.
+- [Using Skarp with an AI coding agent](docs/examples/using-skarp-with-an-ai-coding-agent.md): hooks and MCP in practice.
+- [Tracking a hotspot over time](docs/examples/tracking-a-hotspot-over-time.md): history and hotspots.
+- [Tuning thresholds to a vendor preset](docs/examples/tuning-thresholds-to-a-vendor-preset.md): presets and overrides.
+
+## About the project
+
+- [Comparison](docs/comparison.md): how Skarp relates to other code health tools.
+- [Design decisions](docs/design-decisions.md): why Skarp works the way it does.
+- [Architecture](ARCHITECTURE.md): how the code is organized.
+- [Packaging](docs/packaging.md): how releases are built.
+- [Changelog](CHANGELOG.md): changes per release.
+- [Contributing](CONTRIBUTING.md): build, test, contribute.
+- [Security](SECURITY.md): reporting problems.
+- [Credits](CREDITS.md): sources of ideas.
+- [Third-party notices](THIRD-PARTY-NOTICES.md): third-party licenses.
+
+## Optional
+
+- [Code of conduct](CODE_OF_CONDUCT.md): expected behavior in the project.

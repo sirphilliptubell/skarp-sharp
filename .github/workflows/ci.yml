@@ -1,0 +1,222 @@
+# CI: restore, build, test, Native AOT publish, JIT = AOT output comparison, pack and a local `dotnet tool install`
+# of the RID-specific tool packages, plus Skarp on its own code (summary, annotations, gate, SARIF).
+# Actions are pinned by commit SHA (tag in the comment). The release workflow (release.yml) calls this workflow on a tag.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_NOLOGO: "true"
+  DOTNET_CLI_TELEMETRY_OPTOUT: "true"
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "true"
+
+jobs:
+  build-test-aot:
+    name: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            rid: win-x64
+            exe: skarp.exe
+          - os: ubuntu-latest
+            rid: linux-x64
+            exe: skarp
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      security-events: write   # the SARIF upload to code scanning (Linux job, main branch only)
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Full history and tags: the package version comes from the Git tag (MinVer), and the self-run below reads the
+          # 12-month history window (a shallow clone drops boundary commits).
+          fetch-depth: 0
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          dotnet-version: 10.0.404
+
+      - name: Set up Node.js (comparison scripts)
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Native AOT prerequisites (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends clang zlib1g-dev
+
+      - name: Git version
+        run: git --version
+
+      - name: Restore
+        run: dotnet restore SkarpSharp.slnx
+
+      - name: Build
+        run: dotnet build SkarpSharp.slnx -c Release --no-restore
+
+      - name: Test
+        # The semantic fixtures (restored from nuget.org in a temp folder) must run here, never skip.
+        env:
+          SKARP_SEMANTIC_FIXTURES: "1"
+        # TUnit on Microsoft.Testing.Platform (global.json sets test.runner, as the .NET 10 SDK requires), so the options
+        # below are Microsoft.Testing.Platform options. Line and branch coverage with Microsoft code coverage (TUnit brings
+        # Microsoft.Testing.Extensions.CodeCoverage; the test assembly and assemblies without local sources are left out, so
+        # it is SkarpSharp.Core), one collector per run, reported only: no threshold. The format is set explicitly. The TRX
+        # and the Cobertura file are written to artifacts/test-results/.
+        run: >-
+          dotnet test SkarpSharp.slnx -c Release --no-build --output Detailed
+          --results-directory artifacts/test-results --report-trx --report-trx-filename tests.trx
+          --coverage --coverage-output-format cobertura --coverage-output coverage.cobertura.xml
+
+      - name: No skipped tests
+        run: |
+          trx=$(find artifacts/test-results -name '*.trx' | head -n 1)
+          node -e '
+            const t = require("fs").readFileSync(process.argv[1], "utf8");
+            const c = t.match(/<Counters [^>]*>/)[0];
+            const get = k => Number((c.match(new RegExp(k + "=\"(\\d+)\"")) || [0, 0])[1]);
+            console.log(c);
+            if (get("total") !== get("passed")) { console.error("not every test passed (skipped or failed tests)"); process.exit(1); }
+          ' "$trx"
+
+      - name: Coverage summary (report only)
+        run: |
+          # Microsoft code coverage writes the file at the results directory root (and a copy in the TRX
+          # attachments folder); the root one is read.
+          xml=artifacts/test-results/coverage.cobertura.xml
+          if [ ! -f "$xml" ]; then echo "coverage: no Cobertura file found"; exit 0; fi
+          node -e '
+            const t = require("fs").readFileSync(process.argv[1], "utf8");
+            const c = t.match(/<coverage [^>]*>/)[0];
+            const get = k => (c.match(new RegExp(" " + k + "=\"([^\"]*)\"")) || [0, "?"])[1];
+            const pct = k => (100 * Number(get(k))).toFixed(1) + "%";
+            console.log(`coverage (SkarpSharp.Core): lines ${pct("line-rate")} (${get("lines-covered")} of ${get("lines-valid")}), branches ${pct("branch-rate")} (${get("branches-covered")} of ${get("branches-valid")})`);
+          ' "$xml"
+
+      - name: Native AOT publish
+        run: dotnet publish src/SkarpSharp.Cli -c Release -r ${{ matrix.rid }} -o artifacts/aot
+
+      - name: AOT binary runs
+        run: |
+          ls -l artifacts/aot
+          artifacts/aot/${{ matrix.exe }} --help
+          artifacts/aot/${{ matrix.exe }} explain long-method
+          artifacts/aot/${{ matrix.exe }} explain god-class
+          artifacts/aot/${{ matrix.exe }} explain unused-member
+          artifacts/aot/${{ matrix.exe }} explain used-only-by-tests
+          artifacts/aot/${{ matrix.exe }} explain unread-member
+          artifacts/aot/${{ matrix.exe }} explain namespace-cycle
+          artifacts/aot/${{ matrix.exe }} analyze tests/oracle/EdgeCases --no-history --top 5
+
+      # Skarp on this repository with the committed .skarp.json and .skarp-baseline.json. The Markdown summary goes to
+      # the job summary; annotations mark new and worsened findings; the gate (default set *:warning) fails the step with
+      # exit code 3. Linux only: the findings do not depend on the OS (line counts ignore line endings), and running it in
+      # both jobs would show every annotation and the summary twice. After an intended change, run `skarp baseline .`
+      # locally and commit .skarp-baseline.json. The semantic tier runs here too (the Restore step restored this
+      # repository); its findings are compared with .skarp-baseline.semantic.json and gated the same way.
+      - name: Skarp on itself (summary, annotations, gate)
+        if: runner.os == 'Linux'
+        run: |
+          code=0
+          artifacts/aot/${{ matrix.exe }} analyze . --gate --format markdown >> "$GITHUB_STEP_SUMMARY" || code=$?
+          if [ "$code" -ne 0 ] && [ "$code" -ne 3 ]; then echo "skarp failed with exit code $code" >&2; exit "$code"; fi
+          artifacts/aot/${{ matrix.exe }} analyze . --gate --format github
+
+      # The SARIF log of this repository (every finding of both tiers): kept as a build artifact and uploaded to GitHub
+      # code scanning from the main branch. The upload cannot fail the build (code scanning may be switched off).
+      - name: Skarp on itself (SARIF)
+        if: runner.os == 'Linux'
+        run: |
+          artifacts/aot/${{ matrix.exe }} analyze . --format sarif -o artifacts/skarp.sarif
+          ls -l artifacts/skarp.sarif
+
+      - name: Upload SARIF to code scanning
+        if: runner.os == 'Linux' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        uses: github/codeql-action/upload-sarif@1bd86f2fdb4b86187fa4059f16f31a3202acc9ea # v4
+        with:
+          sarif_file: artifacts/skarp.sarif
+          category: skarp
+
+      - name: JIT = AOT output comparison
+        run: bash tools/ci/jit-aot-compare.sh "artifacts/aot/${{ matrix.exe }}" artifacts/jit-aot tests/oracle/EdgeCases
+
+      - name: Pack tool packages (pointer, Native AOT for this RID, framework-dependent any)
+        run: |
+          dotnet pack src/SkarpSharp.Cli -c Release -o artifacts/packages
+          dotnet pack src/SkarpSharp.Cli -c Release -r ${{ matrix.rid }} -o artifacts/packages
+          dotnet pack src/SkarpSharp.Cli -c Release -r any -p:PublishAot=false -o artifacts/packages
+          ls -l artifacts/packages
+
+      - name: Install the tool into a local tool path and run it
+        run: |
+          # The version is read from the pointer package's file name (Skarp.<version>.nupkg), so the install always names
+          # the version built here (docs/packaging.md).
+          pointer=$(ls artifacts/packages | grep -E '^Skarp\.[0-9]' | head -n 1)
+          version=${pointer#Skarp.}
+          version=${version%.nupkg}
+          echo "version: $version"
+          echo "$version" > artifacts/version.txt
+          # On Windows a RID-specific tool gets a skarp.cmd shim, which bash cannot start by name; a framework-dependent tool gets skarp.exe.
+          run_tool() { if [ -f "$1.cmd" ]; then cmd //c "$(cygpath -w "$1.cmd")" "${@:2}"; else "$1" "${@:2}"; fi; }
+          dotnet tool install --tool-path "$RUNNER_TEMP/skarp-tool" --add-source artifacts/packages --version "$version" Skarp
+          run_tool "$RUNNER_TEMP/skarp-tool/skarp" analyze tests/oracle/EdgeCases --no-history --format json -o artifacts/tool-edge.json 2> artifacts/tool-edge.log
+          cat artifacts/tool-edge.log
+          grep -q "(AOT)" artifacts/tool-edge.log
+          dotnet tool install --tool-path "$RUNNER_TEMP/skarp-any" --add-source artifacts/packages --version "$version" Skarp.any
+          run_tool "$RUNNER_TEMP/skarp-any/skarp" analyze tests/oracle/EdgeCases --no-history --format json -o artifacts/tool-any-edge.json 2> artifacts/tool-any-edge.log
+          cat artifacts/tool-any-edge.log
+          grep -q "(JIT)" artifacts/tool-any-edge.log
+          node tools/ci/compare-json.mjs artifacts/tool-edge.json artifacts/tool-any-edge.json
+
+      - name: Archive the Native AOT executable
+        run: |
+          version=$(cat artifacts/version.txt)
+          mkdir -p artifacts/dist
+          cp LICENSE THIRD-PARTY-NOTICES.md artifacts/aot/
+          if [ "${{ runner.os }}" = "Windows" ]; then
+            (cd artifacts/aot && 7z a -tzip "../dist/skarp-$version-${{ matrix.rid }}.zip" ${{ matrix.exe }} LICENSE THIRD-PARTY-NOTICES.md > /dev/null)
+          else
+            tar -C artifacts/aot -czf "artifacts/dist/skarp-$version-${{ matrix.rid }}.tar.gz" ${{ matrix.exe }} LICENSE THIRD-PARTY-NOTICES.md
+          fi
+          ls -l artifacts/dist
+
+      - name: Upload the release files (packages and archive)
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: release-${{ matrix.rid }}
+          path: |
+            artifacts/packages
+            artifacts/dist
+          retention-days: 14
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: skarp-${{ matrix.rid }}
+          path: |
+            artifacts/test-results
+            artifacts/jit-aot
+            artifacts/*.log
+            artifacts/*.sarif
+          if-no-files-found: ignore
+          retention-days: 14

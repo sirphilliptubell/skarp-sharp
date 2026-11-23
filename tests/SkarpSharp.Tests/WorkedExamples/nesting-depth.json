@@ -1,0 +1,154 @@
+[
+  {
+    "example": "1",
+    "title": "five levels of mixed constructs (Understand example in C#)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool a, bool b, bool c) {\n  if (a || (b && c)) {\n    while (a ? b : c) {\n      for (int i = 0; i < 10; i++) {\n        switch (i) {\n          case 1: case 2: Console.WriteLine(i); break;\n          case 5: break;\n          default: Console.WriteLine(i); break;\n        }\n      }\n    }\n  } else {\n    try { do { Console.WriteLine(a); } while (a); }\n    catch (Exception) { }\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "nesting",
+        "value": 4
+      }
+    ],
+    "notes": "Ours 4 (if 1, while 2, for 3, switch 4)."
+  },
+  {
+    "example": "2",
+    "title": "else-if chain versus else with nested if",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid A(int x) { if (x == 1) { F(); } else if (x == 2) { F(); } else if (x == 3) { F(); } else { F(); } }\nvoid B(int x) { if (x == 1) { F(); } else { if (x == 2) { F(); } else { if (x == 3) { F(); } } } }\n}\n",
+    "expect": [
+      {
+        "member": "A",
+        "metric": "nesting",
+        "value": 1
+      },
+      {
+        "member": "B",
+        "metric": "nesting",
+        "value": 3
+      }
+    ],
+    "notes": "Ours."
+  },
+  {
+    "example": "3",
+    "title": "lambda and local function inside a loop",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(List<int> xs) {\n  foreach (var x in xs) {\n    Run(() => { if (x > 0) { F(); } });\n  }\n  void Local() { while (Cond()) { if (Cond()) { F(); } } }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "nesting",
+        "value": 3
+      },
+      {
+        "member": "M/lambda1",
+        "metric": "nesting",
+        "value": 1
+      },
+      {
+        "member": "M/Local",
+        "metric": "nesting",
+        "value": 2
+      }
+    ],
+    "notes": "Ours: M 3 (foreach 1, lambda +1, if 3), lambda sub-record 1, Local sub-record 2."
+  },
+  {
+    "example": "4",
+    "title": "try, catch, finally",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M() {\n  try { if (A()) { F(); } }\n  catch (Exception) { if (B()) { F(); } }\n  finally { F(); }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "nesting",
+        "value": 2
+      }
+    ],
+    "notes": "Ours 2."
+  },
+  {
+    "example": "4b",
+    "title": "try with empty catch",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M() { try { F(); } catch { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "nesting",
+        "value": 1
+      }
+    ],
+    "notes": "Entry: \"try { F(); } catch { } is 1 ... in Ours\". Method name and wrapper are ours."
+  },
+  {
+    "example": "5",
+    "title": "using and lock",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(object o) { lock (o) { using (var d = Open()) { if (d.Ok) { F(); } } } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "nesting",
+        "value": 1
+      }
+    ],
+    "notes": "Ours 1 (with resource-blocks counted it would be 3; not included)."
+  },
+  {
+    "example": "6",
+    "title": "expression-bodied members",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nstring A(int x, bool b) => x switch { 1 => b ? \"a\" : \"b\", _ => \"c\" };\nint B(int a) => a > 0 ? 1 : a < 0 ? -1 : 0;\n}\n",
+    "expect": [
+      {
+        "member": "A",
+        "metric": "nesting",
+        "value": 0
+      },
+      {
+        "member": "B",
+        "metric": "nesting",
+        "value": 0
+      }
+    ],
+    "notes": "Ours default 0 for both (expressions-counted option gives 2, not included)."
+  },
+  {
+    "example": "7",
+    "title": "braceless nesting and conditions folded into one if",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid Nested(bool a, bool b, bool c) { if (a) { if (b) { if (c) { F(); } } } }\nvoid NestedBraceless(bool a, bool b, bool c) { if (a) if (b) if (c) F(); }\nvoid Flat(bool a, bool b, bool c) { if (a && b && c) { F(); } }\n}\n",
+    "expect": [
+      {
+        "member": "Nested",
+        "metric": "nesting",
+        "value": 3
+      },
+      {
+        "member": "NestedBraceless",
+        "metric": "nesting",
+        "value": 3
+      },
+      {
+        "member": "Flat",
+        "metric": "nesting",
+        "value": 1
+      }
+    ],
+    "notes": "Ours."
+  },
+  {
+    "example": "8",
+    "title": "same maximum depth, different bumps",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(List<A> xs, List<B> ys) {\n  foreach (var x in xs) { if (x.P) { if (x.Q) { F(x); } } }\n  foreach (var y in ys) { if (y.P) { if (y.Q) { G(y); } } }\n}\nvoid N(List<A> xs) {\n  foreach (var x in xs) { if (x.P) { if (x.Q) { F(x); if (x.R) { H(x); } } } }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "nesting",
+        "value": 3
+      },
+      {
+        "member": "N",
+        "metric": "nesting",
+        "value": 4
+      }
+    ],
+    "notes": "Ours depth only; the bumps column is a proposal outside the metric list and is skipped."
+  }
+]

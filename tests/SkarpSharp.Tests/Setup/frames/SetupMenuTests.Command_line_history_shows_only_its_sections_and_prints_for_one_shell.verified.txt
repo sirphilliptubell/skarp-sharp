@@ -1,0 +1,91 @@
+=== frame 0 after (start)
+H|Skarp setup  command line
+.|Choose the command to build
+>|> analyze   findings report and metrics: the usual run
+ |  baseline  record the current findings in .skarp-baseline.json
+ |  hotspots  the activity hotspot table
+ |  history   git history only
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |Run options and settings come next, shown over your settings files; the command
+ |is printed after the menu closes, for the shell you choose.
+ |
+ |
+.|Up/Down move  Enter choose  Esc quit
+=== frame 4 after Enter
+H|Skarp setup  command line  skarp history  0 changed
+.|Sections  (changes over your settings files; nothing is saved)
+>|> Run options 0 changed
+ |  History     0 changed
+ |  Lists       0 changed
+ |  General     0 changed
+ |  Clear every change (the bare command)
+.|  1-5 of 5
+.|------------------------------------------------------------------------------
+ |The folder, report format, output file, baseline and the other flags of one run
+ |that are not settings.
+ |
+ |
+.|Up/Down move  Enter open  s show command  Esc back
+=== frame 6 after Enter
+H|Skarp setup  command line  skarp history  0 changed
+.|History
+>|>  history.window              12                      Skarp default
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |Months of history read, ending at the last commit. Range: 1 to 1200. Key:
+ |history.window.
+ |
+ |
+.|Enter edit  Space toggle  Del undo  f changed only  s show command  Esc back
+=== frame 9 after Enter
+H|Skarp setup  command line  skarp history  1 changed
+.|History
+ |   history.window              12                      Skarp default
+ |   history.since               (none)                  Skarp default
+>|> *history.allHistory          true                    set here
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |Read the whole history. Key: history.allHistory.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del undo  f changed only  s show command  Esc back
+=== frame 10 after f
+H|Skarp setup  command line  skarp history  1 changed
+.|History  (changed only)
+>|> *history.allHistory          true                    set here
+.|  1-1 of 1
+.|------------------------------------------------------------------------------
+ |Read the whole history. Key: history.allHistory.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del undo  f changed only  s show command  Esc back
+=== frame 13 after Home
+H|Skarp setup  command line  skarp history  1 changed
+.|Show the command for which shell?
+>|> PowerShell
+ |  cmd
+ |  bash/sh
+ |  All (Markdown)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |Windows PowerShell 5.1 and PowerShell 7: values in single quotes. A value with
+ |" is left out with a note.
+ |
+ |
+.|Up/Down move  Enter show  Esc back
+=== print
+REM cmd, run from {repo}
+skarp history . --all-history

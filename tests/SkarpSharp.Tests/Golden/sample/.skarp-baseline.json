@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "type": "baseline",
+  "toolVersion": "0.1.0.0",
+  "preset": "default",
+  "complexMetric": "cognitive",
+  "longMethodLines": "physical",
+  "settingsFingerprint": "4f07e64f7bc3af36",
+  "files": {
+    "Program.cs": [
+      { "rule": "magic-number", "place": "<top-level>", "value": 2 }
+    ],
+    "src/Legacy.cs": [
+      { "rule": "complex-method", "place": "Sample.Legacy::Run", "value": 31 }
+    ],
+    "src/OrderBook.cs": [
+      { "rule": "complex-condition", "place": "Sample.OrderBook::Total", "value": 2 },
+      { "rule": "complex-condition", "place": "Sample.OrderBook::_net/lambda1", "value": 2 },
+      { "rule": "deep-nesting", "place": "Sample.OrderBook::Describe", "value": 4 },
+      { "rule": "empty-catch", "place": "Sample.OrderBook::Add" },
+      { "rule": "large-type", "place": "Sample.OrderBook", "value": 21 },
+      { "rule": "long-method", "place": "Sample.OrderBook::Describe", "value": 22 },
+      { "rule": "long-method", "place": "Sample.OrderBook::Total", "value": 21 },
+      { "rule": "magic-number", "place": "Sample.OrderBook::Describe", "value": 6 },
+      { "rule": "magic-number", "place": "Sample.OrderBook::Total", "value": 5 },
+      { "rule": "too-many-parameters", "place": "Sample.OrderBook::Add", "value": 8 }
+    ]
+  }
+}

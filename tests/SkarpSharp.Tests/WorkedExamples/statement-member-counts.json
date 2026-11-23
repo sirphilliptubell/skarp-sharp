@@ -1,0 +1,144 @@
+[
+  {
+    "example": "1",
+    "title": "declarations and arithmetic",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M() { int x = 0; x++; int y = 1; int z = y * x * 1; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "statements",
+        "value": 4
+      }
+    ],
+    "notes": "Ours 4 (MS test LocalDeclarationsAndArithmeticOperations also 4)."
+  },
+  {
+    "example": "2",
+    "title": "empty if/else",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b) { if (b) { } else { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "statements",
+        "value": 1
+      }
+    ],
+    "notes": "Ours 1."
+  },
+  {
+    "example": "2b",
+    "title": "NestedIf, ElseIf, MultipleIfs (same test file)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid NestedIf(bool b, bool b2) { if (b) { if (b2) { } } }\nvoid ElseIf(bool b, bool b2) { if (b) { } else if (b2) { } }\nvoid MultipleIfs(bool b) { if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } }\n}\n",
+    "expect": [
+      {
+        "member": "NestedIf",
+        "metric": "statements",
+        "value": 2
+      },
+      {
+        "member": "ElseIf",
+        "metric": "statements",
+        "value": 2
+      },
+      {
+        "member": "MultipleIfs",
+        "metric": "statements",
+        "value": 5
+      }
+    ],
+    "notes": "Entry: MS tests are 2, 2, 5 and \"Ours agrees on all four\". Snippets reconstructed by us."
+  },
+  {
+    "example": "3",
+    "title": "nested loops",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b, int[] a) {\n  while (b) {\n    for (int i = 0; i < 10; i++) { System.Console.WriteLine(i); }\n    foreach (var i in a) { System.Console.WriteLine(i); }\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "statements",
+        "value": 5
+      }
+    ],
+    "notes": "Ours 5."
+  },
+  {
+    "example": "4",
+    "title": "else branch and early return",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint M(int[] a) {\n  var total = 0;\n  foreach (var x in a) {\n    if (x > 0) { total += x; } else { total -= x; }\n  }\n  return total;\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "statements",
+        "value": 6
+      }
+    ],
+    "notes": "Ours 6."
+  },
+  {
+    "example": "5",
+    "title": "switch statement",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint M(int x) {\n  switch (x) {\n    case 1:\n    case 2: return 10;\n    default: return 0;\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "statements",
+        "value": 3
+      }
+    ],
+    "notes": "Ours 3 (switch plus two returns)."
+  },
+  {
+    "example": "6",
+    "title": "comma declarations, empty statement, label",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M() { int a = 1, b = 2;  ;  L: Foo();  }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "statements",
+        "value": 2
+      }
+    ],
+    "notes": "Ours 2 (declaration, expression; empty statement 0, label wrapper 0)."
+  },
+  {
+    "example": "7",
+    "title": "expression-bodied members and a member list",
+    "code": "using System;\n\npublic class P {\n  private int _a, _b;                         // 2 fields\n  public int X { get; set; }                  // 1 property, 0 statements\n  public int Y => _a + _b;                    // 1 property, 1 statement\n  public P(int a) => _a = a;                  // 1 constructor, 1 statement\n  public event EventHandler? Changed;         // 1 event\n  public void Run() { }                       // 1 method, 0 statements\n  public class N { }                          // 1 nested type\n  ~P() { }                                    // 1 finalizer, 0 statements\n}\n",
+    "expect": [
+      {
+        "member": "Y.get",
+        "metric": "statements",
+        "value": 1
+      },
+      {
+        "member": ".ctor",
+        "metric": "statements",
+        "value": 1
+      },
+      {
+        "member": "Run",
+        "metric": "statements",
+        "value": 0
+      }
+    ],
+    "notes": "Per-member statements only. Skipped: members(P)=9, public members 6, fields 2, statements(P)=2 (type-level), types per file 1. Ambiguity: member name for an expression-bodied property (used \"Y\") and for the finalizer (~P, statements 0, not asserted). Not wrapped (the snippet is a complete type); \"using System;\" added for EventHandler. Member renamed to Y.get: an expression-bodied property is its getter."
+  },
+  {
+    "example": "9",
+    "title": "lambda block body",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint M(List<int> xs) { var n = 0; xs.ForEach(x => { if (x > 0) n++; }); return n; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "statements",
+        "value": 3
+      },
+      {
+        "member": "M/lambda1",
+        "metric": "statements",
+        "value": 2
+      }
+    ],
+    "notes": "Ours: M 3 (declaration, call statement, return) and lambda sub-record 2 (if, n++). The fold preset (5) is skipped."
+  }
+]

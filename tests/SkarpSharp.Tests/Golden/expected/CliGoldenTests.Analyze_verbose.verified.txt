@@ -1,0 +1,70 @@
+Skarp: analyze <root>, 2 files, health 7.4 average, was 7.5 (10 = healthy)
+1 new, 1 worse than the baseline. 2 warnings, 10 notices at 6 places in 2 files; showing the 4 worst (magic numbers counted, not listed).
+
+skarp {toolVersion} analyze <root>
+files:      2 files analyzed, 0 test files excluded, 1 excluded by exclude globs; 5 members, 78 source lines
+duplicates: 0 clone groups (0 copies), 0 duplicated lines (0.0% of source lines); 0 near-duplicate groups
+history:    off (--no-history or history.enabled false)
+thresholds: preset default (composite); complex-method reads cognitive complexity; long-method counts physical lines; record parameters exempt; overrides: long-method.notice=20
+note:       active-complex-file skipped: no git history (not a repository, git missing or history off)
+settings:   <root>/.skarp.json
+baseline:   <root>/.skarp-baseline.json: 12 recorded; 1 new, 1 worsened, 10 known, 1 fixed
+note:       rule settings changed since the baseline; new and fixed counts include settings effects; re-run `skarp baseline` to reset
+semantic:   not evaluated: no .sln or .slnx file found (the semantic tier needs a solution; pass one with --solution <file> or use --no-semantic)
+
+Code health (grade model, syntax scores; 1 to 10, 10 = healthy; informs only):
+  average 7.4 over 2 files (baseline 7.5, -0.1); hotspot health needs git history
+  worst files (below 7):
+     6.9 problematic  src/OrderBook.cs  (empty-catch 1 warning -0.8, long-method 2 notices -0.7, complex-condition 2 notices -0.5)
+  changed since the baseline (1 file):
+    10.0 -> 9.5 (-0.5)  Program.cs
+  `skarp show --file <path>` lists where a file's points went.
+
+src/OrderBook.cs health 6.9
+  notice line 10 OrderBook.Total long-method: physical lines 21 (limit 20) [6e523882]
+      A long member usually does several things; it is harder to read, name, test and reuse.
+  notice line 27 OrderBook.Total complex-condition: boolean operators 2 (limit at least 2) [0ed1ff77]
+      A boolean expression with many && and || operators is hard to read and easy to get wrong.
+  warning line 34 OrderBook.Add too-many-parameters: parameters 8 (limit at least 8) [1a9e9b41]
+      Many parameters make calls hard to read and suggest the member does too much or misses a type.
+  warning line 40 OrderBook.Add empty-catch: empty bare catch without a comment [4a5cab44]
+      An empty catch silently swallows errors, so failures go unnoticed.
+  notice line 45 OrderBook.Describe deep-nesting: nesting depth 4 (limit 3) [b4a90bd3]
+      Code nested many levels deep forces the reader to keep every enclosing condition in mind.
+  notice line 45 OrderBook.Describe long-method: physical lines 25 (limit 20) [9b6c4c34]
+  +2 more in this file (--per-file 0 or --all lists them)
+
+Program.cs health 9.5
+  notice line 3 <top-level> deep-nesting: nesting depth 4 (limit 3) [984d5d0e]
+
+Baseline: rule settings changed since the baseline; new and fixed counts include settings effects; re-run `skarp baseline` to reset.
+
+Thresholds used (`skarp explain <rule>` shows every preset and its source):
+  deep-nesting         notice   nesting depth over 3          default: CodeScene: depth 4
+  long-method          notice   physical lines over 20        custom: custom (threshold override)
+  too-many-parameters  warning  parameters at least 8         default: NDepend: 8 or more
+  complex-condition    notice   boolean operators at least 2  default: CodeScene: 2; Designite: 3 boolean sub-expressions
+  empty-catch          warning  structural                    default: Skarp's own, after Checkstyle EmptyCatchBlock and Doomen AV1210
+
+Findings per rule:
+  rule                              warning  notice
+  complex-method                          0       0
+  deep-nesting                            0       2
+  long-method                             0       2
+  large-type                              0       1
+  large-file                              0       0
+  too-many-parameters                     1       0
+  path-explosion                          0       0
+  active-complex-file                     0       0
+  bumpy-road                              0       0
+  complex-condition                       0       2
+  empty-catch                             1       0
+  magic-number                            0       3
+  duplicate-code                          0       0
+  duplicate-code-near                     0       0
+  suppression-without-justification       0       0
+
+More: --all lists every place and finding, --per-file <n>, --sort health, --group rule, --min-severity warning, --new-only,
+      `skarp explain <rule>`; --format json|markdown|github|sarif; --gate; `skarp config` shows the settings in effect.
+
+About the rules: `skarp explain <rule>` eg: `skarp explain long-method`

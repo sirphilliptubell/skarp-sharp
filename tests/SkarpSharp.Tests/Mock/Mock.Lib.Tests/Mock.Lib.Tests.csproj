@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- The test stack; TUnit brings Microsoft code coverage (the coverage options). -->
+    <PackageReference Include="TUnit" Version="1.86.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mock.Lib\Mock.Lib.csproj" />
+  </ItemGroup>
+</Project>

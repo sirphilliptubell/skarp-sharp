@@ -1,0 +1,511 @@
+{
+  "schemaVersion": 1,
+  "toolVersion": "VERSION",
+  "directory": "<base>/repo",
+  "baselineFile": "<base>/repo/.skarp-baseline.json",
+  "levels": [
+    {
+      "level": "default",
+      "found": true,
+      "applied": true
+    },
+    {
+      "level": "plugin",
+      "found": false,
+      "applied": false
+    },
+    {
+      "level": "system",
+      "path": "<base>/machine/system.json",
+      "found": true,
+      "applied": true
+    },
+    {
+      "level": "personal",
+      "path": "<base>/machine/personal.json",
+      "found": true,
+      "applied": true
+    },
+    {
+      "level": "repository",
+      "path": "<base>/repo/.skarp.json",
+      "found": true,
+      "applied": true
+    },
+    {
+      "level": "command line",
+      "found": true,
+      "applied": true
+    }
+  ],
+  "settings": [
+    {
+      "key": "preset",
+      "value": "default",
+      "origin": "default",
+      "default": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "complexMetric",
+      "value": "cognitive",
+      "origin": "default",
+      "default": "cognitive",
+      "affectsFindings": true
+    },
+    {
+      "key": "longMethodLines",
+      "value": "physical",
+      "origin": "default",
+      "default": "physical",
+      "affectsFindings": true
+    },
+    {
+      "key": "recordParameters",
+      "value": "exempt",
+      "origin": "default",
+      "default": "exempt",
+      "affectsFindings": true
+    },
+    {
+      "key": "magicNumbers",
+      "value": "count",
+      "origin": "default",
+      "default": "count",
+      "affectsFindings": false
+    },
+    {
+      "key": "rules.complex-method",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.deep-nesting",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.long-method",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.large-type",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.large-file",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.too-many-parameters",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.path-explosion",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.active-complex-file",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.bumpy-road",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.complex-condition",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.empty-catch",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.magic-number",
+      "value": "off",
+      "origin": "system",
+      "path": "<base>/machine/system.json",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.duplicate-code",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.duplicate-code-near",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.suppression-without-justification",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.high-coupling",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.god-class",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.unused-member",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.unused-type",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.used-only-by-tests",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.unread-member",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "rules.namespace-cycle",
+      "value": "on",
+      "origin": "default",
+      "affectsFindings": true
+    },
+    {
+      "key": "includeTests",
+      "value": "false",
+      "origin": "default",
+      "default": "false",
+      "affectsFindings": true
+    },
+    {
+      "key": "include",
+      "value": "(none)",
+      "origin": "default",
+      "default": "(none)",
+      "affectsFindings": true
+    },
+    {
+      "key": "exclude",
+      "value": "a/**, b/**",
+      "origin": "personal",
+      "path": "<base>/machine/personal.json",
+      "default": "(none)",
+      "affectsFindings": true,
+      "overrides": [
+        {
+          "level": "system",
+          "path": "<base>/machine/system.json",
+          "value": "a/**",
+          "mode": "replace"
+        }
+      ]
+    },
+    {
+      "key": "top",
+      "value": "15",
+      "origin": "personal",
+      "path": "<base>/machine/personal.json",
+      "default": "20",
+      "affectsFindings": false,
+      "overrides": [
+        {
+          "level": "system",
+          "path": "<base>/machine/system.json",
+          "value": "10"
+        }
+      ]
+    },
+    {
+      "key": "history.enabled",
+      "value": "true",
+      "origin": "default",
+      "default": "true",
+      "affectsFindings": false
+    },
+    {
+      "key": "history.window",
+      "value": "12",
+      "origin": "repository",
+      "path": "<base>/repo/.skarp.json",
+      "default": "12",
+      "affectsFindings": false,
+      "overrides": [
+        {
+          "level": "personal",
+          "path": "<base>/machine/personal.json",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "key": "history.since",
+      "value": "(none)",
+      "origin": "default",
+      "default": "(none)",
+      "affectsFindings": false
+    },
+    {
+      "key": "history.allHistory",
+      "value": "false",
+      "origin": "default",
+      "default": "false",
+      "affectsFindings": false
+    },
+    {
+      "key": "history.ignoreWhitespace",
+      "value": "false",
+      "origin": "default",
+      "default": "false",
+      "affectsFindings": false
+    },
+    {
+      "key": "history.bulkFlag",
+      "value": "300",
+      "origin": "default",
+      "default": "300",
+      "affectsFindings": false
+    },
+    {
+      "key": "history.bulkDrop",
+      "value": "(none)",
+      "origin": "default",
+      "default": "(none)",
+      "affectsFindings": false
+    },
+    {
+      "key": "history.includeBots",
+      "value": "false",
+      "origin": "default",
+      "default": "false",
+      "affectsFindings": false
+    },
+    {
+      "key": "history.botPatterns",
+      "value": "(none)",
+      "origin": "default",
+      "default": "(none)",
+      "affectsFindings": false
+    },
+    {
+      "key": "report.perFile",
+      "value": "3",
+      "origin": "default",
+      "default": "3",
+      "affectsFindings": false
+    },
+    {
+      "key": "gate.enabled",
+      "value": "false",
+      "origin": "default",
+      "default": "false",
+      "affectsFindings": false
+    },
+    {
+      "key": "gate.on",
+      "value": "*:warning",
+      "origin": "default",
+      "default": "*:warning",
+      "affectsFindings": false
+    },
+    {
+      "key": "gate.health.maxDrop",
+      "value": "1.0",
+      "origin": "default",
+      "default": "1.0",
+      "affectsFindings": false
+    },
+    {
+      "key": "gate.health.newFileMin",
+      "value": "6.5",
+      "origin": "default",
+      "default": "6.5",
+      "affectsFindings": false
+    },
+    {
+      "key": "gate.health.floor",
+      "value": "6.5",
+      "origin": "default",
+      "default": "6.5",
+      "affectsFindings": false
+    },
+    {
+      "key": "semantic.enabled",
+      "value": "true",
+      "origin": "default",
+      "default": "true",
+      "affectsFindings": false
+    },
+    {
+      "key": "semantic.solution",
+      "value": "(automatic)",
+      "origin": "default",
+      "default": "(automatic)",
+      "affectsFindings": false
+    },
+    {
+      "key": "semantic.generators",
+      "value": "true",
+      "origin": "default",
+      "default": "true",
+      "affectsFindings": true
+    },
+    {
+      "key": "semantic.targets",
+      "value": "highest",
+      "origin": "default",
+      "default": "highest",
+      "affectsFindings": true
+    },
+    {
+      "key": "unusedCode.allow",
+      "value": "(none)",
+      "origin": "default",
+      "default": "(none)",
+      "affectsFindings": true
+    },
+    {
+      "key": "namespaceCycles.includeGeneratedTargets",
+      "value": "false",
+      "origin": "default",
+      "default": "false",
+      "affectsFindings": true
+    },
+    {
+      "key": "saveLastRun",
+      "value": "true",
+      "origin": "default",
+      "default": "true",
+      "affectsFindings": false
+    },
+    {
+      "key": "output.checkMaxLines",
+      "value": "5",
+      "origin": "default",
+      "default": "5",
+      "affectsFindings": false
+    },
+    {
+      "key": "output.gateMaxLines",
+      "value": "50",
+      "origin": "default",
+      "default": "50",
+      "affectsFindings": false
+    },
+    {
+      "key": "tracking.retentionDays",
+      "value": "30",
+      "origin": "default",
+      "default": "30",
+      "affectsFindings": false
+    },
+    {
+      "key": "tracking.lookbackDays",
+      "value": "14",
+      "origin": "default",
+      "default": "14",
+      "affectsFindings": false
+    },
+    {
+      "key": "score.model",
+      "value": "grade",
+      "origin": "default",
+      "default": "grade",
+      "affectsFindings": false
+    },
+    {
+      "key": "score.decay",
+      "value": "0.7",
+      "origin": "default",
+      "default": "0.7",
+      "affectsFindings": false
+    },
+    {
+      "key": "score.weights",
+      "value": "(table)",
+      "origin": "default",
+      "default": "(table)",
+      "affectsFindings": false
+    },
+    {
+      "key": "score.worst.count",
+      "value": "10",
+      "origin": "default",
+      "default": "10",
+      "affectsFindings": false
+    },
+    {
+      "key": "score.worst.below",
+      "value": "7",
+      "origin": "default",
+      "default": "7",
+      "affectsFindings": false
+    },
+    {
+      "key": "symbols",
+      "value": "(automatic)",
+      "origin": "default",
+      "default": "(automatic)",
+      "affectsFindings": true
+    },
+    {
+      "key": "variants.cap",
+      "value": "32",
+      "origin": "default",
+      "default": "32",
+      "affectsFindings": true
+    },
+    {
+      "key": "variants.checkCap",
+      "value": "4",
+      "origin": "default",
+      "default": "4",
+      "affectsFindings": true
+    }
+  ],
+  "thresholds": [
+    {
+      "key": "thresholds.long-method.notice",
+      "value": "40",
+      "origin": "repository",
+      "path": "<base>/repo/.skarp.json",
+      "affectsFindings": true
+    }
+  ]
+}

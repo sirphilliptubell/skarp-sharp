@@ -1,0 +1,190 @@
+=== frame 0 after (start)
+H|Skarp setup  Claude Code hooks  user scope  machine/home/.claude/settings.json
+.|Skarp's hook entry; a applies it through skarp install claude
+>|>  scope                 user  installed
+ |   program               ${CLAUDE_PROJECT_DIR}/.skarp/bin/skarp.exe
+ |   per-edit check        on (always)
+ |   end-of-turn summary   off
+ |   after compaction      on
+ |   gate                  off
+ |   semantic check        off
+ |   include notices       on
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   Remove Skarp's hooks at this scope
+.|  1-11 of 11
+.|------------------------------------------------------------------------------
+ |Every project on this machine. Applying here: local not installed, project not
+ |installed, user installed. skarp install claude --check tests the program (not
+ |run from here).
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 1 after Enter
+H|Skarp setup  Claude Code hooks  user scope  machine/home/.claude/settings.json
+.|Choose the scope: Claude Code's settings file for the entry
+ |  local    .claude/settings.local.json  not installed
+ |  project  .claude/settings.json  not installed
+>|> user     machine/home/.claude/settings.json  installed
+.|  1-3 of 3
+.|------------------------------------------------------------------------------
+ |Every project on this machine. Applying here: local not installed, project not
+ |installed, user installed. skarp install claude --check tests the program (not
+ |run from here).
+ |
+.|Up/Down move  Enter choose  Esc back
+=== frame 2 after Up
+H|Skarp setup  Claude Code hooks  user scope  machine/home/.claude/settings.json
+.|Choose the scope: Claude Code's settings file for the entry
+ |  local    .claude/settings.local.json  not installed
+>|> project  .claude/settings.json  not installed
+ |  user     machine/home/.claude/settings.json  installed
+.|  1-3 of 3
+.|------------------------------------------------------------------------------
+ |Committed: runs for everyone who clones the repository. Applying here: local
+ |not installed, project not installed, user installed. skarp install claude
+ |--check tests the program (not run from here).
+ |
+.|Up/Down move  Enter choose  Esc back
+=== frame 3 after Enter
+H|Skarp setup  Claude Code hooks  project scope  .claude/settings.json
+.|Skarp's hook entry; a applies it through skarp install claude
+>|>  scope                 project  not installed
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |   gate                  off
+ |   semantic check        off
+ |   include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            on  not installed
+ |   Remove Skarp's hooks at this scope
+.|  1-11 of 11
+.|------------------------------------------------------------------------------
+ |Committed: runs for everyone who clones the repository. Applying here: local
+ |not installed, project not installed, user installed, differs. skarp install
+ |claude --check tests the program (not run from here).
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 4 after Enter
+H|Skarp setup  Claude Code hooks  project scope  .claude/settings.json
+.|Choose the scope: Claude Code's settings file for the entry
+ |  local    .claude/settings.local.json  not installed
+>|> project  .claude/settings.json  not installed
+ |  user     machine/home/.claude/settings.json  installed, differs
+.|  1-3 of 3
+.|------------------------------------------------------------------------------
+ |Committed: runs for everyone who clones the repository. Applying here: local
+ |not installed, project not installed, user installed, differs. skarp install
+ |claude --check tests the program (not run from here).
+ |
+.|Up/Down move  Enter choose  Esc back
+=== frame 5 after Down
+H|Skarp setup  Claude Code hooks  project scope  .claude/settings.json
+.|Choose the scope: Claude Code's settings file for the entry
+ |  local    .claude/settings.local.json  not installed
+ |  project  .claude/settings.json  not installed
+>|> user     machine/home/.claude/settings.json  installed, differs
+.|  1-3 of 3
+.|------------------------------------------------------------------------------
+ |Every project on this machine. Applying here: local not installed, project not
+ |installed, user installed, differs. skarp install claude --check tests the
+ |program (not run from here).
+ |
+.|Up/Down move  Enter choose  Esc back
+=== frame 6 after Enter
+H|Skarp setup  Claude Code hooks  user scope  machine/home/.claude/settings.json
+.|Skarp's hook entry; a applies it through skarp install claude
+>|>  scope                 user  installed
+ |   program               ${CLAUDE_PROJECT_DIR}/.skarp/bin/skarp.exe
+ |   per-edit check        on (always)
+ |   end-of-turn summary   off
+ |   after compaction      on
+ |   gate                  off
+ |   semantic check        off
+ |   include notices       on
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   Remove Skarp's hooks at this scope
+.|  1-11 of 11
+.|------------------------------------------------------------------------------
+ |Every project on this machine. Applying here: local not installed, project not
+ |installed, user installed. skarp install claude --check tests the program (not
+ |run from here).
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 7 after End
+H|Skarp setup  Claude Code hooks  user scope  machine/home/.claude/settings.json
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 user  installed
+ |   program               ${CLAUDE_PROJECT_DIR}/.skarp/bin/skarp.exe
+ |   per-edit check        on (always)
+ |   end-of-turn summary   off
+ |   after compaction      on
+ |   gate                  off
+ |   semantic check        off
+ |   include notices       on
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+>|>  Remove Skarp's hooks at this scope
+.|  1-11 of 11
+.|------------------------------------------------------------------------------
+ |Removes Skarp's entries at this scope, and the groups and events they leave
+ |empty (skarp install claude --remove). Enter switches it; a applies, s prints.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 8 after Enter
+H|Skarp setup  Claude Code hooks  user scope  machine/home/.claude/settings.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 user  installed
+ |   program               ${CLAUDE_PROJECT_DIR}/.skarp/bin/skarp.exe
+ |   per-edit check        on (always)
+ |   end-of-turn summary   off
+ |   after compaction      on
+ |   gate                  off
+ |   semantic check        off
+ |   include notices       on
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+>|> *Remove Skarp's hooks at this scope: yes
+.|  1-11 of 11
+.|------------------------------------------------------------------------------
+ |Removes Skarp's entries at this scope, and the groups and events they leave
+ |empty (skarp install claude --remove). Enter switches it; a applies, s prints.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 9 after s
+H|Skarp setup  Claude Code hooks  user scope  machine/home/.claude/settings.json  changed
+.|Show the command for which shell?
+>|> PowerShell
+ |  cmd
+ |  bash/sh
+ |  All (Markdown)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |Windows PowerShell 5.1 and PowerShell 7: values in single quotes. A value with
+ |" is left out with a note.
+ |
+ |
+.|Up/Down move  Enter show  Esc back
+=== frame 10 after Home
+H|Skarp setup  Claude Code hooks  user scope  machine/home/.claude/settings.json  changed
+.|Show the command for which shell?
+>|> PowerShell
+ |  cmd
+ |  bash/sh
+ |  All (Markdown)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |Windows PowerShell 5.1 and PowerShell 7: values in single quotes. A value with
+ |" is left out with a note.
+ |
+ |
+.|Up/Down move  Enter show  Esc back
+=== summary
+
+=== print
+# PowerShell, run from {repo}
+skarp install claude --remove --scope user

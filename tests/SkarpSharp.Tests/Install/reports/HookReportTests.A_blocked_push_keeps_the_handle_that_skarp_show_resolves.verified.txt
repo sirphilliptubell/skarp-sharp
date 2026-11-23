@@ -1,0 +1,17 @@
+Skarp stopped this push: 1 new problem in 1 file; health past its limit in 1 file.
+Project health 7.0 over 2 files (was 10.0)
+
+src/A.cs health 10.0 -> 6.9 (down 3.1, limit under 1.0) (10 = healthy)
+  new line 3 type A large-type (notice): WMC 481 (limit 20) [<handle>]
+  new line 5 A.F brain-method: long (84 physical lines), complex (cognitive complexity 1,120), deeply nested (nesting depth 4) [42b76a88]
+  new line 5 A.F path-explosion (notice): NPath 9223372036854780000 (limit 200) [5c6fac22]
+  new line 7 A.F complex-condition (notice): boolean operators 2 (limit at least 2) [30f7d6c2]
+  new line 7 A.F duplicate-code (notice): 2 copies of 40 lines (2640 tokens, renamed): src/A.cs:7-46, src/A.cs:47-86 [e493e4cb]
+  new line 9 A.F magic-number (notice): magic numbers 386 [bdca1534]
+
+What you can do:
+  1. Fix them, commit the fix, and push again.
+  2. Accept them as known:   `skarp baseline . && git add .skarp-baseline.json`   then commit and push
+  3. Skip the check once:  `git push --no-verify`
+About a problem: `skarp show <id>` eg: `skarp show <handle>`
+About the rules: `skarp explain <rule>` eg: `skarp explain large-type`

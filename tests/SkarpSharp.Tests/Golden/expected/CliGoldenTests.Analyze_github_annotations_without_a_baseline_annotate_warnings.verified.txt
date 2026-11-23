@@ -1,0 +1,5 @@
+::warning file=tests/SkarpSharp.Tests/Golden/sample/src/OrderBook.cs,line=34,title=skarp too-many-parameters::OrderBook.Add: 8 parameters (at least 8). Many parameters make calls hard to read and suggest the member does too much or misses a type.
+::warning file=tests/SkarpSharp.Tests/Golden/sample/src/OrderBook.cs,line=40,title=skarp empty-catch::OrderBook.Add: empty bare catch without a comment. An empty catch silently swallows errors, so failures go unnoticed.
+skarp: no baseline file; 2 warnings, 2 annotated; notices are not annotated without a baseline.
+skarp: suggestion: run `skarp baseline` and commit .skarp-baseline.json, so annotations show only new and worsened findings.
+skarp semantic: not evaluated: no .sln or .slnx file found (the semantic tier needs a solution; pass one with --solution <file> or use --no-semantic)

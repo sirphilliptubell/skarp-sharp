@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Multi-targeted, while the tests run under net10.0 only. -->
+    <TargetFrameworks>net10.0;net8.0</TargetFrameworks>
+    <!-- Shared/Linked.cs is compiled here with MOCK_LIB and in Mock.Untested without it. -->
+    <DefineConstants>$(DefineConstants);MOCK_LIB</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Shared\Linked.cs" Link="Linked.cs" />
+  </ItemGroup>
+</Project>

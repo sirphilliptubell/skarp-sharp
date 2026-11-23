@@ -1,0 +1,12 @@
+Skarp stopped this push: 1 new problem in 1 file.
+Project health 7.0 over 2 files (was 10.0)
+
+src/Orders.cs health 10.0 -> 7.2 (10 = healthy)
+  new line 5 Orders.Total brain-method: long (84 physical lines), complex (cognitive complexity 1,120), deeply nested (nesting depth 4) [4cca475f]
+
+What you can do:
+  1. Fix it, commit the fix, and push again.
+  2. Accept it as known:   `skarp baseline . && git add .skarp-baseline.json`   then commit and push
+  3. Skip the check once:  `git push --no-verify`
+About a problem: `skarp show <id>` eg: `skarp show 4cca475f`
+About a rule: `skarp explain brain-method`

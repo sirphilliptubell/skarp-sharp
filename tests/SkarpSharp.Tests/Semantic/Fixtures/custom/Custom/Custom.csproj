@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- A repository that sets the MSBuild extension points itself: the semantic tier must keep them (not override them). -->
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <CustomBeforeMicrosoftCommonTargets>$(MSBuildThisFileDirectory)../build/before.targets</CustomBeforeMicrosoftCommonTargets>
+    <CustomAfterMicrosoftCommonTargets>$(MSBuildThisFileDirectory)../build/after.targets</CustomAfterMicrosoftCommonTargets>
+    <CustomAfterMicrosoftCommonCrossTargetingTargets>$(MSBuildThisFileDirectory)../build/cross-after.targets</CustomAfterMicrosoftCommonCrossTargetingTargets>
+  </PropertyGroup>
+</Project>

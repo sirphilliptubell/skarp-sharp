@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  // Golden test settings: no git history (deterministic), the tools folder left out, a stricter long-method notice.
+  "exclude": ["tools/**"],
+  "thresholds": {
+    "long-method": { "notice": 20 }
+  },
+  "history": { "enabled": false }
+}

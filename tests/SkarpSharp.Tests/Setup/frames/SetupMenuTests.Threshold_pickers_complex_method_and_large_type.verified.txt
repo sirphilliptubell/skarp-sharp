@@ -1,0 +1,262 @@
+=== frame 1 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Sections  (new file: created on the first save)
+ |  Rules       0 set here
+>|> Thresholds  0 set here
+ |  History     0 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+ |  General     0 set here
+ |  Reset everything (empty this level to { "version": 1 })
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |The preset, then each rule's notice and warning thresholds with every vendor's
+ |published value, and the rule parameters.
+ |
+ |
+.|Up/Down move  Enter open  s save  Esc quit
+=== frame 2 after Enter
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+>|>  preset                      default                 Skarp default
+ |   complex-method.notice       16 or more cyclomatic   Skarp default
+ |   complex-method.warning      31 or more cyclomatic   Skarp default
+ |   deep-nesting.notice         4 or more nesting depth Skarp default
+ |   deep-nesting.warning        off                     Skarp default
+ |   long-method.notice          51 or more all lines    Skarp default
+ |   long-method.warning         71 or more all lines    Skarp default
+ |   large-type.notice           101 or more source lin~ Skarp default
+ |   large-type.warning          off                     Skarp default
+ |   large-file.notice           1001 or more source li~ Skarp default
+ |   large-file.warning          5001 or more source li~ Skarp default
+ |   too-many-parameters.notice  5 or more parameters, ~ Skarp default
+ |   too-many-parameters.warning 8 or more parameters    Skarp default
+ |   path-explosion.notice       201 or more NPath       Skarp default
+.|  1-14 of 50  more below
+.|------------------------------------------------------------------------------
+ |The threshold preset: whose published values the rules use. Key: preset.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 3 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+ |   preset                      default                 Skarp default
+>|>  complex-method.notice       16 or more cyclomatic   Skarp default
+ |   complex-method.warning      31 or more cyclomatic   Skarp default
+ |   deep-nesting.notice         4 or more nesting depth Skarp default
+ |   deep-nesting.warning        off                     Skarp default
+ |   long-method.notice          51 or more all lines    Skarp default
+ |   long-method.warning         71 or more all lines    Skarp default
+ |   large-type.notice           101 or more source lin~ Skarp default
+ |   large-type.warning          off                     Skarp default
+ |   large-file.notice           1001 or more source li~ Skarp default
+ |   large-file.warning          5001 or more source li~ Skarp default
+ |   too-many-parameters.notice  5 or more parameters, ~ Skarp default
+ |   too-many-parameters.warning 8 or more parameters    Skarp default
+ |   path-explosion.notice       201 or more NPath       Skarp default
+.|  1-14 of 50  more below
+.|------------------------------------------------------------------------------
+ |Complex method: when a member gets a notice. Range: 1 to 100000. Key:
+ |thresholds.complex-method.notice.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 4 after Enter
+H|Skarp setup  repository  .skarp.json  0 changed
+.|thresholds.complex-method.notice: choose a value
+ |  9 or more cyclomatic  (CodeScene)
+ |  10 or more cyclomatic  (PMD [Java])
+ |  11 or more cyclomatic  (Clean-CaDET, Checkstyle [Java], Alves [Java])
+>|> 16 or more cyclomatic  (Skarp default, ReportGenerator, NDepend)  • (from your preset)
+ |  off
+ |  inherit (remove here)
+ |  use Skarp default
+ |  custom…
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Skarp default: "ReportGenerator and NDepend: 15" (cyclomatic over 15).
+ |ReportGenerator: "ReportGenerator: 15" (cyclomatic over 15). NDepend: "NDepend:
+ |15, hard to maintain" (cyclomatic over 15). Key:
+ |thresholds.complex-method.notice. Not offered while this level measures…
+.|Up/Down move  Enter choose  Esc back
+=== frame 5 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|thresholds.complex-method.notice: choose a value
+ |  9 or more cyclomatic  (CodeScene)
+ |  10 or more cyclomatic  (PMD [Java])
+ |  11 or more cyclomatic  (Clean-CaDET, Checkstyle [Java], Alves [Java])
+ |  16 or more cyclomatic  (Skarp default, ReportGenerator, NDepend)  • (from your preset)
+>|> off
+ |  inherit (remove here)
+ |  use Skarp default
+ |  custom…
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |No notice findings for complex-method.
+ |
+ |
+ |
+.|Up/Down move  Enter choose  Esc back
+=== frame 7 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+ |   preset                      default                 Skarp default
+ |   complex-method.notice       16 or more cyclomatic   Skarp default
+>|>  complex-method.warning      31 or more cyclomatic   Skarp default
+ |   deep-nesting.notice         4 or more nesting depth Skarp default
+ |   deep-nesting.warning        off                     Skarp default
+ |   long-method.notice          51 or more all lines    Skarp default
+ |   long-method.warning         71 or more all lines    Skarp default
+ |   large-type.notice           101 or more source lin~ Skarp default
+ |   large-type.warning          off                     Skarp default
+ |   large-file.notice           1001 or more source li~ Skarp default
+ |   large-file.warning          5001 or more source li~ Skarp default
+ |   too-many-parameters.notice  5 or more parameters, ~ Skarp default
+ |   too-many-parameters.warning 8 or more parameters    Skarp default
+ |   path-explosion.notice       201 or more NPath       Skarp default
+.|  1-14 of 50  more below
+.|------------------------------------------------------------------------------
+ |Complex method: when a member gets a warning. Range: 1 to 100000. Key:
+ |thresholds.complex-method.warning.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 8 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+ |   preset                      default                 Skarp default
+ |   complex-method.notice       16 or more cyclomatic   Skarp default
+ |   complex-method.warning      31 or more cyclomatic   Skarp default
+>|>  deep-nesting.notice         4 or more nesting depth Skarp default
+ |   deep-nesting.warning        off                     Skarp default
+ |   long-method.notice          51 or more all lines    Skarp default
+ |   long-method.warning         71 or more all lines    Skarp default
+ |   large-type.notice           101 or more source lin~ Skarp default
+ |   large-type.warning          off                     Skarp default
+ |   large-file.notice           1001 or more source li~ Skarp default
+ |   large-file.warning          5001 or more source li~ Skarp default
+ |   too-many-parameters.notice  5 or more parameters, ~ Skarp default
+ |   too-many-parameters.warning 8 or more parameters    Skarp default
+ |   path-explosion.notice       201 or more NPath       Skarp default
+.|  1-14 of 50  more below
+.|------------------------------------------------------------------------------
+ |Deep nesting: when a member gets a notice. Range: 1 to 100000. Key:
+ |thresholds.deep-nesting.notice.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 9 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+ |   preset                      default                 Skarp default
+ |   complex-method.notice       16 or more cyclomatic   Skarp default
+ |   complex-method.warning      31 or more cyclomatic   Skarp default
+ |   deep-nesting.notice         4 or more nesting depth Skarp default
+>|>  deep-nesting.warning        off                     Skarp default
+ |   long-method.notice          51 or more all lines    Skarp default
+ |   long-method.warning         71 or more all lines    Skarp default
+ |   large-type.notice           101 or more source lin~ Skarp default
+ |   large-type.warning          off                     Skarp default
+ |   large-file.notice           1001 or more source li~ Skarp default
+ |   large-file.warning          5001 or more source li~ Skarp default
+ |   too-many-parameters.notice  5 or more parameters, ~ Skarp default
+ |   too-many-parameters.warning 8 or more parameters    Skarp default
+ |   path-explosion.notice       201 or more NPath       Skarp default
+.|  1-14 of 50  more below
+.|------------------------------------------------------------------------------
+ |Deep nesting: when a member gets a warning. Range: 1 to 100000. Key:
+ |thresholds.deep-nesting.warning.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 10 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+ |   preset                      default                 Skarp default
+ |   complex-method.notice       16 or more cyclomatic   Skarp default
+ |   complex-method.warning      31 or more cyclomatic   Skarp default
+ |   deep-nesting.notice         4 or more nesting depth Skarp default
+ |   deep-nesting.warning        off                     Skarp default
+>|>  long-method.notice          51 or more all lines    Skarp default
+ |   long-method.warning         71 or more all lines    Skarp default
+ |   large-type.notice           101 or more source lin~ Skarp default
+ |   large-type.warning          off                     Skarp default
+ |   large-file.notice           1001 or more source li~ Skarp default
+ |   large-file.warning          5001 or more source li~ Skarp default
+ |   too-many-parameters.notice  5 or more parameters, ~ Skarp default
+ |   too-many-parameters.warning 8 or more parameters    Skarp default
+ |   path-explosion.notice       201 or more NPath       Skarp default
+.|  1-14 of 50  more below
+.|------------------------------------------------------------------------------
+ |Long method: when a member gets a notice. Range: 1 to 100000. Key:
+ |thresholds.long-method.notice.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 11 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+ |   preset                      default                 Skarp default
+ |   complex-method.notice       16 or more cyclomatic   Skarp default
+ |   complex-method.warning      31 or more cyclomatic   Skarp default
+ |   deep-nesting.notice         4 or more nesting depth Skarp default
+ |   deep-nesting.warning        off                     Skarp default
+ |   long-method.notice          51 or more all lines    Skarp default
+>|>  long-method.warning         71 or more all lines    Skarp default
+ |   large-type.notice           101 or more source lin~ Skarp default
+ |   large-type.warning          off                     Skarp default
+ |   large-file.notice           1001 or more source li~ Skarp default
+ |   large-file.warning          5001 or more source li~ Skarp default
+ |   too-many-parameters.notice  5 or more parameters, ~ Skarp default
+ |   too-many-parameters.warning 8 or more parameters    Skarp default
+ |   path-explosion.notice       201 or more NPath       Skarp default
+.|  1-14 of 50  more below
+.|------------------------------------------------------------------------------
+ |Long method: when a member gets a warning. Range: 1 to 100000. Key:
+ |thresholds.long-method.warning.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 12 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+ |   preset                      default                 Skarp default
+ |   complex-method.notice       16 or more cyclomatic   Skarp default
+ |   complex-method.warning      31 or more cyclomatic   Skarp default
+ |   deep-nesting.notice         4 or more nesting depth Skarp default
+ |   deep-nesting.warning        off                     Skarp default
+ |   long-method.notice          51 or more all lines    Skarp default
+ |   long-method.warning         71 or more all lines    Skarp default
+>|>  large-type.notice           101 or more source lin~ Skarp default
+ |   large-type.warning          off                     Skarp default
+ |   large-file.notice           1001 or more source li~ Skarp default
+ |   large-file.warning          5001 or more source li~ Skarp default
+ |   too-many-parameters.notice  5 or more parameters, ~ Skarp default
+ |   too-many-parameters.warning 8 or more parameters    Skarp default
+ |   path-explosion.notice       201 or more NPath       Skarp default
+.|  1-14 of 50  more below
+.|------------------------------------------------------------------------------
+ |Large type: when a type gets a notice. Range: 1 to 100000. Key:
+ |thresholds.large-type.notice.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 13 after Enter
+H|Skarp setup  repository  .skarp.json  0 changed
+.|thresholds.large-type.notice: choose a value
+>|> 101 or more source lines, or 21 or more WMC  (Skarp default, Clean-CaDET)  • (from your preset)
+ |  off
+ |  inherit (remove here)
+ |  use Skarp default
+ |  custom…
+.|  1-5 of 5
+.|------------------------------------------------------------------------------
+ |Skarp default: "Clean-CaDET: 100 lines or WMC 20, measured on 920 C# classes"
+ |(sourceLines over 100 or wmc over 20). Clean-CaDET: "Clean-CaDET: 100 lines or
+ |WMC 20, Liu 2012 rule" (sourceLines over 100 or wmc over 20). Key:
+ |thresholds.large-type.notice. Not offered while this level measures source…
+.|Up/Down move  Enter choose  Esc back

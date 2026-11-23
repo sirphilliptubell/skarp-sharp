@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Oracle input only (tools/oracle/README.md): one member per tricky construct. Not part of SkarpSharp.slnx. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RootNamespace>OracleEdgeCases</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <NoWarn>$(NoWarn);CS0660;CS0661;CS0642;CS0164;CS0067</NoWarn>
+  </PropertyGroup>
+</Project>

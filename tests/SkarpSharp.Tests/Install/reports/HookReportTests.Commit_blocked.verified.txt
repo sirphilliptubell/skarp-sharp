@@ -1,0 +1,10 @@
+Skarp stopped this commit: 1 new problem in 1 staged file.
+
+src/Orders.cs health 10.0 -> 7.2 (10 = healthy)
+  new line 5 Orders.Total brain-method: long (84 physical lines), complex (cognitive complexity 1,120), deeply nested (nesting depth 4) [4cca475f]
+
+What you can do:
+  1. Fix it, then stage and commit again.
+  2. Accept it as known:   `skarp baseline . && git add .skarp-baseline.json`   then commit
+  3. Skip the check once:  `git commit --no-verify`
+About a rule: `skarp explain brain-method`

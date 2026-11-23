@@ -1,0 +1,20 @@
+Skarp: worst 3 of 5 methods in <root> (syntax tier), sorted by long-method (physical lines)
+
+src/OrderBook.cs line 45 OrderBook.Describe: physical lines 25 (limit 20)
+  notice line 45 OrderBook.Describe deep-nesting: nesting depth 4 (limit 3) [b4a90bd3]
+  notice line 45 OrderBook.Describe long-method: physical lines 25 (limit 20) [9b6c4c34]
+  notice line 51 OrderBook.Describe magic-number: magic numbers 6 [b6370087]
+
+src/OrderBook.cs line 10 OrderBook.Total: physical lines 21 (limit 20)
+  notice line 10 OrderBook.Total long-method: physical lines 21 (limit 20) [6e523882]
+  notice line 19 OrderBook.Total magic-number: magic numbers 5 [7c6de4dd]
+  notice line 27 OrderBook.Total complex-condition: boolean operators 2 (limit at least 2) [0ed1ff77]
+
+Program.cs line 3 <top-level>: physical lines 13 (limit 20)
+  notice line 3 <top-level> deep-nesting: nesting depth 4 (limit 3) [984d5d0e]
+  notice line 4 <top-level> magic-number: magic numbers 2 [9ed068cd]
+
+1 of these 3 are in healthy files (9 or more)
+Semantic tier: not evaluated: no .sln or .slnx file found (the semantic tier needs a solution; pass one with --solution <file> or use --no-semantic)
+Not looked at at syntax depth: class coupling, god classes, unused code, namespace cycles.
+About the rules: `skarp explain <rule>` eg: `skarp explain long-method`

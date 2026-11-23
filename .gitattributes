@@ -1,0 +1,9 @@
+# Shell scripts must keep Unix line endings (they run on Linux CI and in containers).
+*.sh text eol=lf
+
+# Verify snapshots (tests/SkarpSharp.Tests): line feeds on every OS, as Verify requires (it rejects a verified
+# file with a carriage return).
+*.verified.txt text eol=lf
+*.verified.json text eol=lf
+*.verified.md text eol=lf
+*.verified.sarif text eol=lf

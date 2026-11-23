@@ -1,0 +1,93 @@
+reports: microsoft
+files: 15 matched, 0 unmatched, 0 ambiguous, 0 not analyzed, 0 outside
+data: 15 files with data, 2 without; 69 of 140 lines covered; 0 covered lines in inactive code; stale True
+projects:
+  (none): 1 files, 1 with data: data 4 of 5
+  Mock.Lib/Mock.Lib.csproj: 15 files, 14 with data: data 65 of 135
+  Mock.Untested/Mock.Untested.csproj: 1 files, 0 with data: no data
+files:
+  Mock.Lib/Compat.cs: data 0 of 9
+    Mock.Lib.Compat::Legacy (cyclomatic 6): data 0 of 9
+  Mock.Lib/Customer.cs: data 3 of 3
+    Mock.Lib.Customer::Display.get (cyclomatic 2): data 1 of 1
+  Mock.Lib/DebugViews.cs: no data
+    Mock.Lib.DebugViews::Dump (cyclomatic 6): excluded
+    Mock.Lib.TraceView::Kind (cyclomatic 6): excluded
+  Mock.Lib/Features.cs: data 9 of 9
+    Mock.Lib.Features::Flags (cyclomatic 1): data 9 of 9
+  Mock.Lib/Feeds.cs: data 12 of 21
+    Mock.Lib.Feeds::CountAsync (cyclomatic 6): data 12 of 12
+    Mock.Lib.Feeds::Evens (cyclomatic 6): data 0 of 9
+  Mock.Lib/Grades.cs: data 8 of 8
+    Mock.Lib.Grades::Letter (cyclomatic 7): data 6 of 6
+  Mock.Lib/LazyMath.cs: data 4 of 4
+    Mock.Lib.LazyMath::Prepare (cyclomatic 1): data 4 of 4
+  Mock.Lib/Order.Validation.cs: data 0 of 10
+    Mock.Lib.Order::Validate (cyclomatic 7): data 0 of 10
+  Mock.Lib/Order.cs: data 6 of 6
+    Mock.Lib.Order::Total (cyclomatic 2): data 5 of 5
+  Mock.Lib/Paths.cs: data 10 of 10
+    Mock.Lib.Paths::Normalize (cyclomatic 5): data 10 of 10
+  Mock.Lib/ShippingRates.cs: data 0 of 10
+    Mock.Lib.ShippingRates::Rate (cyclomatic 7): data 0 of 10
+  Mock.Lib/StatusText.cs: data 5 of 9
+    Mock.Lib.StatusText::Describe (cyclomatic 8): data 5 of 9
+  Mock.Lib/Tokenizer.cs: data 8 of 8
+    Mock.Lib.Tokenizer::Kinds (cyclomatic 6): data 8 of 8
+  Mock.Lib/Variants.cs: data 0 of 27
+    Mock.Lib.Twins::Pick (cyclomatic 2): no data
+    Mock.Lib.Tagged::Run (cyclomatic 1): data 0 of 1
+    Mock.Lib.Tagged::Score (cyclomatic 1): data 0 of 22
+    Mock.Lib.Platform::Name (cyclomatic 1): no data
+    Mock.Lib.Platform::Name#2 (cyclomatic 1): data 0 of 1
+    Mock.Lib.Platform::Build (cyclomatic 1): data 0 of 1
+    Mock.Lib.Twins::Pick#2 (cyclomatic 2): data 0 of 1
+    Mock.Lib.Exact::Nine (cyclomatic 1): data 0 of 1
+    Mock.Lib.Exact::Seven (cyclomatic 1): no data
+    Mock.Lib.Exact::Six (cyclomatic 1): no data
+  Mock.Lib/Versions.cs: data 0 of 1
+    Mock.Lib.Versions::Major (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#2 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#3 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#4 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#5 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#6 (cyclomatic 1): data 0 of 1
+    Mock.Lib.Versions::Major#7 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#8 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#9 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#10 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#11 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#12 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#13 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#14 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#15 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#16 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#17 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#18 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#19 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#20 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#21 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#22 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#23 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#24 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#25 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#26 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#27 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#28 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#29 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#30 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#31 (cyclomatic 1): no data
+    Mock.Lib.Versions::Major#32 (cyclomatic 1): no data
+  Mock.Untested/Reports.cs: no data
+    Mock.Untested.Reports::Band (cyclomatic 6): no data
+  Shared/Linked.cs: data 4 of 5
+    Mock.Shared.Linked::Origin (cyclomatic 3): data 4 of 5
+untested-complex-method:
+  notice Mock.Lib/Variants.cs:58 untested-complex-method|Mock.Lib/Variants.cs|Mock.Lib.Tagged::Score: cyclomatic complexity 12, 0 of 22 coverable lines covered (with NET9_0, DEBUG and MOCK_LIB on)
+  notice Mock.Lib/Order.Validation.cs:8 untested-complex-method|Mock.Lib/Order.Validation.cs|Mock.Lib.Order::Validate: cyclomatic complexity 7, 0 of 10 coverable lines covered
+  notice Mock.Lib/ShippingRates.cs:8 untested-complex-method|Mock.Lib/ShippingRates.cs|Mock.Lib.ShippingRates::Rate: cyclomatic complexity 7, 0 of 10 coverable lines covered
+  notice Mock.Lib/Compat.cs:9 untested-complex-method|Mock.Lib/Compat.cs|Mock.Lib.Compat::Legacy: cyclomatic complexity 6, 0 of 9 coverable lines covered
+  notice Mock.Lib/Feeds.cs:22 untested-complex-method|Mock.Lib/Feeds.cs|Mock.Lib.Feeds::Evens: cyclomatic complexity 6, 0 of 9 coverable lines covered
+warnings:
+  stale: the reports look older than the code: 1 file has covered lines on blank, comment or declaration lines (the lines moved since the report was made); produce the report again [Mock.Lib/Grades.cs]
+  newer-files: 1 file changed after the newest report (a weaker sign: checking out files also changes their time) [Mock.Lib/Grades.cs]

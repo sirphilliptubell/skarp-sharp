@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/SkarpSharp.Cli/SkarpSharp.Cli.csproj" />
+  <Project Path="src/SkarpSharp.Core/SkarpSharp.Core.csproj" />
+  <Project Path="tests/SkarpSharp.Tests/SkarpSharp.Tests.csproj" />
+</Solution>

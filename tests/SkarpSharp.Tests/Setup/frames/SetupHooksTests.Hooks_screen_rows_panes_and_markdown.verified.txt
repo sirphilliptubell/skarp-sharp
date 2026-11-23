@@ -1,0 +1,374 @@
+=== frame 0 after (start)
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json
+.|Skarp's hook entry; a applies it through skarp install claude
+>|>  scope                 local  installed
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |   gate                  on
+ |   semantic check        off
+ |   include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |Only for you, in this repository (git should ignore the file). Applying here:
+ |local installed, project not installed, user not installed. skarp install
+ |claude --check tests the program (not run from here).
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 1 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed
+>|>  program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |   gate                  on
+ |   semantic check        off
+ |   include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |The program Claude Code runs (--command): skarp found on PATH, or a path such
+ |as ${CLAUDE_PROJECT_DIR}/.skarp/bin/skarp.exe. At project scope a path or .exe
+ |is refused unless --force, which the menu never adds.
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 2 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed
+ |   program               skarp
+>|>  per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |   gate                  on
+ |   semantic check        off
+ |   include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |Always on: after each Edit or Write the hook checks the file and prints up to 5
+ |finding lines (output.checkMaxLines, default). With the gate on, these limits
+ |come from the repository level or the defaults.
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 3 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed
+ |   program               skarp
+ |   per-edit check        on (always)
+>|>  end-of-turn summary   on
+ |   after compaction      on
+ |   gate                  on
+ |   semantic check        off
+ |   include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |At the end of each turn (Stop): a summary of the turn's files, up to 15 finding
+ |lines, with the gate 20 finding lines (output.gateMaxLines, repository). Off
+ |writes --no-stop. With the gate on, these limits come from the repository level
+ |or the defaults.
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 4 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+>|>  after compaction      on
+ |   gate                  on
+ |   semantic check        off
+ |   include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |After Claude Code compacts the context (PostCompact): the hook only notes it,
+ |so its next message repeats the About line that says what Skarp's notes are.
+ |Prints nothing. Off writes --no-compact.
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 5 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+>|>  gate                  on
+ |   semantic check        off
+ |   include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |--gate: new or worse findings in gate.on (*:warning, long-method:notice,
+ |repository) and files past a health limit (drop 1.0, new file 6.5, floor 6.5)
+ |block the agent. A gated hook reads its settings from the repository level only
+ |(skarp setup repository).
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 6 after Space
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed, differs
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+>|> *gate                  off
+ |   semantic check        off
+ |   include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |--gate: new or worse findings in gate.on (*:warning, long-method:notice,
+ |repository) and files past a health limit (drop 1.0, new file 6.5, floor 6.5)
+ |block the agent. A gated hook reads its settings from the repository level only
+ |(skarp setup repository).
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 7 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed, differs
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |  *gate                  off
+>|>  semantic check        off
+ |   include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |--semantic, end of turn only: also runs the semantic tier (a design-time build
+ |of the solution; slow). Turning it on turns the end-of-turn summary on.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 8 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed, differs
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |  *gate                  off
+ |   semantic check        off
+>|>  include notices       off
+ |   one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |--include-notices: also print notices (default: warnings only; notices are
+ |tracked either way). Off removes it from the entry.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 9 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed, differs
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |  *gate                  off
+ |   semantic check        off
+ |   include notices       off
+>|>  one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |Advanced (--max-lines): one limit of finding lines for all three, over
+ |output.checkMaxLines (3), the end-of-turn 15 and output.gateMaxLines (20).
+ |Usually better: set those in skarp setup, Agent section.
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 10 after Enter
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed, differs
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |  *gate                  off
+ |   semantic check        off
+ |   include notices       off
+>|>  one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |Advanced (--max-lines): one limit of finding lines for all three, over
+ |output.checkMaxLines (3), the end-of-turn 15 and output.gateMaxLines (20).
+ |Usually better: set those in skarp setup, Agent section.
+ |
+.|one line limit (empty: off): _
+=== frame 11 after 8
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed, differs
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |  *gate                  off
+ |   semantic check        off
+ |   include notices       off
+>|>  one line limit        off (advanced)
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |Advanced (--max-lines): one limit of finding lines for all three, over
+ |output.checkMaxLines (3), the end-of-turn 15 and output.gateMaxLines (20).
+ |Usually better: set those in skarp setup, Agent section.
+ |
+.|one line limit (empty: off): 8_
+=== frame 12 after Enter
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed, differs
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |  *gate                  off
+ |   semantic check        off
+ |   include notices       off
+>|> *one line limit        8
+ |   MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |Advanced (--max-lines): one limit of finding lines for all three, over
+ |output.checkMaxLines (3), the end-of-turn 15 and output.gateMaxLines (20).
+ |Usually better: set those in skarp setup, Agent section.
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 13 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed, differs
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |  *gate                  off
+ |   semantic check        off
+ |   include notices       off
+ |  *one line limit        8
+>|>  MCP server            off  not installed
+ |   other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |Skarp's MCP server (skarp mcp, experimental): Claude Code can ask it for the
+ |least healthy code and what a rule means. On: applying writes its entry
+ |(.mcp.json at project scope, ~/.claude.json otherwise; the same program). Off:
+ |applying leaves an existing entry as it is; skarp install claude --remove --mc…
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 14 after Down
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Skarp's hook entry; a applies it through skarp install claude
+ |   scope                 local  installed, differs
+ |   program               skarp
+ |   per-edit check        on (always)
+ |   end-of-turn summary   on
+ |   after compaction      on
+ |  *gate                  off
+ |   semantic check        off
+ |   include notices       off
+ |  *one line limit        8
+ |   MCP server            off  not installed
+>|>  other options (kept)  --no-save
+ |   Remove Skarp's hooks at this scope
+.|  1-12 of 12
+.|------------------------------------------------------------------------------
+ |Options in the entry that this screen does not set; applying keeps them as they
+ |are, after Skarp's own.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 15 after s
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Show the command for which shell?
+>|> PowerShell
+ |  cmd
+ |  bash/sh
+ |  All (Markdown)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |Windows PowerShell 5.1 and PowerShell 7: values in single quotes. A value with
+ |" is left out with a note.
+ |
+ |
+.|Up/Down move  Enter show  Esc back
+=== frame 16 after End
+H|Skarp setup  Claude Code hooks  local scope  .claude/settings.local.json  changed
+.|Show the command for which shell?
+ |  PowerShell
+ |  cmd
+ |  bash/sh
+>|> All (Markdown)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |All three as a Markdown section with one code block per shell, for docs or CI
+ |notes.
+ |
+ |
+.|Up/Down move  Enter show  Esc back
+=== summary
+
+=== print
+**Skarp command** (run from {repo})
+
+```powershell
+skarp install claude --hooks --max-lines 8
+```
+
+```bat
+skarp install claude --hooks --max-lines 8
+```
+
+```sh
+skarp install claude --hooks --max-lines 8
+```

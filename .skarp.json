@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  // Settings of skarp for this repository (docs/settings.md). Globs are relative to this folder.
+  "exclude": [
+    // Input of the CLI golden tests: deliberately smelly code with its own .skarp.json.
+    "tests/SkarpSharp.Tests/Golden/**",
+    // Mock solution: our own pattern code, built and measured by MockSolutionTests in a temporary copy.
+    "tests/SkarpSharp.Tests/Mock/**"
+  ]
+}

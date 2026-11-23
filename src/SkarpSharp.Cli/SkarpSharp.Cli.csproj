@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>skarp</AssemblyName>
+    <RootNamespace>SkarpSharp.Cli</RootNamespace>
+    <PublishAot>true</PublishAot>
+    <IsAotCompatible>true</IsAotCompatible>
+    <!-- AOT and trimming analyzer warnings in our own code fail the build (IsAotCompatible plus TreatWarningsAsErrors
+         in src/Directory.Build.props). Warnings that ILC reports inside Microsoft.CodeAnalysis (5 IL2091, 1 IL3000, counts
+         identical to JIT) stay warnings at publish; SkarpSharp.Core, which holds all the logic, keeps them as errors. -->
+    <!-- The SDK version in global.json decides the ILCompiler and the Native AOT runtime packs: SDK 10.0.401 carried 10.0.12,
+         flagged by advisory GHSA-p3jp-9v83-76w9 (a Brotli decoder flaw, fixed in 10.0.14); SDK 10.0.404 carries 10.0.15. Keep the
+         pin on an SDK whose packs are patched. -->
+    <!-- The semantic tier emits metadata images and signs friend assemblies, which brings IL2050 (P/invoke with
+         COM marshalling: ClrStrongName, Microsoft.DiaSymReader) and IL2072 (DiaSymReader) inside Microsoft.CodeAnalysis;
+         PDB writing is never used, and signing was checked under Native AOT.
+         They are listed one by one (TrimmerSingleWarn false) so a new kind shows up and fails the build. -->
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);NU1903;IL2091;IL3000;IL2050;IL2072</WarningsNotAsErrors>
+    <TrimmerSingleWarn>false</TrimmerSingleWarn>
+    <!-- Server GC: workstation GC halved throughput with 16 parsing threads on dotnet/roslyn. -->
+    <ServerGarbageCollection>true</ServerGarbageCollection>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>skarp</ToolCommandName>
+    <PackageId>Skarp</PackageId>
+    <Description>skarp: C# code health metrics (cyclomatic, cognitive, NPath, nesting, lines, statements) and git activity hotspots, from Roslyn syntax trees.</Description>
+    <!-- .NET 10 RID-specific tool packages: plain 'dotnet pack' writes the pointer package
+         Skarp.<v>.nupkg; 'dotnet pack -r win-x64' and 'dotnet pack -r linux-x64' (each on its own OS) write Native AOT packages;
+         'dotnet pack -r any -p:PublishAot=false' writes the framework-dependent fallback used on every other platform.
+         List only RIDs that are actually built and published: a listed but missing package makes the install fail. -->
+    <ToolPackageRuntimeIdentifiers>win-x64;linux-x64;any</ToolPackageRuntimeIdentifiers>
+    <!-- No debug symbols in the publish output, so the tool packages carry none (the
+         Native AOT skarp.pdb of win-x64 is about 198 MB uncompressed; the any package's IL pdbs go too). The native
+         symbols stay in the build folder (bin/<configuration>/net10.0/<rid>/native/) for local debugging. -->
+    <CopyOutputSymbolsToPublishDirectory>false</CopyOutputSymbolsToPublishDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SkarpSharp.Core\SkarpSharp.Core.csproj" />
+  </ItemGroup>
+  <!-- CopyOutputSymbolsToPublishDirectory covers skarp's own symbols; the referenced SkarpSharp.Core.pdb arrives as a
+       related file of the project reference, so every .pdb is removed from the publish list. Tool packs glob the publish
+       folder, so a publish folder left over from an older build can still hold symbols: pack from a clean folder. -->
+  <Target Name="SkarpDropSymbolsFromPublish" AfterTargets="ComputeResolvedFilesToPublishList">
+    <ItemGroup>
+      <ResolvedFileToPublish Remove="@(ResolvedFileToPublish)" Condition="'%(Extension)' == '.pdb'" />
+    </ItemGroup>
+  </Target>
+</Project>

@@ -1,0 +1,378 @@
+[
+  {
+    "example": "1",
+    "title": "else if",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b, bool b2) { if (b) { } else if (b2) { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 3
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 3
+      }
+    ],
+    "notes": "Ours 3, MS 3 (test ConditionalLogic_IfStatement/ElseIf)."
+  },
+  {
+    "example": "1b",
+    "title": "if/else, multiple ifs, nested if (same Microsoft test file)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid SimpleIfElse(bool b) { if (b) { } else { } }\nvoid MultipleIfs(bool b) { if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } }\nvoid NestedIf(bool b, bool b2) { if (b) { if (b2) { } } }\n}\n",
+    "expect": [
+      {
+        "member": "SimpleIfElse",
+        "metric": "cyclomatic",
+        "value": 2
+      },
+      {
+        "member": "SimpleIfElse",
+        "metric": "cyclomaticMicrosoft",
+        "value": 2
+      },
+      {
+        "member": "MultipleIfs",
+        "metric": "cyclomatic",
+        "value": 6
+      },
+      {
+        "member": "MultipleIfs",
+        "metric": "cyclomaticMicrosoft",
+        "value": 6
+      },
+      {
+        "member": "NestedIf",
+        "metric": "cyclomatic",
+        "value": 3
+      },
+      {
+        "member": "NestedIf",
+        "metric": "cyclomaticMicrosoft",
+        "value": 3
+      }
+    ],
+    "notes": "Entry states only the values (MS test values; Ours is identical by rule). Snippets are reconstructed by us (the entry gives no code for these three)."
+  },
+  {
+    "example": "2",
+    "title": "boolean operators",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid A(bool b1, bool b2, bool b3, bool b4) { var x = b1 && b2 || b3; }              // SimpleLogical\nvoid B(bool b1, bool b2, bool b3, bool b4) { var x = b1 && (b2 && b3 || b4); }      // NestedLogical\n}\n",
+    "expect": [
+      {
+        "member": "A",
+        "metric": "cyclomatic",
+        "value": 3
+      },
+      {
+        "member": "A",
+        "metric": "cyclomaticMicrosoft",
+        "value": 3
+      },
+      {
+        "member": "B",
+        "metric": "cyclomatic",
+        "value": 4
+      },
+      {
+        "member": "B",
+        "metric": "cyclomaticMicrosoft",
+        "value": 4
+      }
+    ],
+    "notes": "Ours and MS from the entry table (MS = test)."
+  },
+  {
+    "example": "3",
+    "title": "null-coalescing and null-conditional",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid A(bool? b, bool? b2) { var x = b ?? b2 ?? true; }   // NestedCoalesce\nvoid B(C c)               { var x = c?.c2?.B; }          // NestedConditionalAccess\n}\n",
+    "expect": [
+      {
+        "member": "A",
+        "metric": "cyclomatic",
+        "value": 3
+      },
+      {
+        "member": "A",
+        "metric": "cyclomaticMicrosoft",
+        "value": 3
+      },
+      {
+        "member": "B",
+        "metric": "cyclomatic",
+        "value": 3
+      },
+      {
+        "member": "B",
+        "metric": "cyclomaticMicrosoft",
+        "value": 3
+      }
+    ],
+    "notes": "Ours/MS from the entry (MS = test). The 15-valued MultipleCoalesceAndConditionalAccess test has no snippet in the entry and is skipped."
+  },
+  {
+    "example": "4",
+    "title": "loops",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b, int[] a) {\n  while (b) {\n    for (int i = 0; i < 10; i++) { System.Console.WriteLine(i); }\n    foreach (var i in a) { System.Console.WriteLine(i); }\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 4
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 4
+      }
+    ],
+    "notes": "Ours 4, MS 4 (test NestedLoops)."
+  },
+  {
+    "example": "5",
+    "title": "switch statement with default",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint M(int x) {\n  switch (x) {\n    case 1:\n    case 2: return 10;\n    case 3: return 20;\n    default: return 0;\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 4
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 5
+      }
+    ],
+    "notes": "Ours 4 (per label, default not counted), MS 5 (derived, no Microsoft test)."
+  },
+  {
+    "example": "6",
+    "title": "explicit default versus none",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint P(int x) { switch (x) { case 1: return 1; } return 0; }              // no default\nint Q(int x) { switch (x) { case 1: return 1; default: return 0; } }     // explicit default\n}\n",
+    "expect": [
+      {
+        "member": "P",
+        "metric": "cyclomatic",
+        "value": 2
+      },
+      {
+        "member": "P",
+        "metric": "cyclomaticMicrosoft",
+        "value": 2
+      },
+      {
+        "member": "Q",
+        "metric": "cyclomatic",
+        "value": 2
+      },
+      {
+        "member": "Q",
+        "metric": "cyclomaticMicrosoft",
+        "value": 3
+      }
+    ],
+    "notes": "MS values derived."
+  },
+  {
+    "example": "7",
+    "title": "exceptions and filters",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M() {\n  try { Work(); }\n  catch (IOException e) when (e.HResult == 1) { Log(); }\n  catch (Exception) { throw; }\n  finally { Done(); }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 4
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 1
+      }
+    ],
+    "notes": "Ours 4 = 1 + 2 catch + 1 when. MS 1 (derived)."
+  },
+  {
+    "example": "8",
+    "title": "switch expression and patterns",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nstring M(int x) => x switch { 1 or 2 => \"a\", > 10 and < 20 => \"b\", _ => \"c\" };\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 5
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 1
+      }
+    ],
+    "notes": "Ours 5 = 1 + 2 non-discard arms + or + and. MS 1 (derived). Entry says Ours values are proposals."
+  },
+  {
+    "example": "9",
+    "title": "lambda inside a method",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint M(List<int> xs) { var n = 0; xs.ForEach(x => { if (x > 0) n++; }); return n; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 2
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 2
+      },
+      {
+        "member": "M/lambda1",
+        "metric": "cyclomatic",
+        "value": 2
+      }
+    ],
+    "notes": "Ours: M 2 (lambda folded) plus lambda sub-record 2 (base 1 + if). MS 2 for M is derived. The lambda sub-record is only given for Ours; no Microsoft value for it."
+  },
+  {
+    "example": "10a",
+    "title": "async/await adds nothing",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nasync Task M() { await Task.Yield(); }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 1
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 1
+      }
+    ],
+    "notes": "MS test MethodWithAsyncAwait = 1; Ours 1 by rule."
+  },
+  {
+    "example": "10b",
+    "title": "yield return adds nothing",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nIEnumerable<int> M() { yield return 1; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 1
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 1
+      }
+    ],
+    "notes": "MS test MethodWithYieldReturn = 1; Ours 1 by rule."
+  },
+  {
+    "example": "10c",
+    "title": "LINQ query with 16 from clauses",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nIEnumerable<int> M(IEnumerable<int> xs) { return from a0 in xs from a1 in xs from a2 in xs from a3 in xs from a4 in xs from a5 in xs from a6 in xs from a7 in xs from a8 in xs from a9 in xs from a10 in xs from a11 in xs from a12 in xs from a13 in xs from a14 in xs from a15 in xs select 1; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 1
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 1
+      }
+    ],
+    "notes": "MS test MethodWithLinqExpression = 1. Snippet reconstructed by us (the entry only says 16 chained from clauses and a select); Ours 1 by rule."
+  },
+  {
+    "example": "10d",
+    "title": "27 && operators",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b) { var x = b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b && b; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 28
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 28
+      }
+    ],
+    "notes": "MS test CA1502_CSharp_VerifyDiagnosticAsync = 28 (27 && operators); Ours 28 by rule. Snippet reconstructed (28 operands)."
+  },
+  {
+    "example": "10e",
+    "title": "3 && operators",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b) { var x = b && b && b && b; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cyclomatic",
+        "value": 4
+      },
+      {
+        "member": "M",
+        "metric": "cyclomaticMicrosoft",
+        "value": 4
+      }
+    ],
+    "notes": "Entry: same body with 3 && = 4 (both rule sets)."
+  },
+  {
+    "example": "11a",
+    "title": "constructor initializer arguments count (oracle run)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nC(int n) { }\nC(int? count, bool flag) : this(count ?? (flag ? 1 : 0)) { }\n}\n",
+    "expect": [
+      {
+        "member": ".ctor(int?,bool)",
+        "metric": "cyclomatic",
+        "value": 3
+      },
+      {
+        "member": ".ctor(int?,bool)",
+        "metric": "cyclomaticMicrosoft",
+        "value": 3
+      }
+    ],
+    "notes": "Microsoft.CodeAnalysis.Metrics 5.6.0 gives 3 (1 + ?? + ?: in ': this(...)'); edge-case project MemberKinds(int?, bool). Member selected by id suffix because both constructors are named .ctor."
+  },
+  {
+    "example": "11b",
+    "title": "lambda inside a constructor initializer folds into the constructor (oracle run)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nstring _name;\nC(int n) { }\nC(List<int> items) : this(items.FindAll(x => x > 0 && x < 100).Count) { _name = items.Count > 0 ? \"items\" : \"none\"; }\n}\n",
+    "expect": [
+      {
+        "member": ".ctor(List<int>)",
+        "metric": "cyclomatic",
+        "value": 3
+      },
+      {
+        "member": ".ctor(List<int>)",
+        "metric": "cyclomaticMicrosoft",
+        "value": 3
+      }
+    ],
+    "notes": "Microsoft.CodeAnalysis.Metrics 5.6.0 gives 3 (1 + && in the initializer lambda + ?: in the body); edge-case project MemberKinds(List<int>)."
+  },
+  {
+    "example": "12",
+    "title": "bool non-short-circuit & and | in the microsoft preset (oracle run)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nbool A(int a, int b) { return a > 0 & b > 0 | a == b; }\nbool B(bool a, bool b) => !a & !b;\nbool D(bool a, int b) => a | b > 0;\nbool E(bool a, bool b, bool c) => a & b | c;\nint F(int a, int b) => (a & b) | (a ^ b);\nbool G(bool a, bool b) { a &= b; a |= !b; return a; }\n}\n",
+    "expect": [
+      { "member": "A", "metric": "cyclomaticMicrosoft", "value": 3 },
+      { "member": "A", "metric": "cyclomatic", "value": 1 },
+      { "member": "B", "metric": "cyclomaticMicrosoft", "value": 2 },
+      { "member": "D", "metric": "cyclomaticMicrosoft", "value": 2 },
+      { "member": "E", "metric": "cyclomaticMicrosoft", "value": 1 },
+      { "member": "F", "metric": "cyclomaticMicrosoft", "value": 1 },
+      { "member": "G", "metric": "cyclomaticMicrosoft", "value": 1 }
+    ],
+    "notes": "Microsoft.CodeAnalysis.Metrics 5.6.0: A 3, B 2, D 2, E 3, F 1, G 1 (edge-case project Branching.NonShortCircuit*, CompoundBoolAssignment). Syntax counts & and | only when an operand is visibly boolean, so E (bool parameters only) stays 1: a known difference that needs types. Compound &= and |= are not binary operations in Microsoft's engine (0)."
+  }
+]

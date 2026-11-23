@@ -1,0 +1,114 @@
+=== frame 0 after (start)
+H|Skarp setup
+.|Choose the settings level to edit
+ |  system        machine/system.json  not found
+ |  personal      machine/personal.json  not found
+>|> repository    .skarp.json  not found
+ |  command line  build a command, save nothing
+ |  Claude Code hooks  run Skarp after each edit and turn (skarp install claude)
+ |  Git hooks          warn before a commit makes code worse (skarp install git-hooks)
+.|  1-6 of 6
+.|-------------------------------------------------
+ |This repository's .skarp.json, shared with
+ |everyone who clones it; it overrides the system
+ |and personal files.
+.|Up/Down move  Enter open  Esc quit
+=== frame 1 after Enter
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Sections  (new file: created on the first save)
+>|> Rules       0 set here
+ |  Thresholds  0 set here
+ |  History     0 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+.|  1-7 of 9  more below
+.|-------------------------------------------------
+ |Switch rules on or off.
+ |
+ |
+.|Up/Down move  Enter open  s save  Esc back
+=== frame 2 after Down
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Sections  (new file: created on the first save)
+ |  Rules       0 set here
+>|> Thresholds  0 set here
+ |  History     0 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+.|  1-7 of 9  more below
+.|-------------------------------------------------
+ |The preset, then each rule's notice and warning
+ |thresholds with every vendor's published value,
+ |and the rule parameters.
+.|Up/Down move  Enter open  s save  Esc back
+=== frame 3 after Enter
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+>|>  preset            default        Skarp default
+ |   complex-method.n~ 16 or more co~ Skarp default
+ |   complex-method.w~ off            Skarp default
+ |   deep-nesting.not~ 4 or more nes~ Skarp default
+ |   deep-nesting.war~ off            Skarp default
+ |   long-method.noti~ 51 or more al~ Skarp default
+ |   long-method.warn~ 71 or more al~ Skarp default
+.|  1-7 of 50  more below
+.|-------------------------------------------------
+ |The threshold preset: whose published values the
+ |rules use. Key: preset.
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 4 after Resize:39x16
+!|window too small
+=== frame 5 after Down
+!|window too small
+=== frame 6 after Resize:50x16
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Thresholds
+>|>  preset            default        Skarp default
+ |   complex-method.n~ 16 or more co~ Skarp default
+ |   complex-method.w~ off            Skarp default
+ |   deep-nesting.not~ 4 or more nes~ Skarp default
+ |   deep-nesting.war~ off            Skarp default
+ |   long-method.noti~ 51 or more al~ Skarp default
+ |   long-method.warn~ 71 or more al~ Skarp default
+.|  1-7 of 50  more below
+.|-------------------------------------------------
+ |The threshold preset: whose published values the
+ |rules use. Key: preset.
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 7 after Esc
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Sections  (new file: created on the first save)
+ |  Rules       0 set here
+>|> Thresholds  0 set here
+ |  History     0 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+.|  1-7 of 9  more below
+.|-------------------------------------------------
+ |The preset, then each rule's notice and warning
+ |thresholds with every vendor's published value,
+ |and the rule parameters.
+.|Up/Down move  Enter open  s save  Esc back
+=== frame 8 after Esc
+H|Skarp setup
+.|Choose the settings level to edit
+ |  system        machine/system.json  not found
+ |  personal      machine/personal.json  not found
+>|> repository    .skarp.json  not found
+ |  command line  build a command, save nothing
+ |  Claude Code hooks  run Skarp after each edit and turn (skarp install claude)
+ |  Git hooks          warn before a commit makes code worse (skarp install git-hooks)
+.|  1-6 of 6
+.|-------------------------------------------------
+ |This repository's .skarp.json, shared with
+ |everyone who clones it; it overrides the system
+ |and personal files.
+.|Up/Down move  Enter open  Esc quit

@@ -1,0 +1,204 @@
+=== frame 0 after (start)
+H|Skarp setup
+.|Choose the settings level to edit
+ |  system        machine/system.json  not found
+ |  personal      machine/personal.json  not found
+>|> repository    .skarp.json  found
+ |  command line  build a command, save nothing
+ |  Claude Code hooks  run Skarp after each edit and turn (skarp install claude)
+ |  Git hooks          warn before a commit makes code worse (skarp install git-hooks)
+.|  1-6 of 6
+.|------------------------------------------------------------------------------
+ |This repository's .skarp.json, shared with everyone who clones it; it overrides
+ |the system and personal files.
+ |
+ |
+.|Up/Down move  Enter open  Esc quit
+=== frame 2 after Enter
+H|Skarp setup  command line
+.|Choose the command to build
+>|> analyze   findings report and metrics: the usual run
+ |  baseline  record the current findings in .skarp-baseline.json
+ |  hotspots  the activity hotspot table
+ |  history   git history only
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |Run options and settings come next, shown over your settings files; the command
+ |is printed after the menu closes, for the shell you choose.
+ |
+ |
+.|Up/Down move  Enter choose  Esc back
+=== frame 3 after Enter
+H|Skarp setup  command line  skarp analyze  0 changed
+.|Sections  (changes over your settings files; nothing is saved)
+>|> Run options 0 changed
+ |  Rules       0 changed
+ |  Thresholds  0 changed
+ |  History     0 changed
+ |  Score       0 changed
+ |  Semantic    0 changed
+ |  Agent       0 changed
+ |  Lists       0 changed
+ |  General     0 changed
+ |  Clear every change (the bare command)
+.|  1-10 of 10
+.|------------------------------------------------------------------------------
+ |The folder, report format, output file, baseline and the other flags of one run
+ |that are not settings.
+ |
+ |
+.|Up/Down move  Enter open  s show command  Esc back
+=== frame 4 after Enter
+H|Skarp setup  command line  skarp analyze  0 changed
+.|Run options
+>|>  directory                   .                       default
+ |   format                      text                    default
+ |   output                      (none)                  default
+ |   baseline                    .skarp-baseline.json i~ default
+ |   no-baseline                 off                     default
+ |   new-only                    off                     default
+ |   gate                        the repository's gate.~ default
+ |   min-severity                notice                  default
+ |   all                         off                     default
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |The folder to analyze, relative to the current folder. Default: .; flag: the
+ |directory argument.
+ |
+ |
+.|Enter edit  Space toggle  Del undo  f changed only  s show command  Esc back
+=== frame 6 after Enter
+H|Skarp setup  command line  skarp analyze  0 changed
+.|format: choose a value
+>|> text  • (default)
+ |  json
+ |  markdown
+ |  github
+ |  sarif
+ |  default (text)
+.|  1-6 of 6
+.|------------------------------------------------------------------------------
+ |The report format: text (for reading), JSON (for tools), or (analyze only)
+ |Markdown, GitHub annotations or SARIF.
+ |
+ |
+.|Up/Down move  Enter choose  Esc back
+=== frame 11 after Enter
+H|Skarp setup  command line  skarp analyze  1 changed
+.|Run options
+ |   directory                   .                       default
+>|> *format                      sarif                   set here
+ |   output                      (none)                  default
+ |   baseline                    .skarp-baseline.json i~ default
+ |   no-baseline                 off                     default
+ |   new-only                    off                     default
+ |   gate                        the repository's gate.~ default
+ |   min-severity                notice                  default
+ |   all                         off                     default
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |The report format: text (for reading), JSON (for tools), or (analyze only)
+ |Markdown, GitHub annotations or SARIF. Values: text, json, markdown, github,
+ |sarif. Default: text; flag: --format.
+ |
+.|Enter edit  Space toggle  Del undo  f changed only  s show command  Esc back
+=== frame 16 after Enter
+H|Skarp setup  command line  skarp analyze  1 changed
+.|History
+>|>  history.enabled             true                    Skarp default
+ |   history.window              12                      from repository
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Read git history (activity, hotspots); off is faster. Key: history.enabled.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del undo  f changed only  s show command  Esc back
+=== frame 18 after Enter
+H|Skarp setup  command line  skarp analyze  1 changed
+.|History
+ |   history.enabled             true                    Skarp default
+>|>  history.window              12                      from repository
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Months of history read, ending at the last commit. Range: 1 to 1200. Key:
+ |history.window.
+ |
+ |
+ |history.window (1 to 1200): _
+=== frame 19 after 6
+H|Skarp setup  command line  skarp analyze  1 changed
+.|History
+ |   history.enabled             true                    Skarp default
+>|>  history.window              12                      from repository
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Months of history read, ending at the last commit. Range: 1 to 1200. Key:
+ |history.window.
+ |
+ |
+ |history.window (1 to 1200): 6_
+=== frame 20 after Enter
+H|Skarp setup  command line  skarp analyze  2 changed
+.|History
+ |   history.enabled             true                    Skarp default
+>|> *history.window              6                       set here
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Months of history read, ending at the last commit. Range: 1 to 1200. Key:
+ |history.window.
+ |
+ |
+.|Enter edit  Space toggle  Del undo  f changed only  s show command  Esc back
+=== frame 23 after Home
+H|Skarp setup  command line  skarp analyze  2 changed
+.|Show the command for which shell?
+>|> PowerShell
+ |  cmd
+ |  bash/sh
+ |  All (Markdown)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |Windows PowerShell 5.1 and PowerShell 7: values in single quotes. A value with
+ |" is left out with a note.
+ |
+ |
+.|Up/Down move  Enter show  Esc back
+=== print
+**Skarp command** (run from {repo})
+
+```powershell
+skarp analyze . --format sarif --window 6
+```
+
+```bat
+skarp analyze . --format sarif --window 6
+```
+
+```sh
+skarp analyze . --format sarif --window 6
+```

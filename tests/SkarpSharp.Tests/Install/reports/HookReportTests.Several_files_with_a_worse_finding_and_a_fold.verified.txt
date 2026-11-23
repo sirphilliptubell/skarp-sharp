@@ -1,0 +1,15 @@
+Skarp stopped this commit: 3 problems (2 new, 1 worse) in 2 staged files.
+
+src/Orders.cs health 10.0 -> 7.2 (10 = healthy)
+  new line 5 Orders.Total brain-method: long (84 physical lines), complex (cognitive complexity 61) [4cca475f]
+  worse line 120 Orders.Parse complex-method: cognitive complexity 18 -> 27 (limit 15) [00000120]
+
+src/Billing.cs health 8.4 -> 7.9
+  new line 40 Billing.Run long-method: physical lines 96 (limit 60) [00000040]
+  +1 more in this file
+
+What you can do:
+  1. Fix them, then stage and commit again.
+  2. Accept them as known:   `skarp baseline . && git add .skarp-baseline.json`   then commit
+  3. Skip the check once:  `git commit --no-verify`
+About the rules: `skarp explain brain-method`, `skarp explain complex-method`, `skarp explain long-method`
