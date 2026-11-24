@@ -1,0 +1,48 @@
+=== frame 1 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|Rules  (the gate ignores system and personal settings)
+>|>  complex-method              on                      Skarp default
+ |   deep-nesting                on                      Skarp default
+ |   long-method                 on                      Skarp default
+ |   large-type                  on                      Skarp default
+ |   large-file                  on                      Skarp default
+ |   too-many-parameters         on                      Skarp default
+ |   path-explosion              on                      Skarp default
+ |   active-complex-file         on                      Skarp default
+ |   bumpy-road                  on                      Skarp default
+ |   complex-condition           on                      Skarp default
+ |   empty-catch                 on                      Skarp default
+ |   magic-number                on                      Skarp default
+ |   duplicate-code              on                      Skarp default
+ |   duplicate-code-near         on                      Skarp default
+.|  1-14 of 25  more below
+.|------------------------------------------------------------------------------
+ |Much branching logic in one member makes it hard to follow and to test. Key:
+ |rules.complex-method.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 2 after Enter
+H|Skarp setup  personal  machine/personal.json  1 changed
+.|Rules  (the gate ignores system and personal settings)
+>|> *complex-method              off                     set here
+ |   deep-nesting                on                      Skarp default
+ |   long-method                 on                      Skarp default
+ |   large-type                  on                      Skarp default
+ |   large-file                  on                      Skarp default
+ |   too-many-parameters         on                      Skarp default
+ |   path-explosion              on                      Skarp default
+ |   active-complex-file         on                      Skarp default
+ |   bumpy-road                  on                      Skarp default
+ |   complex-condition           on                      Skarp default
+ |   empty-catch                 on                      Skarp default
+ |   magic-number                on                      Skarp default
+ |   duplicate-code              on                      Skarp default
+ |   duplicate-code-near         on                      Skarp default
+.|  1-14 of 25  more below
+.|------------------------------------------------------------------------------
+ |Much branching logic in one member makes it hard to follow and to test. Key:
+ |rules.complex-method.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back

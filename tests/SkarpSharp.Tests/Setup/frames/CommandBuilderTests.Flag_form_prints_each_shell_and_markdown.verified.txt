@@ -1,0 +1,23 @@
+=== powershell
+# PowerShell, run from {repo}
+skarp analyze . --format sarif --output out/skarp.sarif --preset checkstyle --window 6 --setting 'exclude=gen/**,obj/**'
+=== cmd
+REM cmd, run from {repo}
+skarp analyze . --format sarif --output out/skarp.sarif --preset checkstyle --window 6 --setting "exclude=gen/**,obj/**"
+=== sh
+# sh, run from {repo}
+skarp analyze . --format sarif --output out/skarp.sarif --preset checkstyle --window 6 --setting 'exclude=gen/**,obj/**'
+=== markdown
+**Skarp command** (run from {repo})
+
+```powershell
+skarp analyze . --format sarif --output out/skarp.sarif --preset checkstyle --window 6 --setting 'exclude=gen/**,obj/**'
+```
+
+```bat
+skarp analyze . --format sarif --output out/skarp.sarif --preset checkstyle --window 6 --setting "exclude=gen/**,obj/**"
+```
+
+```sh
+skarp analyze . --format sarif --output out/skarp.sarif --preset checkstyle --window 6 --setting 'exclude=gen/**,obj/**'
+```

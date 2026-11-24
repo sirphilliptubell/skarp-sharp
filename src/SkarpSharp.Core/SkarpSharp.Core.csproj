@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RootNamespace>SkarpSharp</RootNamespace>
+    <!-- The library ships inside the tool packages only; it is not a package of its own (packaging.md). -->
+    <IsPackable>false</IsPackable>
+    <!-- The LibraryImport stubs of skarp setup's console set-up (SetConsoleMode for VT processing) are unsafe code. -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.12.0" />
+    <!-- Git process wrapper; Native AOT probe passed 2026-11-11. -->
+    <PackageReference Include="CliWrap" Version="3.10.5" />
+    <!-- The MCP server of `skarp mcp`. The Core package only (no hosting, no
+         ModelContextProtocol main package); Apache-2.0 with MIT legacy parts, see THIRD-PARTY-NOTICES.md. -->
+    <PackageReference Include="ModelContextProtocol.Core" Version="2.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="SkarpSharp.Tests" />
+  </ItemGroup>
+</Project>

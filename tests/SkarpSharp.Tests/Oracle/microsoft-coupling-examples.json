@@ -1,0 +1,302 @@
+{
+  "source": "tests/oracle/Coupling (worked examples of class coupling, one namespace per example)",
+  "microsoft": "ClassCoupling of each NamedType from Microsoft.CodeAnalysis.Metrics 5.6.0 (Metrics.exe 5.6.0-2.26263.10, Roslyn 4.12.0-3.24572.7), run on a built copy (see tools/oracle/README.md); 59 types",
+  "ours": "cbo (framework types excluded) and cboAll, checked by hand against the worked examples",
+  "types": {
+    "Ex1.I": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex1.C1": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex1.C2`1": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex1.C3": {
+      "microsoft": 3,
+      "ours": 3,
+      "all": 3
+    },
+    "Ex2.C": {
+      "microsoft": 4,
+      "ours": 4,
+      "all": 4
+    },
+    "Ex2.C1": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex2.C2": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex2.C3": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex2.C4": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex3.A": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex3.B": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex3.C": {
+      "microsoft": 3,
+      "ours": 2,
+      "all": 3
+    },
+    "Ex3.G`1": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex3.D1": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex3.D2": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex3.E": {
+      "microsoft": 3,
+      "ours": 3,
+      "all": 3
+    },
+    "Ex4.A1": {
+      "microsoft": 1,
+      "ours": 0,
+      "all": 1
+    },
+    "Ex4.A2": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex4.C1": {
+      "microsoft": 3,
+      "ours": 4,
+      "all": 4
+    },
+    "Ex4.CAttr": {
+      "microsoft": 1,
+      "ours": 0,
+      "all": 1
+    },
+    "Ex4.C2": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex4.C3": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex4.C4": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex5.A": {
+      "microsoft": 1,
+      "ours": 0,
+      "all": 1
+    },
+    "Ex5.B": {
+      "microsoft": 1,
+      "ours": 0,
+      "all": 1
+    },
+    "Ex5.C": {
+      "microsoft": 0,
+      "ours": 2,
+      "all": 2
+    },
+    "Ex5.K1": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex5.K2": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex5.L": {
+      "microsoft": 3,
+      "ours": 2,
+      "all": 3
+    },
+    "Ex6.Customer": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex6.Order": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex6.D1": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex6.D2": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex6.D3": {
+      "microsoft": 2,
+      "ours": 2,
+      "all": 2
+    },
+    "Ex6.D4": {
+      "microsoft": 2,
+      "ours": 1,
+      "all": 2
+    },
+    "Ex7.Customer": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex7.Order": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex7.Money": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex7.A1": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex7.A2": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex7.A3": {
+      "microsoft": 2,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex7.A4": {
+      "microsoft": 3,
+      "ours": 2,
+      "all": 2
+    },
+    "Ex7.A5": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex8.Customer": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex8.Runner": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex8.B1": {
+      "microsoft": 1,
+      "ours": 2,
+      "all": 2
+    },
+    "Ex8.B2": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 2
+    },
+    "Ex8.B3": {
+      "microsoft": 2,
+      "ours": 2,
+      "all": 2
+    },
+    "Ex8.B4": {
+      "microsoft": 1,
+      "ours": 0,
+      "all": 1
+    },
+    "Ex9.Customer": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex9.Order": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex9.Node": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex9.Outer": {
+      "microsoft": 1,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex9.Outer+Inner": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    },
+    "Ex9.P": {
+      "microsoft": 2,
+      "ours": 2,
+      "all": 2
+    },
+    "Ex10.F": {
+      "microsoft": 3,
+      "ours": 0,
+      "all": 2
+    },
+    "Ex11.A": {
+      "microsoft": 2,
+      "ours": 2,
+      "all": 2
+    },
+    "Ex11.B": {
+      "microsoft": 1,
+      "ours": 1,
+      "all": 1
+    },
+    "Ex11.C": {
+      "microsoft": 0,
+      "ours": 0,
+      "all": 0
+    }
+  }
+}

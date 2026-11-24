@@ -1,0 +1,12 @@
+Skarp: analyze <root>, 2 files, health 7.4 average, was 7.5 (10 = healthy)
+1 new, 1 worse than the baseline. 2 warnings, 10 notices at 6 places in 2 files (new or worse only; magic numbers counted, not listed).
+
+Program.cs health 10.0 -> 9.5
+  new line 3 <top-level> deep-nesting (notice): nesting depth 4 (limit 3) [984d5d0e]
+
+src/OrderBook.cs health 6.9
+  worse line 45 OrderBook.Describe long-method (notice): physical lines 22 -> 25 (limit 20) [9b6c4c34]
+
+Baseline: rule settings changed since the baseline; new and fixed counts include settings effects; re-run `skarp baseline` to reset.
+History and semantic analysis were off. `skarp analyze --verbose` shows the run details.
+About the rules: `skarp explain deep-nesting`, `skarp explain long-method`

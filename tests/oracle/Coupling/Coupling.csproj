@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Oracle input only (tools/oracle/README.md): worked examples of class coupling, one
+       namespace per example, measured by Microsoft.CodeAnalysis.Metrics (ClassCoupling) and by skarp's semantic tier.
+       Not part of SkarpSharp.slnx. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RootNamespace>OracleCoupling</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <NoWarn>$(NoWarn);CS0169;CS0414;CS0649;CS0067;CS8618;CS8625;CS8603;CS0219;CS0168</NoWarn>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,195 @@
+serverInfo: skarp
+instructions (1101 characters):
+Skarp measures C# code health with Roslyn. Each file gets a score from 1 to 10, where 10 is healthy, lowered by its findings: places worth a look such as complex, long or deeply nested methods, large types, long parameter lists and duplicated code (with a solution also class coupling, god classes and unused code).
+find_worst_code ranks the least healthy files or methods under a folder, worst first: use it to find what to clean up or review first.
+check says what the changed C# files made worse or better, against the baseline or else the last commit. Call it on the C# files you edited before you finish a task. Where Skarp notes already appear after each edit, they cover that edit; check then covers changes made another way.
+findings lists the findings of the saved run, or shows one in full by its id with how to improve it.
+explain describes a rule: what it measures, why it matters, how to improve code it flags and the thresholds in force.
+Bands: 9 or more is healthy, 4 to below 9 problematic, below 4 unhealthy. A healthy file is not worth reworking just because it appears in a ranking.
+{
+  "name": "find_worst_code",
+  "description": "Ranks the least healthy C# code under a folder or in one file, worst first, as text. Each file comes with its health score (1 to 10, 10 = healthy), its band (healthy 9 or more, problematic, unhealthy below 4) and up to 3 findings with ids; a closing line says how many listed entries are healthy, since a ranking always has a top. Use it to find what to clean up or review first, the most active complex files (sort hotspot), or the longest or most complex methods (sort by a rule). For files just edited use check. Limits: at most 25 entries per call (page with offset); test code and excluded files are not ranked; depth syntax takes about a second for a few hundred files, depth semantic tens of seconds and one run per repository at a time. Saves the run in .skarp/last-run/.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "A folder or one C# file, absolute or relative to the server's working folder. Default: the working folder."
+      },
+      "count": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 25,
+        "default": 10,
+        "description": "How many entries to list, 1 to 25. Default 10."
+      },
+      "depth": {
+        "type": "string",
+        "enum": [
+          "syntax",
+          "semantic"
+        ],
+        "default": "syntax",
+        "description": "syntax (default): fast. semantic: also class coupling, god classes, unused code and namespace cycles, from a design-time build of the solution (tens of seconds, writes obj/ as an IDE does, never restores); reuses the saved run when no file or setting changed."
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "health",
+          "hotspot",
+          "complex-method",
+          "deep-nesting",
+          "long-method",
+          "large-type",
+          "large-file",
+          "too-many-parameters",
+          "path-explosion",
+          "bumpy-road",
+          "complex-condition"
+        ],
+        "default": "health",
+        "description": "health (default): files with findings, lowest score first. hotspot: files with findings by commits in the git history window, then complexity; by health without git history. A rule id: by that rule's own measure, largest first, code under every threshold included."
+      },
+      "unit": {
+        "type": "string",
+        "enum": [
+          "auto",
+          "files",
+          "methods"
+        ],
+        "default": "auto",
+        "description": "auto (default): files for health, hotspot, large-type and large-file, methods for the other rules. files with a method rule ranks each file by its worst method. methods needs a method rule."
+      },
+      "offset": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 10000,
+        "default": 0,
+        "description": "Entries to skip, for the next page; the answer's last lines give the next offset. Default 0."
+      }
+    },
+    "additionalProperties": false
+  },
+  "annotations": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": false
+  }
+}
+{
+  "name": "check",
+  "description": "Checks changed C# files and says what got worse or better, as text: each file's health before and after (1 to 10, 10 = healthy) and one line per finding that is new, worse, better or fixed, with ids. Without C# files in files: the C# files that differ from the last commit, staged or not, plus untracked ones. Compared with the baseline when the repository has one (then new and worse only), else with each file at the last commit; a file not in git shows all its warnings. Use it before finishing a task that edited C# files, or after edits made through a shell. Where Skarp notes already appear after each edit, a call per edit adds nothing. A .sln or .slnx in files also runs the rules that need a solution (class coupling, god classes, unused code, namespace cycles) against their baseline: tens of seconds, writes obj/ as an IDE does, never restores, one run per repository at a time, saved in .skarp/last-run/. Limits: at most 15 finding lines per part; single files cannot show duplicate code, change activity or test coverage. Changes no source file, baseline or setting.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "files": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 200,
+        "description": "Up to 200 paths, absolute or relative to the server's working folder. The C# files in it are checked; without one, the changed C# files are. One .sln or .slnx in it also runs the rules that need a solution."
+      },
+      "path": {
+        "type": "string",
+        "description": "When files holds no C# file: the folder whose repository is looked at, and only changed files under it are checked. Default: the working folder."
+      },
+      "include_notices": {
+        "type": "boolean",
+        "default": false,
+        "description": "Also list notices, not only warnings (notices count in the health scores either way). Default false."
+      }
+    },
+    "additionalProperties": false
+  },
+  "annotations": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": false
+  }
+}
+{
+  "name": "findings",
+  "description": "Lists findings from the saved run without analyzing again, or shows one in full, as text. With id (the characters in brackets on a finding line, or the first 4 or more): its measure and limit, its baseline state, the member's metrics and how to improve it. Without id: the findings that match file, rule and new_only, grouped by file, 30 per call (at most 100; page with offset). Use it to read the rest of a file's findings after a ranking, or one finding before changing its code. The saved run comes from find_worst_code, from check with a solution, or from skarp analyze; when files changed since, a line says how many. Never analyzes: without a saved run it says so. Reads only.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "The 8 characters in brackets at the end of a finding line, or the first 4 or more. One match: that finding in full. Does not combine with file, rule or new_only."
+      },
+      "file": {
+        "type": "string",
+        "description": "Only findings in this file: absolute, relative to the server's working folder, or relative to the analyzed folder."
+      },
+      "rule": {
+        "type": "string",
+        "description": "Only findings of this rule: a rule id as finding lines show it."
+      },
+      "new_only": {
+        "type": "boolean",
+        "default": false,
+        "description": "Only findings new or worse than the baseline the saved run was compared with. Default false."
+      },
+      "include_notices": {
+        "type": "boolean",
+        "default": false,
+        "description": "Also list notices, not only warnings. Default false."
+      },
+      "limit": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "default": 30,
+        "description": "How many findings to list, 1 to 100. Default 30."
+      },
+      "offset": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100000,
+        "default": 0,
+        "description": "Findings to skip, for the next page; the answer's last lines give the next offset. Default 0."
+      },
+      "path": {
+        "type": "string",
+        "description": "Where to look for the saved run, from this folder up to the repository root, absolute or relative to the server's working folder. Default: the working folder."
+      }
+    },
+    "additionalProperties": false
+  },
+  "annotations": {
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+  }
+}
+{
+  "name": "explain",
+  "description": "Explains one Skarp rule: what it measures, why it matters, how to improve code it flags, and the thresholds in force for the repository at path. Without rule, lists every rule id with one line. Use it when a finding's rule is unfamiliar, or before changing code a rule flagged. Reads settings only; analyzes nothing.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "rule": {
+        "type": "string",
+        "description": "A rule id as finding lines show it. Leave it out to list every rule with one line."
+      },
+      "all_presets": {
+        "type": "boolean",
+        "default": false,
+        "description": "false (default): only the thresholds in force for path. true: the thresholds of every preset."
+      },
+      "path": {
+        "type": "string",
+        "description": "A folder or file whose settings (.skarp.json, found as for an analysis) decide the thresholds in force, absolute or relative to the server's working folder. Default: the working folder."
+      }
+    },
+    "additionalProperties": false
+  },
+  "annotations": {
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+  }
+}

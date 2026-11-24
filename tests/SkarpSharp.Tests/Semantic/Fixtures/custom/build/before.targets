@@ -1,0 +1,6 @@
+<Project>
+  <!-- Repository build logic imported through CustomBeforeMicrosoftCommonTargets. -->
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);REPO_BEFORE</DefineConstants>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,273 @@
+[
+  {
+    "example": "1",
+    "title": "classification of one file",
+    "code": "// File header\nusing System;\n\nnamespace N;\n\n/// <summary>Doc.</summary>\npublic class C\n{\n    int x = 1; // note\n    /* a\n       b */\n    void M() { }\n}\n",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 13
+      },
+      {
+        "member": "<file>",
+        "metric": "blankLines",
+        "value": 2
+      },
+      {
+        "member": "<file>",
+        "metric": "commentLines",
+        "value": 5
+      },
+      {
+        "member": "<file>",
+        "metric": "mixedLines",
+        "value": 1
+      },
+      {
+        "member": "<file>",
+        "metric": "sourceLines",
+        "value": 7
+      },
+      {
+        "member": "<file>",
+        "metric": "directiveLines",
+        "value": 0
+      },
+      {
+        "member": "<file>",
+        "metric": "inactiveLines",
+        "value": 0
+      }
+    ],
+    "notes": "Not wrapped (complete file). The entry annotates each line with a trailing \"// N\" line-number marker; these markers are removed here because they would change the classification (only \"// note\", \"// File header\", the doc comment and the block comment are real). Ours: blank 2, comment-only 4, mixed 1, source 7 (lines 2,4,7,8,9,12,13); commentLines is the overlapping counter (comment-only 4 + mixed 1 = 5). Invariant 13 = 2 + 4 + 7 + 0. Ambiguity: whether sourceLines includes the \"namespace N;\" line is implied yes by the entry list."
+  },
+  {
+    "example": "2",
+    "title": "braces, attribute and executable lines",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\n[Obsolete]\npublic int Add(int a, int b)\n{\n    var s = a + b;\n    if (s > 0)\n    {\n        return s;\n    }\n    return 0;\n}\n}\n",
+    "expect": [
+      {
+        "member": "Add",
+        "metric": "sourceLines",
+        "value": 10
+      },
+      {
+        "member": "Add",
+        "metric": "statements",
+        "value": 4
+      }
+    ],
+    "notes": "Wrapped in class C, so no file-level expectations (wrapping changes the file counts). The entry gives \"Source lines 10\" for the snippet as a unit and \"statements 4\". Assumes the member span includes the attribute line; the implementer must decide that (Ours has no explicit member-span rule here). Executable lines 4 are not in the metric list and are skipped. Annotation markers \"// N\" removed."
+  },
+  {
+    "example": "3",
+    "title": "Microsoft test layouts: source lines per member",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid SimpleIf(bool b)\n{\n    if (b)\n    {\n    }\n}\n\nvoid SimpleIfElse(bool b)\n{\n    if (b)\n    {\n    }\n    else\n    {\n    }\n}\n\nvoid NestedIf(bool b, bool b2)\n{\n    if (b)\n    {\n        if (b2)\n        {\n        }\n    }\n}\n\nvoid ElseIf(bool b, bool b2)\n{\n    if (b)\n    {\n    }\n    else if (b2)\n    {\n    }\n}\n\nvoid MultipleIfs(bool b)\n{\n    if (b)\n    {\n    }\n\n    if (b)\n    {\n    }\n\n    if (b)\n    {\n    }\n\n    if (b)\n    {\n    }\n\n    if (b)\n    {\n    }\n}\n}\n",
+    "expect": [
+      {
+        "member": "SimpleIf",
+        "metric": "sourceLines",
+        "value": 6
+      },
+      {
+        "member": "SimpleIfElse",
+        "metric": "sourceLines",
+        "value": 9
+      },
+      {
+        "member": "NestedIf",
+        "metric": "sourceLines",
+        "value": 9
+      },
+      {
+        "member": "ElseIf",
+        "metric": "sourceLines",
+        "value": 9
+      },
+      {
+        "member": "MultipleIfs",
+        "metric": "sourceLines",
+        "value": 18
+      }
+    ],
+    "notes": "Only SimpleIfElse is shown in the entry; the other layouts are reconstructed by us from \"one statement per line, braces on their own lines\" and match the stated counts (6, 9, 9, 9, 22 physical with 4 blank lines, 18 source). Ours executable lines skipped (not in metric list). Microsoft values skipped."
+  },
+  {
+    "example": "4",
+    "title": "strings and comments inside strings",
+    "code": "var a = @\"line1\n// not a comment\nline3\";\nvar b = \"\"\"\n    raw /* not a comment */\n\n    \"\"\";\n// real comment\nvar c = 1; /* t */ // u\n",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 9
+      },
+      {
+        "member": "<file>",
+        "metric": "blankLines",
+        "value": 0
+      },
+      {
+        "member": "<file>",
+        "metric": "commentLines",
+        "value": 2
+      },
+      {
+        "member": "<file>",
+        "metric": "mixedLines",
+        "value": 1
+      },
+      {
+        "member": "<file>",
+        "metric": "sourceLines",
+        "value": 8
+      }
+    ],
+    "notes": "Not wrapped: top-level statements in the file. Entry: Ours code/comment/blank 8/1/0 (lines 1-7 are inside tokens, 9 is mixed, 8 is the only comment-only line), so commentLines (overlap counter) = 1 + 1 mixed = 2 by the definition used in Example 1; the entry does not state commentLines for this example, so that value is our derivation. The blank line 6 inside the raw string is code, not blank. Annotation markers \"// N\" removed; line 6 is empty."
+  },
+  {
+    "example": "5",
+    "title": "directives and inactive code (DEBUG not defined)",
+    "code": "#region Helpers\n#if DEBUG\n    Log(\"x\");\n#else\n    // release\n    Log(\"y\");\n#endif\n#endregion\n",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 8
+      },
+      {
+        "member": "<file>",
+        "metric": "blankLines",
+        "value": 0
+      },
+      {
+        "member": "<file>",
+        "metric": "commentLines",
+        "value": 1
+      },
+      {
+        "member": "<file>",
+        "metric": "mixedLines",
+        "value": 0
+      },
+      {
+        "member": "<file>",
+        "metric": "sourceLines",
+        "value": 6
+      },
+      {
+        "member": "<file>",
+        "metric": "directiveLines",
+        "value": 5
+      },
+      {
+        "member": "<file>",
+        "metric": "inactiveLines",
+        "value": 1
+      }
+    ],
+    "notes": "Not wrapped. Ours with no symbols defined: source 6 (five directive lines plus line 6), comment 1 (line 5), inactive 1 (line 3), physical 8. The DEBUG-defined variant (source 6, inactive 2, comment 0) needs a symbol list and is skipped. directiveLines 5 is our count (lines 1,2,4,7,8) from \"five directive lines\"."
+  },
+  {
+    "example": "7a",
+    "title": "empty file",
+    "code": "",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 0
+      }
+    ],
+    "notes": "Entry: 0."
+  },
+  {
+    "example": "7b",
+    "title": "no terminator",
+    "code": "a;",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 1
+      }
+    ],
+    "notes": "Entry: 1. Top-level statement."
+  },
+  {
+    "example": "7c",
+    "title": "CRLF between two lines",
+    "code": "a;\r\nb;",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 2
+      }
+    ],
+    "notes": "Entry: 2."
+  },
+  {
+    "example": "7d",
+    "title": "final CRLF",
+    "code": "a;\r\nb;\r\n",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 2
+      }
+    ],
+    "notes": "Entry: 2, no extra line."
+  },
+  {
+    "example": "7e",
+    "title": "trailing blank line",
+    "code": "a;\n\n",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 2
+      },
+      {
+        "member": "<file>",
+        "metric": "blankLines",
+        "value": 1
+      }
+    ],
+    "notes": "Entry: 2, line 2 is blank (blankLines 1 is our reading)."
+  },
+  {
+    "example": "7f",
+    "title": "LF then CR",
+    "code": "a;\n\r",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 2
+      }
+    ],
+    "notes": "Entry: LF and CR are two terminators, 2 lines. blankLines not stated (second line is empty; likely 1), skipped."
+  },
+  {
+    "example": "7g",
+    "title": "BOM then comment",
+    "code": "﻿// c\nint x;",
+    "expect": [
+      {
+        "member": "<file>",
+        "metric": "physicalLines",
+        "value": 2
+      },
+      {
+        "member": "<file>",
+        "metric": "commentLines",
+        "value": 1
+      }
+    ],
+    "notes": "Entry: BOM skipped, line 1 is a comment, 2 lines. The code string starts with the U+FEFF character itself (a harness that reads bytes should prepend EF BB BF instead)."
+  }
+]

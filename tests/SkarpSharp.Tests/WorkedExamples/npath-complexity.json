@@ -1,0 +1,222 @@
+[
+  {
+    "example": "1",
+    "title": "sequential ifs",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool a, bool b, bool c) { if (a) X(); if (b) X(); if (c) X(); }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 8
+      }
+    ],
+    "notes": "Ours (paths) 8."
+  },
+  {
+    "example": "2-k3",
+    "title": "exponential growth k=3",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b) { if (b) { } if (b) { } if (b) { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 8
+      }
+    ],
+    "notes": "Snippet reconstructed from \"k sequential if (b) { }\"."
+  },
+  {
+    "example": "2-k10",
+    "title": "exponential growth k=10",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b) { if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 1024
+      }
+    ],
+    "notes": "Snippet reconstructed."
+  },
+  {
+    "example": "2-k31",
+    "title": "exponential growth k=31",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b) { if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 2147483648
+      }
+    ],
+    "notes": "Ours (saturating long) 2147483648; must not be capped at int range. Snippet reconstructed."
+  },
+  {
+    "example": "2-k64",
+    "title": "exponential growth k=64 saturates",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b) { if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 9223372036854775807
+      }
+    ],
+    "notes": "Ours saturates at long.MaxValue 9223372036854775807 (number exceeds JavaScript safe integers: read as Int64). Snippet reconstructed."
+  },
+  {
+    "example": "3",
+    "title": "guard clauses with early return",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint M(int x) {\n  if (x == 0) return 0;  if (x == 1) return 1;  if (x == 2) return 2;  if (x == 3) return 3;  if (x == 4) return 4;\n  if (x == 5) return 5;  if (x == 6) return 6;  if (x == 7) return 7;  if (x == 8) return 8;  if (x == 9) return 9;\n  return x;\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 11
+      }
+    ],
+    "notes": "Ours 11."
+  },
+  {
+    "example": "4",
+    "title": "boolean operators in a condition",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool a, bool b, bool c) { if (a && b || c) { X(); } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 5
+      }
+    ],
+    "notes": "Ours 5."
+  },
+  {
+    "example": "5",
+    "title": "ternary",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid P(bool a)                { var t = a ? 1 : 2; }\nvoid Q(bool p, bool q, bool r){ var t = (p && q || r) ? 1 : 2; }\n}\n",
+    "expect": [
+      {
+        "member": "P",
+        "metric": "npath",
+        "value": 2
+      },
+      {
+        "member": "Q",
+        "metric": "npath",
+        "value": 5
+      }
+    ],
+    "notes": "Ours."
+  },
+  {
+    "example": "6",
+    "title": "switch statement with and without default",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint M(int x) { switch (x) { case 1: case 2: return 10; case 3: return 20; default: return 0; } }   // M\nint P(int x) { switch (x) { case 1: return 1; } return 0; }                                           // P\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 4
+      },
+      {
+        "member": "P",
+        "metric": "npath",
+        "value": 2
+      }
+    ],
+    "notes": "Ours: M = 2 + 1 + 1, P has the implicit default path."
+  },
+  {
+    "example": "7",
+    "title": "three switches in a loop (Checkstyle doc example)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(int b) {\n  for (int i = 0; i < b; i++) {\n    switch (i)     { case 1: Print(F(i) && G(i) ? Bar() : Baz()); break; default: Print(F(i) || G(i) ? Bar() : Baz()); break; }\n    switch (i - 1) { case 1: Print(F(i) && G(i) ? Bar() : Baz()); break; default: Print(F(i) || G(i) ? Bar() : Baz()); break; }\n    switch (i + 1) { case 1: Print(F(i) && G(i) ? Bar() : Baz()); break; default: Print(F(i) || G(i) ? Bar() : Baz()); break; }\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 217
+      }
+    ],
+    "notes": "Ours 217 (derived, \"paths\" mode)."
+  },
+  {
+    "example": "8",
+    "title": "loops, break and continue",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(List<C> cs) { foreach (var c in cs) { if (c.A == 0) c.A = 1; if (c.B == 0) c.B = 1; if (c.C == 0) c.C = 1; if (c.D == 0) c.D = 1; } }   // M\nvoid N(List<C> cs) { foreach (var c in cs) { if (c.A == 0) continue; if (c.B == 0) c.B = 1; if (c.C == 0) break; if (c.D == 0) c.D = 1; } }   // N\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 17
+      },
+      {
+        "member": "N",
+        "metric": "npath",
+        "value": 8
+      }
+    ],
+    "notes": "Ours."
+  },
+  {
+    "example": "9",
+    "title": "try and catch",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M() { try { Work(); } catch (IOException) { Log(); } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 2
+      }
+    ],
+    "notes": "Ours 2 (design choice: catch is an alternative path); partly unverified per the entry."
+  },
+  {
+    "example": "10",
+    "title": "Axivion documentation example",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool t) {\n  if (t) { } else { }       // 2\n  if (t) { } else { }       // 2\n  if (t) { }                // 2\n  if (t) { }                // 2\n  if (t) { if (t) { } }     // 3\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 48
+      }
+    ],
+    "notes": "Ours 48 (derived)."
+  },
+  {
+    "example": "11",
+    "title": "switch expression and null operators",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nstring M(int x) => x switch { 1 or 2 => \"a\", > 10 and < 20 => \"b\", _ => \"c\" };   // arms: 2 + 1 + 1 alternatives\nint?  N(C a, C b) => a?.V ?? b?.V;                                                   // ?. , ??, ?.\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 4
+      },
+      {
+        "member": "N",
+        "metric": "npath",
+        "value": 4
+      }
+    ],
+    "notes": "Both are proposals, not oracles (entry: rules for ?. links and ?? are a design choice, E5)."
+  },
+  {
+    "example": "12",
+    "title": "lambda inside a method",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nAction M(int x) { Action f = () => { if (x == 0) Y(); }; return f; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "npath",
+        "value": 1
+      },
+      {
+        "member": "M/lambda1",
+        "metric": "npath",
+        "value": 2
+      }
+    ],
+    "notes": "Ours: 1 for M, sub-record 2 for the lambda."
+  }
+]

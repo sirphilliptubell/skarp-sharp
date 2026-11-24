@@ -1,0 +1,5 @@
+::notice file=tests/SkarpSharp.Tests/Golden/sample/Program.cs,line=3,title=skarp deep-nesting::<top-level>: nesting depth 4 (over 3) [new]. Code nested many levels deep forces the reader to keep every enclosing condition in mind.
+::notice file=tests/SkarpSharp.Tests/Golden/sample/src/OrderBook.cs,line=45,title=skarp long-method::OrderBook.Describe: 25 physical lines (over 20) [worsened from 22]. A long member usually does several things; it is harder to read, name, test and reuse.
+skarp: 2 new or worsened findings; 2 annotated.
+::error title=skarp gate::gate tripped: 1 new and 1 worsened findings in the gate set (*:*). Fix them, or accept them with `skarp baseline` and commit .skarp-baseline.json (exit code 3).
+skarp semantic: not evaluated: no .sln or .slnx file found (the semantic tier needs a solution; pass one with --solution <file> or use --no-semantic)

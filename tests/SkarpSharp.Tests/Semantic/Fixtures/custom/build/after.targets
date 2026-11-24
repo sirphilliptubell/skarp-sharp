@@ -1,0 +1,6 @@
+<Project>
+  <!-- Repository build logic imported through CustomAfterMicrosoftCommonTargets: a source file outside the project folder. -->
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)../shared/Extra.cs" />
+  </ItemGroup>
+</Project>

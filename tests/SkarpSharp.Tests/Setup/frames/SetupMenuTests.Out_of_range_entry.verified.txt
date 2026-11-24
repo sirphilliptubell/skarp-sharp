@@ -1,0 +1,110 @@
+=== frame 3 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|History  (the gate ignores system and personal settings)
+>|>  history.enabled             true                    Skarp default
+ |   history.window              12                      Skarp default
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Read git history (activity, hotspots); off is faster. Key: history.enabled.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 5 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|History  (the gate ignores system and personal settings)
+ |   history.enabled             true                    Skarp default
+>|>  history.window              12                      Skarp default
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Months of history read, ending at the last commit. Range: 1 to 1200. Key:
+ |history.window.
+ |
+ |
+ |history.window (1 to 1200): _
+=== frame 10 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|History  (the gate ignores system and personal settings)
+ |   history.enabled             true                    Skarp default
+>|>  history.window              12                      Skarp default
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+!|history.window: 2000 is out of range (1 to 1200)
+ |
+ |
+ |
+ |history.window (1 to 1200): 2000_
+=== frame 16 after Enter
+H|Skarp setup  personal  machine/personal.json  1 changed
+.|History  (the gate ignores system and personal settings)
+ |   history.enabled             true                    Skarp default
+>|> *history.window              6                       set here
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Months of history read, ending at the last commit. Range: 1 to 1200. Key:
+ |history.window.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 17 after Esc
+H|Skarp setup  personal  machine/personal.json  1 changed
+.|Sections  (the gate ignores system and personal settings)
+ |  Rules       0 set here
+ |  Thresholds  0 set here
+>|> History     1 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+ |  General     0 set here
+ |  Reset everything (empty this level to { "version": 1 })
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |How much git history is read and which commits count.
+ |
+ |
+ |
+.|Up/Down move  Enter open  s save  Esc quit
+=== frame 18 after Esc
+H|Skarp setup  personal  machine/personal.json  1 changed
+.|Sections  (the gate ignores system and personal settings)
+ |  Rules       0 set here
+ |  Thresholds  0 set here
+>|> History     1 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+ |  General     0 set here
+ |  Reset everything (empty this level to { "version": 1 })
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |How much git history is read and which commits count.
+ |
+ |
+ |
+ |Quit without saving? (y/n)

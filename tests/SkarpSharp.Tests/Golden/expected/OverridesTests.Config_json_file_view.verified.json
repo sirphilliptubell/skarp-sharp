@@ -1,0 +1,366 @@
+{
+  "overrides": [
+    {
+      "index": 0,
+      "files": [
+        "src/Legacy/**"
+      ],
+      "excludeFiles": [
+        "src/Legacy/Keep/**"
+      ],
+      "rules": {
+        "magic-number": true
+      },
+      "thresholds": {
+        "long-method": {
+          "notice": 100
+        }
+      },
+      "matched": 1
+    },
+    {
+      "index": 1,
+      "files": [
+        "**/*.Gen.cs"
+      ],
+      "rules": {
+        "long-method": false,
+        "complex-method": false
+      },
+      "matched": 1
+    },
+    {
+      "index": 2,
+      "tests": true,
+      "thresholds": {
+        "complex-method": {
+          "notice": 25
+        }
+      },
+      "matched": 0
+    },
+    {
+      "index": 3,
+      "files": [
+        "tools/**"
+      ],
+      "rules": {
+        "empty-catch": false
+      },
+      "matched": 0
+    }
+  ],
+  "file": {
+    "path": "src/New.cs",
+    "testCode": false,
+    "overrides": [],
+    "rules": [
+      {
+        "rule": "complex-method",
+        "part": "notice",
+        "value": "cognitive over 15",
+        "origin": "preset default"
+      },
+      {
+        "rule": "complex-method",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "deep-nesting",
+        "part": "notice",
+        "value": "nesting over 3",
+        "origin": "preset default"
+      },
+      {
+        "rule": "deep-nesting",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "long-method",
+        "part": "notice",
+        "value": "physicalLines over 12",
+        "origin": "repository"
+      },
+      {
+        "rule": "long-method",
+        "part": "warning",
+        "value": "physicalLines over 70",
+        "origin": "preset default"
+      },
+      {
+        "rule": "large-type",
+        "part": "notice",
+        "value": "sourceLines over 100 or wmc over 20",
+        "origin": "preset default"
+      },
+      {
+        "rule": "large-type",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "large-file",
+        "part": "notice",
+        "value": "sourceLines over 1000",
+        "origin": "preset default"
+      },
+      {
+        "rule": "large-file",
+        "part": "warning",
+        "value": "sourceLines over 5000",
+        "origin": "preset default"
+      },
+      {
+        "rule": "too-many-parameters",
+        "part": "notice",
+        "value": "parameters over 4 or constructorParameters over 5",
+        "origin": "preset default"
+      },
+      {
+        "rule": "too-many-parameters",
+        "part": "warning",
+        "value": "parameters at least 8",
+        "origin": "preset default"
+      },
+      {
+        "rule": "path-explosion",
+        "part": "notice",
+        "value": "npath over 200",
+        "origin": "preset default"
+      },
+      {
+        "rule": "path-explosion",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "active-complex-file",
+        "part": "notice",
+        "value": "activityShare at least 4",
+        "origin": "preset default"
+      },
+      {
+        "rule": "active-complex-file",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "active-complex-file",
+        "part": "share",
+        "value": "4",
+        "origin": "preset default"
+      },
+      {
+        "rule": "bumpy-road",
+        "part": "notice",
+        "value": "bumps at least 2",
+        "origin": "preset default"
+      },
+      {
+        "rule": "bumpy-road",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "bumpy-road",
+        "part": "depth",
+        "value": "2",
+        "origin": "preset default"
+      },
+      {
+        "rule": "complex-condition",
+        "part": "notice",
+        "value": "booleanOperators at least 2",
+        "origin": "preset default"
+      },
+      {
+        "rule": "complex-condition",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "empty-catch",
+        "part": "notice",
+        "value": "structural",
+        "origin": "preset default"
+      },
+      {
+        "rule": "empty-catch",
+        "part": "warning",
+        "value": "structural",
+        "origin": "preset default"
+      },
+      {
+        "rule": "magic-number",
+        "part": "on/off",
+        "value": "off",
+        "origin": "repository"
+      },
+      {
+        "rule": "duplicate-code",
+        "part": "notice",
+        "value": "tokens at least 100 and lines at least 10",
+        "origin": "preset default"
+      },
+      {
+        "rule": "duplicate-code",
+        "part": "warning",
+        "value": "lines at least 50 or copies at least 3",
+        "origin": "preset default"
+      },
+      {
+        "rule": "duplicate-code",
+        "part": "copyLines",
+        "value": "20",
+        "origin": "preset default"
+      },
+      {
+        "rule": "duplicate-code",
+        "part": "lowContent",
+        "value": "skip",
+        "origin": "preset default"
+      },
+      {
+        "rule": "duplicate-code-near",
+        "part": "notice",
+        "value": "similarity at least 0.75 and lines at least 10",
+        "origin": "preset default"
+      },
+      {
+        "rule": "duplicate-code-near",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "suppression-without-justification",
+        "part": "notice",
+        "value": "structural",
+        "origin": "preset default"
+      },
+      {
+        "rule": "suppression-without-justification",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "high-coupling",
+        "part": "notice",
+        "value": "cbo over 20",
+        "origin": "preset default"
+      },
+      {
+        "rule": "high-coupling",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "god-class",
+        "part": "notice",
+        "value": "WMC at least 47, ATFD over 5, TCC below 1/3",
+        "origin": "preset default"
+      },
+      {
+        "rule": "god-class",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "god-class",
+        "part": "preset",
+        "value": "lanza-marinescu-2006",
+        "origin": "preset default"
+      },
+      {
+        "rule": "unused-member",
+        "part": "notice",
+        "value": "structural",
+        "origin": "preset default"
+      },
+      {
+        "rule": "unused-member",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "unused-type",
+        "part": "notice",
+        "value": "structural",
+        "origin": "preset default"
+      },
+      {
+        "rule": "unused-type",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "used-only-by-tests",
+        "part": "notice",
+        "value": "structural",
+        "origin": "preset default"
+      },
+      {
+        "rule": "used-only-by-tests",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "unread-member",
+        "part": "notice",
+        "value": "structural",
+        "origin": "preset default"
+      },
+      {
+        "rule": "unread-member",
+        "part": "warning",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "namespace-cycle",
+        "part": "notice",
+        "value": "blank",
+        "origin": "preset default"
+      },
+      {
+        "rule": "namespace-cycle",
+        "part": "warning",
+        "value": "structural",
+        "origin": "preset default"
+      },
+      {
+        "rule": "brain-method",
+        "part": "on/off",
+        "value": "on (composite)",
+        "origin": "default"
+      },
+      {
+        "rule": "brain-method",
+        "part": "minParts",
+        "value": "all",
+        "origin": "preset default"
+      },
+      {
+        "rule": "brain-method",
+        "part": "parts",
+        "value": "long-method,complex-method,deep-nesting",
+        "origin": "preset default"
+      }
+    ]
+  }
+}

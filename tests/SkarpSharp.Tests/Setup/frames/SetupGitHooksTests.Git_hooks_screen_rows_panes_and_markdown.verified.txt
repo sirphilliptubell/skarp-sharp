@@ -1,0 +1,367 @@
+=== frame 0 after (start)
+H|Skarp setup  Git hooks  local git config  .git/config
+.|not installed; baseline missing; a applies through skarp install git-hooks
+>|>  commit hook        on (always)
+ |   push hook          off
+ |   semantic for push  off
+ |   install as         local (this clone's git config)
+ |   strict             off
+ |   program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |Before each commit: skarp check --staged --gate blocks staged C# files that are
+ |worse than the staged baseline. --no-verify skips it; CI stays the gate. No
+ |baseline yet: everything passes until one is committed (skarp baseline .).
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 1 after Down
+H|Skarp setup  Git hooks  local git config  .git/config
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+>|>  push hook          off
+ |   semantic for push  off
+ |   install as         local (this clone's git config)
+ |   strict             off
+ |   program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |Before each push (--pre-push): skarp analyze --gate on the checkout when HEAD
+ |is pushed; covers duplicate code, merges and rebases. Slower.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 2 after Space
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+>|> *push hook          on
+ |   semantic for push  off
+ |   install as         local (this clone's git config)
+ |   strict             off
+ |   program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |Before each push (--pre-push): skarp analyze --gate on the checkout when HEAD
+ |is pushed; covers duplicate code, merges and rebases. Slower.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 3 after Down
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+>|>  semantic for push  off
+ |   install as         local (this clone's git config)
+ |   strict             off
+ |   program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |--semantic: the push hook keeps the semantic tier (a build; slow).
+ |
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 4 after Space
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+>|> *semantic for push  on
+ |   install as         local (this clone's git config)
+ |   strict             off
+ |   program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |--semantic: the push hook keeps the semantic tier (a build; slow).
+ |
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 5 after Down
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+>|>  install as         local (this clone's git config)
+ |   strict             off
+ |   program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |Local: this clone's git config, only for you. Shared: Skarp's block in
+ |.githooks/ (committed; each clone sets core.hooksPath), or a hook manager's
+ |snippet to add by hand.
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 6 after Down
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+>|>  strict             off
+ |   program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |--strict: block when Skarp is not found (off: let it through with one line).
+ |
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 7 after Space
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+>|> *strict             on
+ |   program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |--strict: block when Skarp is not found (off: let it through with one line).
+ |
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 8 after Down
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|>  program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs (--command): skarp from PATH, or a path such as
+ |C:/Tools/skarp.exe; empty means skarp.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 9 after Enter
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|>  program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs: skarp from PATH, or a path.
+ |
+ |
+ |
+.|program (empty: skarp): skarp_
+=== frame 10 after End
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|>  program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs: skarp from PATH, or a path.
+ |
+ |
+ |
+.|program (empty: skarp): skarp_
+=== frame 11 after Backspace
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|>  program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs: skarp from PATH, or a path.
+ |
+ |
+ |
+.|program (empty: skarp): skar_
+=== frame 12 after Backspace
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|>  program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs: skarp from PATH, or a path.
+ |
+ |
+ |
+.|program (empty: skarp): ska_
+=== frame 13 after Backspace
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|>  program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs: skarp from PATH, or a path.
+ |
+ |
+ |
+.|program (empty: skarp): sk_
+=== frame 14 after Backspace
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|>  program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs: skarp from PATH, or a path.
+ |
+ |
+ |
+.|program (empty: skarp): s_
+=== frame 15 after Backspace
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|>  program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs: skarp from PATH, or a path.
+ |
+ |
+ |
+.|program (empty: skarp): _
+=== frame 16 after X
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|>  program            skarp
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs: skarp from PATH, or a path.
+ |
+ |
+ |
+.|program (empty: skarp): X_
+=== frame 17 after Enter
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+>|> *program            X
+ |   Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |The program git runs (--command): skarp from PATH, or a path such as
+ |C:/Tools/skarp.exe; empty means skarp.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 18 after Down
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|not installed; baseline missing; a applies through skarp install git-hooks
+ |   commit hook        on (always)
+ |  *push hook          on
+ |  *semantic for push  on
+ |   install as         local (this clone's git config)
+ |  *strict             on
+ |  *program            X
+>|>  Remove Skarp's git hooks
+.|  1-7 of 7
+.|------------------------------------------------------------------------------
+ |skarp install git-hooks --remove (with shared: the block in .githooks/). Enter
+ |switches it; a applies, s prints.
+ |
+ |
+.|Up/Down move  Enter change  Del default  a apply  s show command  Esc back
+=== frame 19 after s
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|Show the command for which shell?
+>|> PowerShell
+ |  cmd
+ |  bash/sh
+ |  All (Markdown)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |Windows PowerShell 5.1 and PowerShell 7: values in single quotes. A value with
+ |" is left out with a note.
+ |
+ |
+.|Up/Down move  Enter show  Esc back
+=== frame 20 after End
+H|Skarp setup  Git hooks  local git config  .git/config  changed
+.|Show the command for which shell?
+ |  PowerShell
+ |  cmd
+ |  bash/sh
+>|> All (Markdown)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |All three as a Markdown section with one code block per shell, for docs or CI
+ |notes.
+ |
+ |
+.|Up/Down move  Enter show  Esc back
+=== summary
+
+=== print
+**Skarp command** (run from {repo})
+
+```powershell
+skarp install git-hooks --pre-push --semantic --strict --command X
+```
+
+```bat
+skarp install git-hooks --pre-push --semantic --strict --command X
+```
+
+```sh
+skarp install git-hooks --pre-push --semantic --strict --command X
+```

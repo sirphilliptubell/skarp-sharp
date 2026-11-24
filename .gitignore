@@ -424,3 +424,6 @@ FodyWeavers.xsd
 
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
+
+# Skarp's own run data (last run, tracking state) written under the analyzed folder.
+.skarp/

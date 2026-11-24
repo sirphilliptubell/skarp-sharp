@@ -1,0 +1,76 @@
+=== frame 3 after Esc
+H|Skarp setup  personal  machine/personal.json  1 changed
+.|Sections  (the gate ignores system and personal settings)
+>|> Rules       1 set here
+ |  Thresholds  0 set here
+ |  History     0 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+ |  General     0 set here
+ |  Reset everything (empty this level to { "version": 1 })
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |Switch rules on or off.
+ |
+ |
+ |
+.|Up/Down move  Enter open  s save  Esc quit
+=== frame 4 after Esc
+H|Skarp setup  personal  machine/personal.json  1 changed
+.|Sections  (the gate ignores system and personal settings)
+>|> Rules       1 set here
+ |  Thresholds  0 set here
+ |  History     0 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+ |  General     0 set here
+ |  Reset everything (empty this level to { "version": 1 })
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |Switch rules on or off.
+ |
+ |
+ |
+ |Quit without saving? (y/n)
+=== frame 5 after n
+H|Skarp setup  personal  machine/personal.json  1 changed
+.|Sections  (the gate ignores system and personal settings)
+>|> Rules       1 set here
+ |  Thresholds  0 set here
+ |  History     0 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+ |  General     0 set here
+ |  Reset everything (empty this level to { "version": 1 })
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |Switch rules on or off.
+ |
+ |
+ |
+.|Up/Down move  Enter open  s save  Esc quit
+=== frame 6 after Esc
+H|Skarp setup  personal  machine/personal.json  1 changed
+.|Sections  (the gate ignores system and personal settings)
+>|> Rules       1 set here
+ |  Thresholds  0 set here
+ |  History     0 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       0 set here
+ |  Lists       0 set here
+ |  General     0 set here
+ |  Reset everything (empty this level to { "version": 1 })
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |Switch rules on or off.
+ |
+ |
+ |
+ |Quit without saving? (y/n)

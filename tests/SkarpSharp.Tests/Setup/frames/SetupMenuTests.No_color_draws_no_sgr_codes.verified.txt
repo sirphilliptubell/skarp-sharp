@@ -1,0 +1,18 @@
+<ESC>[?25l<CR><ESC>[2KSkarp setup  personal  machine/personal.json  0 changed
+<CR><ESC>[2KSections  (the gate ignores system and personal settings)
+<CR><ESC>[2K> Rules       0 set here
+<CR><ESC>[2K  Thresholds  0 set here
+<CR><ESC>[2K  History     0 set here
+<CR><ESC>[2K  Score       0 set here
+<CR><ESC>[2K  Semantic    0 set here
+<CR><ESC>[2K  Agent       0 set here
+<CR><ESC>[2K  Lists       0 set here
+<CR><ESC>[2K  General     0 set here
+<CR><ESC>[2K  Reset everything (empty this level to { "version": 1 })
+<CR><ESC>[2K  1-9 of 9
+<CR><ESC>[2K------------------------------------------------------------------------------
+<CR><ESC>[2KSwitch rules on or off.
+<CR><ESC>[2K
+<CR><ESC>[2K
+<CR><ESC>[2K
+<CR><ESC>[2KUp/Down move  Enter open  s save  Esc quit<ESC>[?25h

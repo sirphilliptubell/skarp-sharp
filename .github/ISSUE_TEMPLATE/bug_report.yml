@@ -1,0 +1,62 @@
+name: Bug report
+description: Skarp crashed, gave a wrong result, or behaved unexpectedly.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not paste private or proprietary code. Use a small sample you can share, or describe the shape of the code instead.
+        To report a security problem, use "Report a vulnerability" on the Security tab instead of this form.
+  - type: input
+    id: version
+    attributes:
+      label: Skarp version
+      description: The output of `skarp --version`.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Windows 11, Ubuntu 24.04, macOS 15
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How did you install Skarp?
+      options:
+        - dotnet tool install (NuGet)
+        - Built from source
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and flags
+      description: The exact command you ran.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include the output or error message.
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Small sample
+      description: A minimal C# file or settings file that shows the problem, if you can share one.
+      render: text
+    validations:
+      required: false

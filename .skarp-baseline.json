@@ -1,0 +1,1391 @@
+{
+  "version": 1,
+  "type": "baseline",
+  "toolVersion": "0.0.0-alpha.0.2",
+  "preset": "default",
+  "complexMetric": "cognitive",
+  "longMethodLines": "physical",
+  "settingsFingerprint": "b8efa9b9eebdbd8e",
+  "commit": "7956167c4c3e8b8e41e8380426b2cc4c849a13f6",
+  "csharpCommits": 1,
+  "files": {
+    "src/SkarpSharp.Cli/Program.cs": [],
+    "src/SkarpSharp.Core/Agent/AboutRhythm.cs": [],
+    "src/SkarpSharp.Core/Agent/AgentFormat.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Agent.AgentFormat", "value": 35 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.AgentLine", "value": 26 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.AgentFormat::Restore", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/Agent/AgentModel.cs": [],
+    "src/SkarpSharp.Core/Agent/AgentSummary.cs": [],
+    "src/SkarpSharp.Core/Agent/ChangedFiles.cs": [
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.ChangedFiles::Parse", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Agent/CheckRecords.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.CheckRecords::ReadAll", "value": 2 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Agent.CheckRecords::ReadAll" }
+    ],
+    "src/SkarpSharp.Core/Agent/CheckRun.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Agent.CheckRun::Compare", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Agent.CheckRun::Stop", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.CheckRun::AgainstOrigin", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.CheckRun::Compare", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Agent.CheckRun::Compare", "value": 27 },
+      { "rule": "complex-method", "place": "SkarpSharp.Agent.CheckRun::FixedComposites", "value": 19 },
+      { "rule": "complex-method", "place": "SkarpSharp.Agent.CheckRun::Stop", "value": 21 },
+      { "rule": "complex-method", "place": "SkarpSharp.Agent.CheckRun::TrackedAsync", "value": 19 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Agent.CheckRun::Record" },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.CheckRun", "value": 376 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.CheckRun::PlaceOf", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.CheckRun::RunAsync", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Agent.CheckRun::Compare", "value": 1190 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Agent.CheckRun::Stop", "value": 403 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Agent.CheckRun::TrackedAsync", "value": 52500 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::AgainstBaseline", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::AgainstBaselineFile", "value": 7 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::AgainstEarlier", "value": 7 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::BaselineHealth", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::Compare", "value": 7 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::Current", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::Earlier", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::Finish", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::FixedComposites", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::Record", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::TrackedAsync", "value": 7 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckRun::TrackedHealth", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Agent/CheckText.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Agent.CheckText::Lines", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.CheckText::Lines", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.CheckText::Preamble", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.CheckText::Verdict", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Agent.CheckText::Lines", "value": 30 },
+      { "rule": "complex-method", "place": "SkarpSharp.Agent.CheckText::Verdict", "value": 37 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.CheckText", "value": 126 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.CheckText+Group::Delta.get", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.CheckText::Groups/lambda1", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.CheckText::Lines", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Agent.CheckText::Lines", "value": 2103841 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Agent.CheckText::Verdict", "value": 1095 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CheckText::Preamble", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Agent/CompositeLines.cs": [
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.CompositeLines::Apply", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Agent/FileCheck.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Agent.FileCheck", "value": 22 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.FileCheck::Analyze", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.FileCheck::Analyze#2", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Agent/HeadFiles.cs": [],
+    "src/SkarpSharp.Core/Agent/HealthLines.cs": [
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.HealthLines::New", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/Agent/HealthNote.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Agent.HealthNote::NoticeOnly", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.HealthMark::Apply", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.HealthNote::NoticeOnly", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.HealthNote", "value": 38 }
+    ],
+    "src/SkarpSharp.Core/Agent/HookReport.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.HookReport::FromAnalysis", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.HookReport::Passed", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Agent.HookReport::Blocked", "value": 18 },
+      { "rule": "complex-method", "place": "SkarpSharp.Agent.HookReport::Passed", "value": 19 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Agent.HookReport::Blocked", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.HookReport", "value": 181 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.HookItem", "value": 7 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.HookReport::Group", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Agent/LastRun.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Agent.LastRun::Save", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.LastRun::Save", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.Paths::Retry", "value": 2 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Agent.LastRun::TryDelete" },
+      { "rule": "empty-catch", "place": "SkarpSharp.Agent.Paths::EnsureSkarpFolder" },
+      { "rule": "empty-catch", "place": "SkarpSharp.Agent.Paths::WriteAtomic" },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.LastRun", "value": 38 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.Paths", "value": 24 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.LastRun::Save", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.Paths::Retry", "value": 2 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.LastRun::Save", "value": 7 }
+    ],
+    "src/SkarpSharp.Core/Agent/LimitMark.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.LimitMark::Apply", "value": 2 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.EditLimits::Start", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Agent/SessionFiles.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Agent.SessionFiles::Load", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.SessionFiles::Said", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.SessionFiles", "value": 44 }
+    ],
+    "src/SkarpSharp.Core/Agent/ShowData.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Agent.Join::FromLastRun", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.Join::Entry", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.Join::FromBaseline", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.Join::FromLastRun", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Agent.Join::FromLastRun", "value": 42 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Agent.Join::FromBaseline" },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.Join", "value": 162 },
+      { "rule": "long-method", "place": "SkarpSharp.Agent.Join::FromLastRun", "value": 67 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.Join::Add", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.Join::StaleLine", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Agent.Join::Add", "value": 4609 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Agent.Join::FromLastRun", "value": 510384 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.Join::Add", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.Join::Entry", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Agent/ShowFindings.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.ShowFindings::RootRelative", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.ShowFindings", "value": 101 }
+    ],
+    "src/SkarpSharp.Core/Agent/ShowText.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Agent.ShowText::Write", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.ShowText::Line", "value": 3 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.ShowText", "value": 39 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Agent.ShowText::Write", "value": 2268 }
+    ],
+    "src/SkarpSharp.Core/Agent/ShownLines.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.ShownLines::Score", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.ShownLines", "value": 27 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.ShownLines::Score", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Agent/StagedCheck.cs": [],
+    "src/SkarpSharp.Core/Agent/StagedIndex.cs": [
+      { "rule": "empty-catch", "place": "SkarpSharp.Agent.StagedIndex::Dispose" },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.StagedIndex", "value": 124 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.StagedIndex::Ask", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Agent/StopFile.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.StopPass::File", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.StopPass", "value": 34 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Agent.StopPass::File", "value": 865 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Agent.StopPass::StopHealth", "value": 7 }
+    ],
+    "src/SkarpSharp.Core/Agent/Tracking.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.TrackingStore::DateOf", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.TrackingStore::Previous", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Agent.TrackingStore::SafeSession", "value": 3 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Agent.TrackingStore::Lock", "value": 4 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Agent.TrackingStore::Cleanup" },
+      { "rule": "empty-catch", "place": "SkarpSharp.Agent.TrackingStore::Lock" },
+      { "rule": "large-type", "place": "SkarpSharp.Agent.TrackingStore", "value": 122 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.TrackingStore::DateOf", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.TrackingStore::Lock", "value": 3 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.TrackingStore::Previous", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Agent.TrackingStore::SafeSession", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Analysis/Aggregation.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Analysis.Aggregation::Fill", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Analysis.Aggregation::BaseViews", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Analysis.Aggregation::BaseViews", "value": 32 },
+      { "rule": "complex-method", "place": "SkarpSharp.Analysis.Aggregation::Fill", "value": 40 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Analysis.Aggregation::BaseViews", "value": 4 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Analysis.Aggregation::Fill", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Analysis.Aggregation", "value": 102 },
+      { "rule": "magic-number", "place": "SkarpSharp.Analysis.Aggregation::Fill", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Analysis.Aggregation::Fill", "value": 1968 }
+    ],
+    "src/SkarpSharp.Core/Analysis/Analyzer.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Analysis.Analyzer::AnalyzeDirectory/lambda5", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Analysis.Analyzer::FindExcluded/lambda4", "value": 2 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Analysis.Analyzer::FindExcluded/lambda4" },
+      { "rule": "large-type", "place": "SkarpSharp.Analysis.Analyzer", "value": 208 },
+      { "rule": "long-method", "place": "SkarpSharp.Analysis.Analyzer::AnalyzeDirectory", "value": 60 },
+      { "rule": "magic-number", "place": "SkarpSharp.Analysis.Analyzer::AnalyzeDirectory", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Analysis.Analyzer::Measure", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Analysis.Analyzer::AnalyzeDirectory", "value": 256 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Analysis.Analyzer::AnalyzeText", "value": 216 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Analysis.Analyzer::Count", "value": 492 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Analysis.Analyzer::AnalyzeText", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Analysis/VariantMerge.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Analysis.VariantMerge+Merger::Number", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Analysis.VariantMerge::Apply", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Analysis.VariantMerge+Merger::Number", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Analysis.VariantMerge::ClassifyChanged", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Analysis.VariantMerge+Merger::Merge", "value": 22 },
+      { "rule": "complex-method", "place": "SkarpSharp.Analysis.VariantMerge+Merger::Number", "value": 25 },
+      { "rule": "complex-method", "place": "SkarpSharp.Analysis.VariantMerge::ClassifyChanged", "value": 62 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Analysis.VariantMerge::ClassifyChanged", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Analysis.VariantMerge", "value": 333 },
+      { "rule": "large-type", "place": "SkarpSharp.Analysis.VariantMerge+Merger", "value": 187 },
+      { "rule": "long-method", "place": "SkarpSharp.Analysis.VariantMerge::ClassifyChanged", "value": 52 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Analysis.VariantMerge+Merger::Merge", "value": 520 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Analysis.VariantMerge+Merger::Number", "value": 12964 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Analysis.VariantMerge+Merger::RaiseCounts", "value": 784 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Analysis.VariantMerge::ClassifyChanged", "value": 1778 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Analysis.VariantMerge::Worsen", "value": 3760672 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Analysis.VariantMerge::ClassifyChanged", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Baselines/Baseline.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Baselines.Baseline::Compare", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Baselines.Baseline::MarkPossiblyRenamed", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Baselines.Baseline::Compare", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Baselines.Baseline::Compare", "value": 30 },
+      { "rule": "large-type", "place": "SkarpSharp.Baselines.Baseline", "value": 145 },
+      { "rule": "long-method", "place": "SkarpSharp.Baselines.Baseline::Compare", "value": 59 },
+      { "rule": "magic-number", "place": "SkarpSharp.Baselines.Baseline::MarkPossiblyRenamed", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Baselines.Baseline::Compare", "value": 10640 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Baselines.Baseline::Compare", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Baselines.Baseline::SettingsFingerprint", "value": 7 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Baselines.Baseline::Write", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Baselines/BaselineDisk.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Baselines.BaselineLayout::AppendBody", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Baselines.BaselineLayout::AppendBody", "value": 17 },
+      { "rule": "large-type", "place": "SkarpSharp.Baselines.BaselineLayout", "value": 42 },
+      { "rule": "magic-number", "place": "SkarpSharp.Baselines.BaselineLayout::AppendBody", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Baselines.BaselineLayout::AppendBody", "value": 468 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Baselines.BaselineLayout::Parse", "value": 582 }
+    ],
+    "src/SkarpSharp.Core/Baselines/SemanticBaseline.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Baselines.SemanticBaseline::Compare", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Baselines.SemanticBaseline::RelationAsync", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Baselines.SemanticBaseline::RelationAsync", "value": 19 },
+      { "rule": "large-type", "place": "SkarpSharp.Baselines.SemanticBaseline", "value": 101 },
+      { "rule": "magic-number", "place": "SkarpSharp.Baselines.SemanticBaseline::Compare", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Baselines.SemanticBaseline::RelationAsync", "value": 2 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Baselines.SemanticBaseline::Compare", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Baselines.SemanticBaseline::Fingerprint", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Clones/CloneCorpus.cs": [
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.CloneCorpus::IdentifierCode", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/Clones/CloneTokens.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Clones.CloneTokens+Builder::Finish", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Clones.CloneTokens+Builder::Token", "value": 4 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Clones.CloneTokens::Value", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Clones.CloneTokens", "value": 264 },
+      { "rule": "large-type", "place": "SkarpSharp.Clones.CloneTokens+Builder", "value": 27 },
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.CloneTokens::Fingerprint", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.StableHash::Combine", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.StableHash::Mix", "value": 6 },
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.StableHash::Text", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/Clones/LowContent.cs": [
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.LowContent::Measure", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Clones/NearMatcher.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Clones.NearMatcher::Find", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Clones.NearMatcher", "value": 118 },
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.NearMatcher+PrefixJoin::Compare", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.NearMatcher+PrefixJoin::Probe", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Clones/TokenMatcher.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Clones.TokenMatcher::Extend", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Clones.TokenMatcher::ExtendPair", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Clones.TokenMatcher::Extend", "value": 17 },
+      { "rule": "complex-method", "place": "SkarpSharp.Clones.TokenMatcher::MemberTrim", "value": 20 },
+      { "rule": "complex-method", "place": "SkarpSharp.Clones.TokenMatcher::Verify", "value": 16 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Clones.TokenMatcher::Verify", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Clones.TokenMatcher", "value": 253 },
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.TokenMatcher::Classes", "value": 4 },
+      { "rule": "magic-number", "place": "SkarpSharp.Clones.TokenMatcher::Covered", "value": 1 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Clones.TokenMatcher::RunWindows", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Commands/CheckCommand.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.CheckCommand::PlainAsync", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.CheckCommand::RunAsync", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.CheckCommand::HookAsync", "value": 16 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.CheckCommand::Parse", "value": 27 },
+      { "rule": "large-type", "place": "SkarpSharp.Commands.CheckCommand", "value": 253 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Commands.CheckCommand::HookAsync", "value": 501 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Commands.CheckCommand::PlainAsync", "value": 222 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Commands.CheckCommand::Answer", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Commands.CheckCommand::Printing", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Commands.CheckCommand::Settings", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Commands/InstallCommand.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Commands.InstallCommand", "value": 122 }
+    ],
+    "src/SkarpSharp.Core/Commands/OwnParsers.cs": [],
+    "src/SkarpSharp.Core/Commands/PushCheck.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Commands.PushCheck", "value": 30 }
+    ],
+    "src/SkarpSharp.Core/Commands/SemanticStage.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Commands.SemanticStage::BaselineAsync", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.SemanticStage::FinishAsync", "value": 4 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.SemanticStage::LeaveOutSuppressed", "value": 2 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Commands.SemanticStage::MissingTierBaseline" },
+      { "rule": "large-type", "place": "SkarpSharp.Commands.SemanticStage", "value": 178 },
+      { "rule": "magic-number", "place": "SkarpSharp.Commands.SemanticStage::FinishAsync", "value": 1 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Commands.SemanticStage::FinishAsync", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Commands/SetupCommand.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Commands.SetupCommand::RunFlags", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.SetupCommand::CheckCommandForm", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.SetupCommand::Open", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.SetupCommand::RunMenu", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.SetupCommand::CheckCommandForm", "value": 17 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.SetupCommand::Parse", "value": 52 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.SetupCommand::RunFlags", "value": 18 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Commands.SetupCommand::Parse", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Commands.SetupCommand", "value": 359 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Commands.SetupCommand::RunFlags", "value": 409 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Commands.SetupCommand::RunMenu", "value": 1168 }
+    ],
+    "src/SkarpSharp.Core/Commands/ShowCommand.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.ShowCommand::Health", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.ShowCommand::Run", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.ShowCommand::Parse", "value": 38 },
+      { "rule": "large-type", "place": "SkarpSharp.Commands.ShowCommand", "value": 231 },
+      { "rule": "magic-number", "place": "SkarpSharp.Commands.ShowCommand::Parse", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Commands.ShowCommand::Source", "value": 1 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Commands.ShowCommand::Detail", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Commands.ShowCommand::List", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Commands/ShowSession.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.ShowSession::Json", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.ShowSession::Run", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.ShowSession::Collect", "value": 17 },
+      { "rule": "large-type", "place": "SkarpSharp.Commands.ShowSession", "value": 127 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Commands.ShowSession::Collect", "value": 264 }
+    ],
+    "src/SkarpSharp.Core/Commands/SkarpCommand.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Commands.SkarpCommand::Analyze", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Commands.SkarpCommand::ConfigOverridesOf", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.SkarpCommand::AnalyzeResultAsync", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.SkarpCommand::ConfigOverridesOf", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.SkarpCommand::HistoryOptions", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.SkarpCommand::RunAsync#2", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.SkarpCommand::Analyze", "value": 34 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.SkarpCommand::AnalyzeResultAsync", "value": 20 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.SkarpCommand::ConfigOverridesOf", "value": 20 },
+      { "rule": "complex-method", "place": "SkarpSharp.Commands.SkarpCommand::RunAsync#2", "value": 27 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Commands.SkarpCommand::HistoryOptions" },
+      { "rule": "large-type", "place": "SkarpSharp.Commands.SkarpCommand", "value": 360 },
+      { "rule": "long-method", "place": "SkarpSharp.Commands.SkarpCommand::Analyze", "value": 55 },
+      { "rule": "long-method", "place": "SkarpSharp.Commands.SkarpCommand::AnalyzeResultAsync", "value": 52 },
+      { "rule": "long-method", "place": "SkarpSharp.Commands.SkarpCommand::RunAsync#2", "value": 57 },
+      { "rule": "magic-number", "place": "SkarpSharp.Commands.SkarpCommand::Analyze", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Commands.SkarpCommand::History", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Commands.SkarpCommand::Analyze", "value": 48252 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Commands.SkarpCommand::AnalyzeResultAsync", "value": 216000 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Commands.SkarpCommand::ApplyHealth", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Commands.SkarpCommand::SaveLastRun", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Commands/StagedCommand.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Commands.StagedCommand::Run", "value": 3 },
+      { "rule": "large-type", "place": "SkarpSharp.Commands.StagedCommand", "value": 22 }
+    ],
+    "src/SkarpSharp.Core/Conditionals/DirectiveMap.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Conditionals.DirectiveMap::Finish", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Conditionals.DirectiveMap::Evaluate", "value": 16 },
+      { "rule": "complex-method", "place": "SkarpSharp.Conditionals.DirectiveMap::Finish", "value": 28 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Conditionals.DirectiveMap::Finish", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Conditionals.DirectiveMap", "value": 161 },
+      { "rule": "magic-number", "place": "SkarpSharp.Conditionals.DirectiveMap::Finish", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Conditionals.DirectiveMap::Evaluate", "value": 240 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Conditionals.DirectiveMap::Finish", "value": 280 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Conditionals.DirectiveMap::Add", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Conditionals/ProjectSymbols.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Conditionals.ProjectSymbols::Scan", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Conditionals.ProjectSymbols::AddWords", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Conditionals.ProjectSymbols::Scan", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Conditionals.ProjectSymbols", "value": 28 }
+    ],
+    "src/SkarpSharp.Core/Conditionals/SdkSymbols.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Conditionals.SymbolClassifier::Classify", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Conditionals.SymbolClassifier::Classify", "value": 18 },
+      { "rule": "large-type", "place": "SkarpSharp.Conditionals.SdkSymbols", "value": 25 },
+      { "rule": "large-type", "place": "SkarpSharp.Conditionals.SymbolClassifier", "value": 23 }
+    ],
+    "src/SkarpSharp.Core/Conditionals/VariantPlanner.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::Classify", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::ClassifyInactive", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::Place", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::PlanSetting", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::Classify", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::Classify", "value": 22 },
+      { "rule": "complex-method", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::PlanSetting", "value": 24 },
+      { "rule": "complex-method", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::Solve", "value": 19 },
+      { "rule": "large-type", "place": "SkarpSharp.Conditionals.VariantPlanner", "value": 311 },
+      { "rule": "large-type", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner", "value": 288 },
+      { "rule": "magic-number", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::AddCovering", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::Tiers", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::Classify", "value": 4464 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Conditionals.VariantPlanner+Planner::PlanSetting", "value": 432 }
+    ],
+    "src/SkarpSharp.Core/Configuration/CommandLine.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Configuration.CommandLine::Parse#2", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.CommandLine::ApplyFileVariants", "value": 4 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.CommandLine::ApplyFlag", "value": 4 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.CommandLine::Parse#2", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.CommandLine::ApplyFlag", "value": 76 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.CommandLine::Parse#2", "value": 50 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.CommandLine", "value": 572 },
+      { "rule": "long-method", "place": "SkarpSharp.Configuration.CommandLine::ApplyFlag", "value": 77 },
+      { "rule": "long-method", "place": "SkarpSharp.Configuration.CommandLine::Parse#2", "value": 63 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Configuration.CommandLine::Parse#2", "value": 14315 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Configuration.CommandLine::Request", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Configuration/CommandLineSettings.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.CommandLineLevel::FlagOf", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.CommandLineSettings::Build", "value": 3 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.CommandLineSettings", "value": 34 }
+    ],
+    "src/SkarpSharp.Core/Configuration/ConfigOverrides.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Configuration.ConfigOverrideRows::Origin", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.ConfigOverrideRows::Origin", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.ConfigOverrideRows::Origin", "value": 21 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.ConfigOverrideRows", "value": 44 }
+    ],
+    "src/SkarpSharp.Core/Configuration/ConfigReport.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.ConfigReport::Of#2", "value": 24 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Configuration.ConfigReport::Of#2", "value": 1105 }
+    ],
+    "src/SkarpSharp.Core/Configuration/RankChoice.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.RankChoice::SortError", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.RankChoice::UnitError", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.RankChoice", "value": 29 }
+    ],
+    "src/SkarpSharp.Core/Configuration/RuleOverrides.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Configuration.RuleOverrides::ReadEntry", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.RuleOverrides::CheckRule", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.RuleOverrides::ReadEntry", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.RuleOverrides::Rebased", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.RuleOverrides::ReadEntry", "value": 28 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.RuleOverrides", "value": 132 }
+    ],
+    "src/SkarpSharp.Core/Configuration/RunOptions.cs": [
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Configuration.RunOption", "value": 7 }
+    ],
+    "src/SkarpSharp.Core/Configuration/ScoreCommandLine.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.ScoreCommandLine::Weight", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.ScoreCommandLine", "value": 37 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Configuration.ScoreCommandLine::Checked", "value": 7 }
+    ],
+    "src/SkarpSharp.Core/Configuration/SemanticCommandLine.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Configuration.SemanticCommandLine::ApplyFile", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.SemanticCommandLine", "value": 41 }
+    ],
+    "src/SkarpSharp.Core/Configuration/SettingText.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.SettingText::Format", "value": 4 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.SettingText::Parse", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SettingText::Parse", "value": 41 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.SettingText", "value": 109 },
+      { "rule": "magic-number", "place": "SkarpSharp.Configuration.SettingText::Number", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Configuration.SettingText::Parse", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Configuration.SettingText::Parse", "value": 202 }
+    ],
+    "src/SkarpSharp.Core/Configuration/SettingsFile.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SettingsFileReader::ThresholdOverrides", "value": 30 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SettingsFileReader::TypeHint", "value": 22 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Configuration.SettingsFileReader::ThresholdOverrides", "value": 5 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.SettingsFileReader", "value": 124 }
+    ],
+    "src/SkarpSharp.Core/Configuration/SettingsLevels.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Configuration.SettingsLevels::Resolve", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.SettingsLevels::Load", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.SettingsLevels::Resolve", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SettingsLevels::CheckKeys", "value": 25 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SettingsLevels::Merge", "value": 24 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SettingsLevels::Resolve", "value": 41 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Configuration.SettingsLevels::CheckKeys", "value": 4 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Configuration.SettingsLevels::Merge", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.SettingsLevels", "value": 253 },
+      { "rule": "long-method", "place": "SkarpSharp.Configuration.SettingsLevels::Resolve", "value": 63 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Configuration.SettingsLevels::MergeFiles", "value": 2048 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Configuration.SettingsLevels::Resolve", "value": 2544480 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Configuration.SettingsLevels::Load", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Configuration.SettingsLevels::Merge", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Configuration/SettingsRegistry.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Configuration.SettingsRegistry::Row", "value": 4 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SettingsRegistry::CommandsOf", "value": 19 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SettingsRegistry::Generate", "value": 50 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Configuration.SettingsRegistry::Generate", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.SettingsRegistry", "value": 203 },
+      { "rule": "magic-number", "place": "SkarpSharp.Configuration.SettingsRegistry::MetricRange", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Configuration.SettingsRegistry::Parameter", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Configuration.SettingsRegistry::Row", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Configuration.SettingsRegistry::Generate", "value": 12363 }
+    ],
+    "src/SkarpSharp.Core/Configuration/SkarpOptions.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SkarpOptions::MachineFindingKeys", "value": 17 },
+      { "rule": "complex-method", "place": "SkarpSharp.Configuration.SkarpOptions::Settings", "value": 25 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Configuration.SkarpOptions::BuildPathRules", "value": 4 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Configuration.SkarpOptions::MachineFindingKeys", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Configuration.SkarpOptions", "value": 278 },
+      { "rule": "long-method", "place": "SkarpSharp.Configuration.SkarpOptions::Settings", "value": 66 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Configuration.SkarpOptions::Combination", "value": 624 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Configuration.SkarpOptions::Settings", "value": 51840 }
+    ],
+    "src/SkarpSharp.Core/Coverage/CoberturaReader.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Coverage.CoberturaReader::Sniff", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Coverage.CoberturaReader", "value": 126 },
+      { "rule": "large-type", "place": "SkarpSharp.Coverage.CoberturaReader+ParseState", "value": 28 },
+      { "rule": "magic-number", "place": "SkarpSharp.Coverage.CoberturaReader::Read", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Coverage.CoberturaReader::Read#2", "value": 3 }
+    ],
+    "src/SkarpSharp.Core/Coverage/CoverageBaseline.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Coverage.CoverageBaseline::Kept", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Coverage.CoverageBaseline", "value": 24 }
+    ],
+    "src/SkarpSharp.Core/Coverage/CoverageEngine.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Coverage.CoverageEngine::MapFile", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Coverage.CoverageEngine+Merge::Unresolved", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Coverage.CoverageEngine::Projects", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Coverage.CoverageEngine+Merge::Add", "value": 21 },
+      { "rule": "complex-method", "place": "SkarpSharp.Coverage.CoverageEngine::Apply", "value": 20 },
+      { "rule": "complex-method", "place": "SkarpSharp.Coverage.CoverageEngine::MapFile", "value": 34 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Coverage.CoverageEngine::NewerFiles" },
+      { "rule": "large-type", "place": "SkarpSharp.Coverage.CoverageEngine", "value": 200 },
+      { "rule": "large-type", "place": "SkarpSharp.Coverage.CoverageEngine+Merge", "value": 21 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Coverage.CoverageEngine::Apply", "value": 273 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Coverage.CoverageEngine::MapFile", "value": 4294 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Coverage.CoverageEngine::Warn", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Coverage/CoverageGlobs.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Coverage.CoverageGlobs::Expand", "value": 19 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Coverage.CoverageGlobs::Expand", "value": 4 }
+    ],
+    "src/SkarpSharp.Core/Coverage/CoverageLineScan.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Coverage.CoverageLineScan::InsideMultiLineStatements", "value": 5 },
+      { "rule": "complex-method", "place": "SkarpSharp.Coverage.CoverageLineScan::Compute", "value": 17 },
+      { "rule": "large-type", "place": "SkarpSharp.Coverage.CoverageLineScan", "value": 56 }
+    ],
+    "src/SkarpSharp.Core/Coverage/CoveragePaths.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Coverage.CoveragePaths::Resolve", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Coverage.CoveragePaths::Suffix", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Coverage.CoveragePaths", "value": 47 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Coverage.CoveragePaths::Resolve", "value": 203 }
+    ],
+    "src/SkarpSharp.Core/Discovery/FileDiscovery.cs": [],
+    "src/SkarpSharp.Core/Discovery/Glob.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Discovery.Glob::.ctor", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Discovery.Glob::Matches", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Discovery.Glob::RegexSource", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Discovery.Glob::Segment", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Discovery.Glob::.ctor", "value": 23 },
+      { "rule": "complex-method", "place": "SkarpSharp.Discovery.Glob::Matches", "value": 16 },
+      { "rule": "complex-method", "place": "SkarpSharp.Discovery.Glob::RegexSource", "value": 16 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Discovery.Glob::.ctor", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Discovery.Glob", "value": 119 },
+      { "rule": "magic-number", "place": "SkarpSharp.Discovery.Glob::Same", "value": 2 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Discovery.Glob::.ctor", "value": 290 }
+    ],
+    "src/SkarpSharp.Core/Discovery/TestDetection.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Discovery.TestDetection+Classifier::ExcludeParsed", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Discovery.TestDetection+Classifier::ExcludeParsed", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Discovery.TestDetection+ProjectLocator::Find", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Discovery.TestDetection::TestProjectReasonFromText", "value": 16 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Discovery.TestDetection+ProjectLocator::Find", "value": 4 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Discovery.TestDetection+ProjectLocator::Find" },
+      { "rule": "large-type", "place": "SkarpSharp.Discovery.TestDetection", "value": 146 },
+      { "rule": "large-type", "place": "SkarpSharp.Discovery.TestDetection+Classifier", "value": 24 }
+    ],
+    "src/SkarpSharp.Core/Findings/BrainRules.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Findings.BrainRules::BrainClasses", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Findings.BrainRules::BrainMethods", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.BrainRules::BrainClasses", "value": 4 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.BrainRules::BrainMethods", "value": 4 },
+      { "rule": "complex-method", "place": "SkarpSharp.Findings.BrainRules::BrainClasses", "value": 18 },
+      { "rule": "large-type", "place": "SkarpSharp.Findings.BrainRules", "value": 227 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.BrainRules::BookLegs", "value": 4 }
+    ],
+    "src/SkarpSharp.Core/Findings/BrainText.cs": [],
+    "src/SkarpSharp.Core/Findings/CloneRules.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Findings.CloneRules+Accumulator::Add", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.CloneRules::Run", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Findings.CloneRules", "value": 211 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.CloneRules+Accumulator::Summary", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.CloneRules::JoiningPairs", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.CloneRules::Minimum", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.CloneRules::Seed", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.CloneRules::Severity", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.CloneRules::Type3", "value": 2 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Findings.CloneRules::NewFinding", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Findings/CoverageText.cs": [],
+    "src/SkarpSharp.Core/Findings/DuplicationText.cs": [],
+    "src/SkarpSharp.Core/Findings/FindingEngine.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Findings.FindingEngine::Apply#2", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.FindingEngine::Apply#2", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.FindingEngine::FileRules#2", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.FindingEngine::Ratio", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Findings.FindingEngine::Apply#2", "value": 32 },
+      { "rule": "complex-method", "place": "SkarpSharp.Findings.FindingEngine::FileRules#2", "value": 21 },
+      { "rule": "complex-method", "place": "SkarpSharp.Findings.FindingEngine::Sort", "value": 30 },
+      { "rule": "large-type", "place": "SkarpSharp.Findings.FindingEngine", "value": 217 },
+      { "rule": "long-method", "place": "SkarpSharp.Findings.FindingEngine::Apply#2", "value": 62 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Findings.FindingEngine::Apply#2", "value": 20736 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Findings.FindingEngine::FileRules#2", "value": 220 }
+    ],
+    "src/SkarpSharp.Core/Findings/Gate.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.Gate::Evaluate", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.Gate::Matches#2", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.Gate::Validate", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Findings.Gate", "value": 38 }
+    ],
+    "src/SkarpSharp.Core/Findings/GodClassPresets.cs": [],
+    "src/SkarpSharp.Core/Findings/PathRules.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Findings.PathRules", "value": 24 }
+    ],
+    "src/SkarpSharp.Core/Findings/Presets.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Findings.Presets", "value": 204 }
+    ],
+    "src/SkarpSharp.Core/Findings/RuleCatalog.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Findings.RuleCatalog", "value": 462 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.RuleCatalog::SectionLabel", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.RuleCatalog::ValidateParameter", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Findings.RuleCatalog::ValidateParameter", "value": 276 }
+    ],
+    "src/SkarpSharp.Core/Findings/Rules.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.Rules::EmptyCatchSeverity", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.Rules::LargeType", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.Rules::TooManyParameters", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Findings.Rules", "value": 261 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.Rules::ActiveComplexFile", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.Rules::MagicNumber", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.Rules::N", "value": 1 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Findings.Rules::Make", "value": 7 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Findings.Rules::MakeStructural", "value": 10 }
+    ],
+    "src/SkarpSharp.Core/Findings/Suppressions.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.SuppressionIndex::Find", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.TargetSpans::Members", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.TargetSpans::Resolve", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.TargetSpans::StripArity", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Findings.SuppressionIndex::Build", "value": 16 },
+      { "rule": "large-type", "place": "SkarpSharp.Findings.SuppressionIndex", "value": 37 },
+      { "rule": "large-type", "place": "SkarpSharp.Findings.TargetSpans", "value": 34 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Findings.SuppressionIndex::Add", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Findings/Thresholds.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.RuleSettings::ApplyOverride", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Findings.RuleSettings::Resolve#2", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Findings.RuleSettings::ApplyOverride", "value": 70 },
+      { "rule": "complex-method", "place": "SkarpSharp.Findings.RuleSettings::Resolve#2", "value": 51 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Findings.RuleSettings::ApplyOverride", "value": 5 },
+      { "rule": "large-type", "place": "SkarpSharp.Findings.RuleSettings", "value": 175 },
+      { "rule": "long-method", "place": "SkarpSharp.Findings.RuleSettings::ApplyOverride", "value": 62 },
+      { "rule": "long-method", "place": "SkarpSharp.Findings.RuleSettings::Resolve#2", "value": 63 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.Condition::Num", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Findings.RuleSettings::ApplyOverride", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Findings.RuleSettings::ApplyOverride", "value": 261914 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Findings.RuleSettings::Resolve#2", "value": 645800 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Findings.RuleSettings::Resolve", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Findings.RuleSettings::Resolve#2", "value": 7 }
+    ],
+    "src/SkarpSharp.Core/Findings/UnusedCodeText.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Findings.UnusedCodeText", "value": 101 }
+    ],
+    "src/SkarpSharp.Core/Findings/VariantFindings.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Findings.VariantFindings", "value": 27 }
+    ],
+    "src/SkarpSharp.Core/Health/AnalysisLimits.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Health.AnalysisLimits::Judge", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Health.AnalysisLimits::Judge", "value": 19 },
+      { "rule": "large-type", "place": "SkarpSharp.Health.AnalysisLimits", "value": 25 }
+    ],
+    "src/SkarpSharp.Core/Health/HealthBaseline.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Health.HealthBaseline::ByPath", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Health.HealthBaseline::Judge", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Health.HealthBaseline::ByPath", "value": 21 },
+      { "rule": "large-type", "place": "SkarpSharp.Health.HealthBaseline", "value": 37 },
+      { "rule": "magic-number", "place": "SkarpSharp.Health.HealthBaseline::ByPath", "value": 3 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Health.HealthBaseline::Judge", "value": 285 }
+    ],
+    "src/SkarpSharp.Core/Health/HealthEngine.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Health.HealthEngine::BaselineScores", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Health.HealthEngine::ScoredPaths", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Health.HealthEngine", "value": 118 },
+      { "rule": "magic-number", "place": "SkarpSharp.Health.Rollup::Worst/lambda5", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Health.HealthEngine::Apply", "value": 1200 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Health.HealthEngine::Summary", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Health/HealthLimit.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Health.HealthLimit", "value": 28 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Health.HealthBreach", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Health.HealthLimit::Of", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Health/HealthText.cs": [],
+    "src/SkarpSharp.Core/Health/ScoreModel.cs": [
+      { "rule": "magic-number", "place": "SkarpSharp.Health.Bands::Of", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Health.GradeModel::Score", "value": 1 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Health.ScoredFinding::From#2", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Health/ScoreSettings.cs": [],
+    "src/SkarpSharp.Core/History/CommitAnchor.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.History.CommitAnchor::FromRecorded", "value": 3 },
+      { "rule": "magic-number", "place": "SkarpSharp.History.CommitAnchor::FromRecorded", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/History/FileAccumulators.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.History.FileAccumulators::OnChangeSet", "value": 17 }
+    ],
+    "src/SkarpSharp.Core/History/GitEnvironment.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.History.GitEnvironment::ProbeAsync", "value": 30 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.History.GitEnvironment::ProbeAsync", "value": 5 },
+      { "rule": "empty-catch", "place": "SkarpSharp.History.GitEnvironment::ProbeAsync" },
+      { "rule": "large-type", "place": "SkarpSharp.History.GitEnvironment", "value": 120 },
+      { "rule": "long-method", "place": "SkarpSharp.History.GitEnvironment::ProbeAsync", "value": 90 },
+      { "rule": "magic-number", "place": "SkarpSharp.History.GitEnvironment::ParseVersion", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.History.GitEnvironment::ProbeAsync", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.History.GitEnvironment::ProbeAsync", "value": 314 }
+    ],
+    "src/SkarpSharp.Core/History/GitLogParser.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.History.GitLogParser::Token", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.History.GitLogParser", "value": 157 },
+      { "rule": "long-method", "place": "SkarpSharp.History.GitLogParser::Token", "value": 55 },
+      { "rule": "magic-number", "place": "SkarpSharp.History.GitLogParser::Header", "value": 3 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.History.GitLogParser::AddRow", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/History/GitProcess.cs": [
+      { "rule": "too-many-parameters", "place": "SkarpSharp.History.GitProcess::RunStreamAsync", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/History/HistoryJoin.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.History.HistoryJoin::Apply", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.History.HistoryJoin::RepositoryPrefix", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.History.HistoryJoin", "value": 43 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.History.HistoryJoin::SubtractExcluded", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/History/HistoryPolicy.cs": [],
+    "src/SkarpSharp.Core/History/HistoryRunner.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.History.HistoryRunner::RunAsync", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.History.HistoryRunner::RunAsync", "value": 28 },
+      { "rule": "large-type", "place": "SkarpSharp.History.HistoryRunner", "value": 188 },
+      { "rule": "long-method", "place": "SkarpSharp.History.HistoryRunner::RunAsync", "value": 140 },
+      { "rule": "magic-number", "place": "SkarpSharp.History.HistoryRunner::RunAsync", "value": 4 },
+      { "rule": "magic-number", "place": "SkarpSharp.History.HistoryRunner::RunAsync/lambda2", "value": 2 },
+      { "rule": "path-explosion", "place": "SkarpSharp.History.HistoryRunner+SideCounts::ApplyAsync", "value": 288 },
+      { "rule": "path-explosion", "place": "SkarpSharp.History.HistoryRunner::RunAsync", "value": 2689 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.History.HistoryRunner::Count", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/History/PathTable.cs": [],
+    "src/SkarpSharp.Core/History/Preprocessor.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.History.Preprocessor::OnCommit", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.History.Preprocessor::OnCommit", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.History.Preprocessor::OnCommit", "value": 25 },
+      { "rule": "large-type", "place": "SkarpSharp.History.Preprocessor", "value": 40 },
+      { "rule": "path-explosion", "place": "SkarpSharp.History.Preprocessor::OnCommit", "value": 2392 }
+    ],
+    "src/SkarpSharp.Core/Install/ClaudeCheck.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Install.ClaudeCheck::Entry", "value": 3 },
+      { "rule": "large-type", "place": "SkarpSharp.Install.ClaudeCheck", "value": 145 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Install.ClaudeCheck::Entry", "value": 2702 }
+    ],
+    "src/SkarpSharp.Core/Install/ClaudeFile.cs": [],
+    "src/SkarpSharp.Core/Install/ClaudeHooks.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Install.ClaudeHooks::CheckShape", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Install.ClaudeHooks::IsSkarp", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Install.ClaudeHooks::Words", "value": 16 },
+      { "rule": "large-type", "place": "SkarpSharp.Install.ClaudeHooks", "value": 197 },
+      { "rule": "magic-number", "place": "SkarpSharp.Install.HookSpec::Handler", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/Install/ClaudeInstaller.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Install.ClaudeInstaller::InstallHooks", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Install.ClaudeInstaller::NotPortable", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Install.ClaudeInstaller::PortabilityError", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Install.ClaudeInstaller::Warnings", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Install.ClaudeInstaller::InstallHooks", "value": 19 },
+      { "rule": "large-type", "place": "SkarpSharp.Install.ClaudeInstaller", "value": 176 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Install.ClaudeInstaller::InstallHooks", "value": 627 }
+    ],
+    "src/SkarpSharp.Core/Install/ClaudeMcp.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Install.ClaudeMcp::ProgramOf", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Install.ClaudeMcp", "value": 45 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Install.ClaudeMcp::Install", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Install/GitHookScripts.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Install.GitHookScripts", "value": 30 },
+      { "rule": "large-type", "place": "SkarpSharp.Install.HookManagers", "value": 25 }
+    ],
+    "src/SkarpSharp.Core/Install/GitHooks.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Install.GitHooks::Version", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Install.GitHooks", "value": 45 },
+      { "rule": "magic-number", "place": "SkarpSharp.Install.GitConfigOp::IsUnset", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Install.GitHooks::Version", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Install/GitHooksCall.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Install.GitHooksCall::ParseRequest", "value": 16 },
+      { "rule": "large-type", "place": "SkarpSharp.Install.GitHooksCall", "value": 54 }
+    ],
+    "src/SkarpSharp.Core/Install/GitHooksCheck.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Install.GitHooksCheck", "value": 28 }
+    ],
+    "src/SkarpSharp.Core/Install/GitHooksInstaller.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Install.GitHooksInstaller::InstallShared", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Install.GitHooksInstaller", "value": 220 }
+    ],
+    "src/SkarpSharp.Core/Install/GitHooksScreen.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Install.GitHooksScreen", "value": 64 }
+    ],
+    "src/SkarpSharp.Core/Install/GitHooksTarget.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Install.GitHooksTarget", "value": 63 }
+    ],
+    "src/SkarpSharp.Core/Install/HookSettings.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Install.HookSettings::HealthLimits", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/Install/HooksScreen.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Install.HooksScreen", "value": 136 }
+    ],
+    "src/SkarpSharp.Core/Install/HooksTarget.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Install.HooksTarget", "value": 103 }
+    ],
+    "src/SkarpSharp.Core/Install/HooksText.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Install.HooksText", "value": 55 }
+    ],
+    "src/SkarpSharp.Core/Install/InstallActions.cs": [],
+    "src/SkarpSharp.Core/Install/InstallArgs.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Install.InstallArgs::Parse", "value": 16 },
+      { "rule": "large-type", "place": "SkarpSharp.Install.InstallArgs", "value": 110 }
+    ],
+    "src/SkarpSharp.Core/Install/InstallCall.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Install.InstallCall", "value": 21 }
+    ],
+    "src/SkarpSharp.Core/Install/InstallSeams.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Install.ProgramRunner::Run", "value": 2 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Install.ProgramRunner::Feed" },
+      { "rule": "empty-catch", "place": "SkarpSharp.Install.ProgramRunner::Kill" },
+      { "rule": "large-type", "place": "SkarpSharp.Install.InstallSeams", "value": 48 }
+    ],
+    "src/SkarpSharp.Core/Install/McpInstaller.cs": [
+      { "rule": "empty-catch", "place": "SkarpSharp.Install.McpInstaller::Others" },
+      { "rule": "large-type", "place": "SkarpSharp.Install.McpInstaller", "value": 104 }
+    ],
+    "src/SkarpSharp.Core/Mcp/AnalysisRuns.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Mcp.AnalysisRuns::Fresh", "value": 3 },
+      { "rule": "large-type", "place": "SkarpSharp.Mcp.AnalysisRuns", "value": 45 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Mcp.AnalysisRuns::Fresh", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Mcp.AnalysisRuns::SaveAsync", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Mcp/CheckAnswer.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Mcp.CheckAnswer", "value": 47 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Mcp.CheckAnswer::Result", "value": 288 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Mcp.CheckAnswer::Write", "value": 320 }
+    ],
+    "src/SkarpSharp.Core/Mcp/CheckService.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Mcp.CheckService::ReadBaseline", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Mcp.CheckService", "value": 149 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Mcp.CheckService::One", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Mcp/CheckTool.cs": [],
+    "src/SkarpSharp.Core/Mcp/ExplainTool.cs": [],
+    "src/SkarpSharp.Core/Mcp/FindWorstCodeTool.cs": [],
+    "src/SkarpSharp.Core/Mcp/FindingsAnswer.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Mcp.FindingsAnswer", "value": 41 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Mcp.FindingsAnswer::List", "value": 216 }
+    ],
+    "src/SkarpSharp.Core/Mcp/FindingsTool.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Mcp.FindingsTool::Id", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Mcp.FindingsTool::Load", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Mcp.FindingsTool::Read", "value": 3 },
+      { "rule": "large-type", "place": "SkarpSharp.Mcp.FindingsTool", "value": 36 }
+    ],
+    "src/SkarpSharp.Core/Mcp/McpCommand.cs": [],
+    "src/SkarpSharp.Core/Mcp/McpHost.cs": [],
+    "src/SkarpSharp.Core/Mcp/ToolArgs.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Mcp.ToolArgs::Strings", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Mcp.ToolArgs", "value": 48 }
+    ],
+    "src/SkarpSharp.Core/Mcp/WorstCodeService.cs": [],
+    "src/SkarpSharp.Core/Metrics/Cognitive.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Metrics.Cognitive+Walker::Visit", "value": 26 },
+      { "rule": "large-type", "place": "SkarpSharp.Metrics.Cognitive", "value": 154 },
+      { "rule": "large-type", "place": "SkarpSharp.Metrics.Cognitive+Walker", "value": 113 },
+      { "rule": "long-method", "place": "SkarpSharp.Metrics.Cognitive+Walker::Visit", "value": 75 }
+    ],
+    "src/SkarpSharp.Core/Metrics/Cyclomatic.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Metrics.Cyclomatic::Decisions", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Metrics.Cyclomatic::Decisions", "value": 21 },
+      { "rule": "large-type", "place": "SkarpSharp.Metrics.Cyclomatic", "value": 55 }
+    ],
+    "src/SkarpSharp.Core/Metrics/LineClassifier.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Metrics.LineClassifier::Classify", "value": 34 },
+      { "rule": "large-type", "place": "SkarpSharp.Metrics.LineClassifier", "value": 23 },
+      { "rule": "long-method", "place": "SkarpSharp.Metrics.LineClassifier::Classify", "value": 53 }
+    ],
+    "src/SkarpSharp.Core/Metrics/NPath.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Metrics.NPath::Compute", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Metrics.NPath::Stmt", "value": 29 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Metrics.NPath::Stmt", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Metrics.NPath", "value": 211 },
+      { "rule": "long-method", "place": "SkarpSharp.Metrics.NPath::Stmt", "value": 95 }
+    ],
+    "src/SkarpSharp.Core/Metrics/NestingDepth.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Metrics.NestingDepth::Compute", "value": 46 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Metrics.NestingDepth::Compute", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Metrics.NestingDepth", "value": 26 },
+      { "rule": "long-method", "place": "SkarpSharp.Metrics.NestingDepth::Compute", "value": 71 }
+    ],
+    "src/SkarpSharp.Core/Metrics/Statements.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Metrics.Statements::Compute", "value": 3 }
+    ],
+    "src/SkarpSharp.Core/Model/CloneData.cs": [],
+    "src/SkarpSharp.Core/Model/CloneModel.cs": [],
+    "src/SkarpSharp.Core/Model/CompositeModel.cs": [],
+    "src/SkarpSharp.Core/Model/CoverageLines.cs": [],
+    "src/SkarpSharp.Core/Model/CoverageModel.cs": [],
+    "src/SkarpSharp.Core/Model/FindingModel.cs": [],
+    "src/SkarpSharp.Core/Model/HealthModel.cs": [],
+    "src/SkarpSharp.Core/Model/HistoryModel.cs": [],
+    "src/SkarpSharp.Core/Model/JsonContext.cs": [],
+    "src/SkarpSharp.Core/Model/RankingModel.cs": [],
+    "src/SkarpSharp.Core/Model/Results.cs": [],
+    "src/SkarpSharp.Core/Model/SarifModel.cs": [],
+    "src/SkarpSharp.Core/Model/SemanticResults.cs": [],
+    "src/SkarpSharp.Core/Model/VariantModel.cs": [],
+    "src/SkarpSharp.Core/Ranking/Measures.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Ranking.Measures", "value": 57 }
+    ],
+    "src/SkarpSharp.Core/Ranking/RankingText.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Ranking.RankingText", "value": 52 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Ranking.RankingText::Write", "value": 768 }
+    ],
+    "src/SkarpSharp.Core/Ranking/WorstCode.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Ranking.WorstCode", "value": 108 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Ranking.WorstCode::Rank", "value": 1152 }
+    ],
+    "src/SkarpSharp.Core/Reporting/CiReports.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Reporting.CiReports::WriteMarkdown", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Reporting.CiReports::WriteTopPlaces", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.CiReports::WriteGitHub", "value": 28 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.CiReports::WriteMarkdown", "value": 31 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.CiReports::WriteTopPlaces", "value": 27 },
+      { "rule": "large-type", "place": "SkarpSharp.Reporting.CiReports", "value": 171 },
+      { "rule": "long-method", "place": "SkarpSharp.Reporting.CiReports::WriteMarkdown", "value": 66 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.CiReports::WriteMarkdown", "value": 2700 }
+    ],
+    "src/SkarpSharp.Core/Reporting/HealthReport.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Reporting.HealthReport::WriteHuman", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.HealthReport::WriteHuman", "value": 19 },
+      { "rule": "large-type", "place": "SkarpSharp.Reporting.HealthReport", "value": 53 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HealthReport::Changed/lambda3", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HealthReport::Versus", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HealthReport::WriteHuman", "value": 3 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.HealthReport::Averages", "value": 1440 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.HealthReport::WriteHuman", "value": 244 }
+    ],
+    "src/SkarpSharp.Core/Reporting/HumanReport.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Reporting.HumanReport::WriteHeader", "value": 3 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Reporting.HumanReport::WriteHistory", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Reporting.HumanReport::CommonFolder", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.HumanReport::OriginDetail", "value": 16 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.HumanReport::VariantLine", "value": 16 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.HumanReport::WriteConfig#2", "value": 22 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.HumanReport::WriteExcluded#2", "value": 27 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.HumanReport::WriteHeader", "value": 44 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.HumanReport::WriteHistory", "value": 19 },
+      { "rule": "large-type", "place": "SkarpSharp.Reporting.HumanReport", "value": 423 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::Day", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::WriteConfig#2", "value": 22 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::WriteCounts", "value": 5 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::WriteFileView", "value": 6 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::WriteHeader", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::WriteHistory", "value": 15 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::WriteHotspots", "value": 16 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::WriteLevels", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::WriteRuleList", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.HumanReport::WriteThresholdsUsed", "value": 3 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.HumanReport::VariantLine", "value": 3456 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.HumanReport::WriteConfig#2", "value": 3672 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.HumanReport::WriteHeader", "value": 11975040 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.HumanReport::WriteHistory", "value": 459 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Reporting.HumanReport::WriteConfig#2", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Reporting.HumanReport::WriteHistory", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Reporting/LimitText.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Reporting.LimitText::Highest", "value": 3 },
+      { "rule": "large-type", "place": "SkarpSharp.Reporting.LimitText", "value": 33 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.LimitText::WriteFiles", "value": 506 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Reporting.LimitText::WriteFiles", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Reporting/ReportLayout.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Reporting.ReportLayout::Select", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Reporting.ReportLayout::Entries", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Reporting.ReportLayout", "value": 152 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.ReportLayout::RenamedName", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Reporting/SarifReport.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Reporting.SarifReport", "value": 254 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.SarifReport::SemanticVersion", "value": 2 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.SarifReport::Result", "value": 288 }
+    ],
+    "src/SkarpSharp.Core/Reporting/SemanticReport.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Reporting.SemanticReport::WriteTables", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Reporting.SemanticReport::ExplainExtra", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.SemanticReport::WriteMarkdown", "value": 21 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.SemanticReport::WriteResult", "value": 18 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.SemanticReport::WriteTables", "value": 16 },
+      { "rule": "large-type", "place": "SkarpSharp.Reporting.SemanticReport", "value": 156 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.SemanticReport::ExplainExtra", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.SemanticReport::WriteMarkdown", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.SemanticReport::WriteTables", "value": 12 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.SemanticReport::HeaderLine", "value": 259 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.SemanticReport::WriteResult", "value": 2304 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Reporting.SemanticReport::WriteResult", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Reporting.SemanticReport::WriteSection", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Reporting/TextFormat.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Reporting.TextFormat::Change", "value": 4 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Reporting.TextFormat::Limit", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Reporting.TextFormat::Numbers", "value": 3 },
+      { "rule": "large-type", "place": "SkarpSharp.Reporting.TextFormat", "value": 62 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Reporting.TextFormat::Heading", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Reporting/TextReport.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Reporting.TextReport::Filters", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Reporting.TextReport::WriteAnalyze", "value": 17 },
+      { "rule": "large-type", "place": "SkarpSharp.Reporting.TextReport", "value": 175 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.TextReport::FileOrder/Key", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Reporting.TextReport::WriteFinding", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.TextReport::Notes", "value": 468 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Reporting.TextReport::WriteAnalyze", "value": 32256 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Reporting.TextReport::WriteByFile", "value": 7 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Reporting.TextReport::WriteByRule", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Reporting.TextReport::WriteFinding", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Semantic/Cohesion.cs": [
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.Cohesion::Compute", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/Semantic/CompilationPipeline.cs": [
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.CompilationPipeline::Compile", "value": 18 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.CompilationPipeline::RunAsync", "value": 25 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.CompilationPipeline", "value": 176 },
+      { "rule": "long-method", "place": "SkarpSharp.Semantic.CompilationPipeline::RunAsync", "value": 65 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Semantic.CompilationPipeline::RunAsync", "value": 416 }
+    ],
+    "src/SkarpSharp.Core/Semantic/CycleGraph.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CycleGraph::Lightest", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CycleGraph::MutualPairs", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CycleGraph::Reaches", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.CycleGraph", "value": 185 }
+    ],
+    "src/SkarpSharp.Core/Semantic/DesignTimeBuild.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.DesignTimeBuild::Parse", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.DesignTimeBuild::ReadProperty", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.DesignTimeBuild", "value": 143 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.DesignTimeBuild::NotRestoredAsync", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.DesignTimeBuild::Parse", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/Semantic/DotnetRunner.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.DotnetRunner::StartAsync", "value": 2 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Semantic.DotnetRunner::Kill" },
+      { "rule": "empty-catch", "place": "SkarpSharp.Semantic.DotnetRunner::Kill~2" },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.DotnetRunner", "value": 21 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.DotnetRunner::StartAsync", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.ProcessRun::ErrorSummary", "value": 2 }
+    ],
+    "src/SkarpSharp.Core/Semantic/GodClassRule.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.GodClassRule::Judge", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.GodClassRule::Judge", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Semantic/MicrosoftCoupling.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.MicrosoftCoupling::AddOperation", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.MicrosoftCoupling::Walk", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.MicrosoftCoupling::Member", "value": 18 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.MicrosoftCoupling::Walk", "value": 38 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Semantic.MicrosoftCoupling::Walk", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.MicrosoftCoupling", "value": 122 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Semantic.MicrosoftCoupling::Walk", "value": 3786 }
+    ],
+    "src/SkarpSharp.Core/Semantic/NamespaceCycles.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.NamespaceCycles", "value": 163 }
+    ],
+    "src/SkarpSharp.Core/Semantic/NamespaceReferences.cs": [
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.NamespaceUses", "value": 35 }
+    ],
+    "src/SkarpSharp.Core/Semantic/ReferenceIndex.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.ReferenceIndex+Walker::Header", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.ReferenceIndex", "value": 598 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.ReferenceIndex+OperationWalker", "value": 124 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.ReferenceIndex+Uses", "value": 220 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.ReferenceIndex+Walker", "value": 49 }
+    ],
+    "src/SkarpSharp.Core/Semantic/SemanticFindings.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Semantic.SemanticFindings::Apply", "value": 2 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Semantic.SemanticFindings::Apply", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Semantic/SemanticRunner.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Semantic.SemanticRunner::AcquireAsync", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.SemanticRunner::AcquireAsync", "value": 22 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.SemanticRunner::MeasureAsync", "value": 17 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Semantic.SemanticRunner::Afferent", "value": 4 },
+      { "rule": "empty-catch", "place": "SkarpSharp.Semantic.SemanticRunner::AssemblyNameOf" },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.SemanticRunner", "value": 247 },
+      { "rule": "long-method", "place": "SkarpSharp.Semantic.SemanticRunner::AcquireAsync", "value": 65 },
+      { "rule": "long-method", "place": "SkarpSharp.Semantic.SemanticRunner::MeasureAsync", "value": 61 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.SemanticRunner::AcquireAsync", "value": 5 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.SemanticRunner::MeasureAsync", "value": 5 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.SemanticRunner::Seconds", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Semantic.SemanticRunner::MeasureAsync", "value": 521 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Semantic.SemanticRunner::Build", "value": 5 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Semantic.SemanticRunner::UnusedOptions", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Semantic/SolutionChoice.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Semantic.SolutionChoice::Choose", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.SolutionChoice::Choose", "value": 21 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.SolutionChoice", "value": 34 }
+    ],
+    "src/SkarpSharp.Core/Semantic/SymbolFacts.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.SymbolFacts::IsAutoProperty", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.SymbolFacts::IsAutoProperty", "value": 18 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.SymbolFacts", "value": 56 }
+    ],
+    "src/SkarpSharp.Core/Semantic/SymbolIds.cs": [],
+    "src/SkarpSharp.Core/Semantic/TargetFrameworks.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.TargetFrameworks::Key", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.TargetFrameworks::Key", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Semantic/TypeMeasurement.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Semantic.TypeMeasurement::Measure", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.TypeMeasurement::Measure", "value": 23 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.TypeMeasurement", "value": 143 },
+      { "rule": "long-method", "place": "SkarpSharp.Semantic.TypeMeasurement::Measure", "value": 63 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.TypeMeasurement::Short", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Semantic.TypeMeasurement::Measure", "value": 1008 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Semantic.TypeMeasurement::Measure", "value": 6 }
+    ],
+    "src/SkarpSharp.Core/Semantic/TypeWalker.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CohesionIndex::.ctor", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CohesionIndex::AddState", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.TypeWalker::AddCoupled", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.TypeWalker::AddDeclared", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.TypeWalker::Foreign", "value": 4 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.TypeWalker::Roots", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.CohesionIndex::.ctor", "value": 17 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.TypeWalker::AddCoupled", "value": 26 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.TypeWalker::AddDeclared", "value": 31 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.TypeWalker::Roots", "value": 17 },
+      { "rule": "complex-method", "place": "SkarpSharp.Semantic.TypeWalker::Walk", "value": 20 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Semantic.TypeWalker::AddDeclared", "value": 4 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Semantic.TypeWalker::Roots", "value": 4 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Semantic.TypeWalker::Walk", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.CohesionIndex", "value": 57 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.TypeWalker", "value": 173 },
+      { "rule": "magic-number", "place": "SkarpSharp.Semantic.TypeWalker::ErrorAt", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Semantic.CohesionIndex::.ctor", "value": 218 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Semantic.TypeWalker::AddDeclared", "value": 252 }
+    ],
+    "src/SkarpSharp.Core/Semantic/UnusedCandidates.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CandidateCollector::AddType", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CandidateCollector::DeclaredTypes", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CandidateCollector::IsSourceType", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CandidateCollector::MemberTypeRoot", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.CandidateNames::Located", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.CandidateCollector", "value": 146 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.CandidateNames", "value": 44 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.UnreadRule", "value": 40 }
+    ],
+    "src/SkarpSharp.Core/Semantic/UnusedCode.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.UnusedCode+SolutionRoots::LayoutRoot", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.UnusedCode", "value": 333 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.UnusedCode+SolutionFacts", "value": 33 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.UnusedCode+SolutionRoots", "value": 45 }
+    ],
+    "src/SkarpSharp.Core/Semantic/UnusedLiveness.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.UnusedJudge::State", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.UnusedLiveness::Seeds", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.UnusedJudge", "value": 24 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.UnusedLiveness", "value": 180 }
+    ],
+    "src/SkarpSharp.Core/Semantic/UnusedRoots.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.UnusedRoots::ImplementsInterfaceMember", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.UnusedRoots::IsPartial", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Semantic.UnusedRoots::PatternRoot", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Semantic.UnusedRoots", "value": 168 }
+    ],
+    "src/SkarpSharp.Core/Setup/CommandBuilder.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Setup.CommandBuilder::Arguments", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Setup.CommandBuilder::Line", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.CommandBuilder::AddRunOptions", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.CommandBuilder::Line", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.CommandBuilder::Text", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.CommandBuilder::Dedicated", "value": 26 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.CommandBuilder::Line", "value": 18 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.CommandBuilder", "value": 307 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Setup.CommandBuilder::Line", "value": 337 }
+    ],
+    "src/SkarpSharp.Core/Setup/CommandTarget.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.CommandTarget::Open#2", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.CommandTarget::SetOption", "value": 22 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.CommandTarget", "value": 40 }
+    ],
+    "src/SkarpSharp.Core/Setup/JsonFile.cs": [
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.JsonFile::DetectIndent", "value": 1 }
+    ],
+    "src/SkarpSharp.Core/Setup/LevelModel.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.LevelModel::InheritedValue", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.LevelModel::Thresholds", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.LevelModel", "value": 124 }
+    ],
+    "src/SkarpSharp.Core/Setup/LineEditor.cs": [],
+    "src/SkarpSharp.Core/Setup/SettingsDocument.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SettingsDocument::AsNumber", "value": 2 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Setup.SettingsDocument::Leaves", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.SettingsDocument", "value": 40 }
+    ],
+    "src/SkarpSharp.Core/Setup/SetupMenu.Command.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SetupMenu::RunOptionList", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.SetupMenu", "value": 739 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::BuilderSections", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::CommandLines", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::RunOptionLines", "value": 7 }
+    ],
+    "src/SkarpSharp.Core/Setup/SetupMenu.Hooks.cs": [],
+    "src/SkarpSharp.Core/Setup/SetupMenu.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Setup.SetupMenu::HandleRows", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SetupMenu::HandlePreview", "value": 5 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SetupMenu::HandleSections", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.SetupMenu::Body", "value": 19 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.SetupMenu::Footer", "value": 34 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.SetupMenu::Pane", "value": 21 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.SetupMenu::Render", "value": 41 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::Body", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::Page", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::PaneLines", "value": 5 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::Render", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::RowLines", "value": 7 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::Run", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.SetupMenu::Width.get", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Setup.SetupMenu::Render", "value": 70562 }
+    ],
+    "src/SkarpSharp.Core/Setup/SetupRows.cs": [
+      { "rule": "active-complex-file", "value": 1 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SetupRows::CommandRows", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SetupRows::Options", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SetupRows::Rows", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SetupRows::View", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.SetupRows::LevelOptions", "value": 49 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.SetupRows::ParameterOptions", "value": 18 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.SetupRows::View", "value": 38 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.SetupRows", "value": 275 },
+      { "rule": "long-method", "place": "SkarpSharp.Setup.SetupRows::LevelOptions", "value": 58 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Setup.SetupRows::LevelOptions", "value": 349952 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Setup.SetupRows::ParameterOptions", "value": 225 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Setup.SetupRows::View", "value": 618 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Setup.RowView", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Setup.SetupRows::CustomThreshold", "value": 5 }
+    ],
+    "src/SkarpSharp.Core/Setup/SetupWriter.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SetupWriter::CheckKey", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.SetupWriter::Shown", "value": 4 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.SetupWriter::Preview", "value": 20 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.SetupWriter", "value": 104 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Setup.SetupWriter::Preview", "value": 1090 }
+    ],
+    "src/SkarpSharp.Core/Setup/ShellQuote.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.ShellQuote::Cmd", "value": 9 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.ShellQuote::Plain", "value": 11 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.ShellQuote::PowerShell", "value": 4 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.ShellQuote", "value": 59 }
+    ],
+    "src/SkarpSharp.Core/Setup/Terminal.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Setup.FrameWriter::Draw", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.FakeTerminal::Write", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.FrameWriter::Draw", "value": 27 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.FrameWriter", "value": 30 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.ScriptKeySource", "value": 26 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.ConsoleKeySource::Read", "value": 1 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.ConsoleSession::EnableVirtualTerminal", "value": 2 },
+      { "rule": "magic-number", "place": "SkarpSharp.Setup.FrameWriter::Draw", "value": 1 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Setup.FrameWriter::Draw", "value": 21700 }
+    ],
+    "src/SkarpSharp.Core/Setup/ThresholdLabels.cs": [
+      { "rule": "bumpy-road", "place": "SkarpSharp.Setup.ThresholdLabels::Meaning", "value": 2 },
+      { "rule": "bumpy-road", "place": "SkarpSharp.Setup.ThresholdLabels::VendorSets", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.ThresholdLabels::Meaning", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.ThresholdLabels::Same", "value": 2 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Setup.ThresholdLabels::Stored", "value": 2 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.ThresholdLabels::Meaning", "value": 17 },
+      { "rule": "complex-method", "place": "SkarpSharp.Setup.ThresholdLabels::VendorSets", "value": 33 },
+      { "rule": "large-type", "place": "SkarpSharp.Setup.ThresholdLabels", "value": 181 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Setup.ThresholdLabels::VendorSets", "value": 2336 }
+    ],
+    "src/SkarpSharp.Core/Syntax/MemberBody.cs": [],
+    "src/SkarpSharp.Core/Syntax/MemberCollector.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Syntax.MemberCollector::BaseName", "value": 3 },
+      { "rule": "large-type", "place": "SkarpSharp.Syntax.MemberCollector", "value": 293 },
+      { "rule": "large-type", "place": "SkarpSharp.Syntax.MemberCollector+Collector", "value": 204 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Syntax.MemberCollector+Collector::Add", "value": 9 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Syntax.MemberCollector+Collector::AddProperty", "value": 6 },
+      { "rule": "too-many-parameters", "place": "SkarpSharp.Syntax.MemberCollector+Collector::Child", "value": 8 }
+    ],
+    "src/SkarpSharp.Core/Syntax/RuleFacts.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Syntax.RuleFacts::ControlDepth/Visit", "value": 3 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Syntax.RuleFacts::HasComment", "value": 5 },
+      { "rule": "complex-condition", "place": "SkarpSharp.Syntax.RuleFacts::NumericLiteral", "value": 3 },
+      { "rule": "complex-method", "place": "SkarpSharp.Syntax.RuleFacts::ControlDepth", "value": 27 },
+      { "rule": "complex-method", "place": "SkarpSharp.Syntax.RuleFacts::Fill", "value": 26 },
+      { "rule": "complex-method", "place": "SkarpSharp.Syntax.RuleFacts::NestedBlocks", "value": 18 },
+      { "rule": "complex-method", "place": "SkarpSharp.Syntax.RuleFacts::NumericLiteral", "value": 17 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Syntax.RuleFacts::ControlDepth", "value": 4 },
+      { "rule": "deep-nesting", "place": "SkarpSharp.Syntax.RuleFacts::Fill", "value": 5 },
+      { "rule": "large-type", "place": "SkarpSharp.Syntax.RuleFacts", "value": 239 },
+      { "rule": "magic-number", "place": "SkarpSharp.Syntax.RuleFacts::IsPowerOfTen", "value": 4 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Syntax.RuleFacts::NumericLiteral", "value": 1477 },
+      { "rule": "path-explosion", "place": "SkarpSharp.Syntax.RuleFacts::ParameterFacts", "value": 320 }
+    ],
+    "src/SkarpSharp.Core/Syntax/SuppressionScan.cs": [
+      { "rule": "complex-condition", "place": "SkarpSharp.Syntax.SuppressionScan::Read", "value": 2 },
+      { "rule": "large-type", "place": "SkarpSharp.Syntax.SuppressionScan", "value": 101 },
+      { "rule": "large-type", "place": "SkarpSharp.Syntax.SuppressionScan+Arguments", "value": 21 }
+    ],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/custom/Custom/Uses.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/cycles/Lib/Billing.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/cycles/Lib/Orders.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/errors/Err/Broken.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/errors/Err/Order.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/gen/Gen.App/UsesGenerated.cs": [
+      { "rule": "magic-number", "place": "Gen.App.UsesGenerated::Make", "value": 1 }
+    ],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/gen/Gen.Generator/HelloGenerator.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/lib/Lib/Order.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/multi/Multi/Shapes.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/pinned/Pinned/Order.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/twodiff/P1/Order.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/twodiff/P2/Order.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/twoeq/Lib/Order.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/unused/Lib/Code.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/unused/Lib/Old/OldOnly.cs": [],
+    "tests/SkarpSharp.Tests/Semantic/Fixtures/unused/Lib/Unread.cs": [],
+    "tests/oracle/Coupling/CouplingExamples.cs": [],
+    "tests/oracle/EdgeCases/Branching.cs": [
+      { "rule": "large-type", "place": "OracleEdgeCases.Branching", "value": 101 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Branching::ElseIfChain", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Branching::UnbracedIfBodies", "value": 2 }
+    ],
+    "tests/oracle/EdgeCases/LoopsAndJumps.cs": [
+      { "rule": "large-type", "place": "OracleEdgeCases.LoopsAndJumps", "value": 194 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.LoopsAndJumps::BreakAndContinue", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.LoopsAndJumps::GotoLabel", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.LoopsAndJumps::UninitializedLocal", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.LoopsAndJumps::WhileLoop", "value": 1 }
+    ],
+    "tests/oracle/EdgeCases/MemberKinds.cs": [
+      { "rule": "large-type", "place": "OracleEdgeCases.MemberKinds", "value": 108 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.GenericHolder`1+Inner::InnerMethod", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.MemberKinds::.ctor#5/lambda1", "value": 1 }
+    ],
+    "tests/oracle/EdgeCases/NestedBodies.cs": [
+      { "rule": "magic-number", "place": "OracleEdgeCases.NestedBodies::ExpressionLambda/lambda1", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.NestedBodies::LocalFunction/Twice", "value": 1 }
+    ],
+    "tests/oracle/EdgeCases/Switches.cs": [
+      { "rule": "large-type", "place": "OracleEdgeCases.Switches", "value": 116 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Switches::IsAndNotPattern", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Switches::IsPropertyPattern", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Switches::PatternCombinators", "value": 2 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Switches::SwitchExpressionWithWhen", "value": 2 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Switches::SwitchGotoCase", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Switches::SwitchPatternLabels", "value": 1 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Switches::SwitchSectionStatements", "value": 2 },
+      { "rule": "magic-number", "place": "OracleEdgeCases.Switches::SwitchWithDefault", "value": 3 }
+    ]
+  },
+  "repository": [
+    { "rule": "duplicate-code-near", "place": "clone fb3da8dfa067b2b5", "value": 21, "severity": "notice", "files": ["src/SkarpSharp.Core/Agent/LastRun.cs", "src/SkarpSharp.Core/Reporting/ReportLayout.cs"] }
+  ]
+}

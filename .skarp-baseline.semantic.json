@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "type": "semantic-baseline",
+  "toolVersion": "0.0.0-alpha.0.2",
+  "preset": "default",
+  "settingsFingerprint": "f5d0cc63f809b42c",
+  "commit": "7956167c4c3e8b8e41e8380426b2cc4c849a13f6+",
+  "solution": "SkarpSharp.slnx",
+  "targets": "highest",
+  "files": {
+    "src/SkarpSharp.Core/Agent/CheckRun.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Agent.CheckRun", "value": 64 }
+    ],
+    "src/SkarpSharp.Core/Agent/FileCheck.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Agent.FileCheck", "value": 25 }
+    ],
+    "src/SkarpSharp.Core/Agent/HookReport.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Agent.HookReport", "value": 24 }
+    ],
+    "src/SkarpSharp.Core/Agent/LimitMark.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Agent.EditLimits", "value": 22 }
+    ],
+    "src/SkarpSharp.Core/Agent/ShowData.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Agent.Join", "value": 30 }
+    ],
+    "src/SkarpSharp.Core/Agent/ShowFindings.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Agent.ShowFindings", "value": 23 }
+    ],
+    "src/SkarpSharp.Core/Agent/StopFile.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Agent.StopPass", "value": 31 }
+    ],
+    "src/SkarpSharp.Core/Analysis/Analyzer.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Analysis.Analyzer", "value": 83 }
+    ],
+    "src/SkarpSharp.Core/Analysis/VariantMerge.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Analysis.VariantMerge", "value": 53 },
+      { "rule": "high-coupling", "place": "SkarpSharp.Analysis.VariantMerge+Merger", "value": 22 }
+    ],
+    "src/SkarpSharp.Core/Clones/CloneTokens.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Clones.CloneTokens", "value": 60 }
+    ],
+    "src/SkarpSharp.Core/Commands/CheckCommand.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Commands.CheckCommand", "value": 44 }
+    ],
+    "src/SkarpSharp.Core/Commands/SemanticStage.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Commands.SemanticStage", "value": 40 }
+    ],
+    "src/SkarpSharp.Core/Commands/SetupCommand.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Commands.SetupCommand", "value": 36 }
+    ],
+    "src/SkarpSharp.Core/Commands/ShowCommand.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Commands.ShowCommand", "value": 24 }
+    ],
+    "src/SkarpSharp.Core/Commands/SkarpCommand.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Commands.SkarpCommand", "value": 99 }
+    ],
+    "src/SkarpSharp.Core/Conditionals/DirectiveMap.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Conditionals.DirectiveMap", "value": 23 }
+    ],
+    "src/SkarpSharp.Core/Configuration/CommandLine.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Configuration.CommandLine", "value": 33 }
+    ],
+    "src/SkarpSharp.Core/Configuration/SkarpOptions.cs": [
+      { "rule": "god-class", "place": "SkarpSharp.Configuration.SkarpOptions", "value": 110 },
+      { "rule": "high-coupling", "place": "SkarpSharp.Configuration.SkarpOptions", "value": 36 }
+    ],
+    "src/SkarpSharp.Core/Coverage/CoverageLineScan.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Coverage.CoverageLineScan", "value": 42 }
+    ],
+    "src/SkarpSharp.Core/Discovery/Glob.cs": [
+      { "rule": "used-only-by-tests", "place": "SkarpSharp.Discovery.Glob::MatchesByRegex" },
+      { "rule": "used-only-by-tests", "place": "SkarpSharp.Discovery.Glob::UsesRegex" }
+    ],
+    "src/SkarpSharp.Core/Findings/CloneRules.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Findings.CloneRules", "value": 26 }
+    ],
+    "src/SkarpSharp.Core/Findings/FindingEngine.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Findings.FindingEngine", "value": 34 }
+    ],
+    "src/SkarpSharp.Core/Findings/Thresholds.cs": [
+      { "rule": "god-class", "place": "SkarpSharp.Findings.RuleSettings", "value": 92 }
+    ],
+    "src/SkarpSharp.Core/Health/HealthEngine.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Health.HealthEngine", "value": 29 }
+    ],
+    "src/SkarpSharp.Core/History/HistoryRunner.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.History.HistoryRunner", "value": 22 }
+    ],
+    "src/SkarpSharp.Core/Mcp/AnalysisRuns.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Mcp.AnalysisRuns", "value": 22 }
+    ],
+    "src/SkarpSharp.Core/Mcp/CheckService.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Mcp.CheckService", "value": 48 }
+    ],
+    "src/SkarpSharp.Core/Mcp/ExplainTool.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Mcp.ExplainTool", "value": 22 }
+    ],
+    "src/SkarpSharp.Core/Mcp/FindingsTool.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Mcp.FindingsTool", "value": 21 }
+    ],
+    "src/SkarpSharp.Core/Mcp/McpCommand.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Mcp.McpCommand", "value": 23 }
+    ],
+    "src/SkarpSharp.Core/Metrics/Cognitive.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Metrics.Cognitive+Walker", "value": 34 }
+    ],
+    "src/SkarpSharp.Core/Metrics/Cyclomatic.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Metrics.Cyclomatic", "value": 25 }
+    ],
+    "src/SkarpSharp.Core/Metrics/NPath.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Metrics.NPath", "value": 49 }
+    ],
+    "src/SkarpSharp.Core/Ranking/WorstCode.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Ranking.WorstCode", "value": 30 }
+    ],
+    "src/SkarpSharp.Core/Reporting/CiReports.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Reporting.CiReports", "value": 25 }
+    ],
+    "src/SkarpSharp.Core/Reporting/HumanReport.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Reporting.HumanReport", "value": 63 }
+    ],
+    "src/SkarpSharp.Core/Reporting/SarifReport.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Reporting.SarifReport", "value": 39 }
+    ],
+    "src/SkarpSharp.Core/Reporting/SemanticReport.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Reporting.SemanticReport", "value": 30 }
+    ],
+    "src/SkarpSharp.Core/Reporting/TextReport.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Reporting.TextReport", "value": 37 }
+    ],
+    "src/SkarpSharp.Core/Semantic/CompilationPipeline.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.CompilationPipeline", "value": 32 }
+    ],
+    "src/SkarpSharp.Core/Semantic/MicrosoftCoupling.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.MicrosoftCoupling", "value": 25 }
+    ],
+    "src/SkarpSharp.Core/Semantic/ReferenceIndex.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.ReferenceIndex", "value": 22 },
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.ReferenceIndex+OperationWalker", "value": 67 },
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.ReferenceIndex+ProjectWalk", "value": 21 },
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.ReferenceIndex+Uses", "value": 37 },
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.ReferenceIndex+Walker", "value": 34 }
+    ],
+    "src/SkarpSharp.Core/Semantic/SemanticRunner.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.SemanticRunner", "value": 42 }
+    ],
+    "src/SkarpSharp.Core/Semantic/SymbolFacts.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.SymbolFacts", "value": 34 }
+    ],
+    "src/SkarpSharp.Core/Semantic/TypeMeasurement.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.TypeMeasurement", "value": 46 }
+    ],
+    "src/SkarpSharp.Core/Semantic/TypeWalker.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.CohesionIndex", "value": 30 },
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.TypeWalker", "value": 57 }
+    ],
+    "src/SkarpSharp.Core/Semantic/UnusedCandidates.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.CandidateCollector", "value": 34 },
+      { "rule": "high-coupling", "place": "SkarpSharp.Semantic.UnreadRule", "value": 26 }
+    ],
+    "src/SkarpSharp.Core/Setup/CommandBuilder.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Setup.CommandBuilder", "value": 22 }
+    ],
+    "src/SkarpSharp.Core/Setup/SetupMenu.Command.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Setup.SetupMenu", "value": 38 }
+    ],
+    "src/SkarpSharp.Core/Setup/SetupRows.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Setup.SetupRows", "value": 30 }
+    ],
+    "src/SkarpSharp.Core/Setup/SetupWriter.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Setup.SetupWriter", "value": 28 }
+    ],
+    "src/SkarpSharp.Core/Syntax/MemberCollector.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Syntax.MemberCollector+Collector", "value": 49 }
+    ],
+    "src/SkarpSharp.Core/Syntax/RuleFacts.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Syntax.RuleFacts", "value": 74 }
+    ],
+    "src/SkarpSharp.Core/Syntax/SuppressionScan.cs": [
+      { "rule": "high-coupling", "place": "SkarpSharp.Syntax.SuppressionScan", "value": 37 }
+    ]
+  }
+}

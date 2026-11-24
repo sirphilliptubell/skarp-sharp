@@ -1,0 +1,1164 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "tool": "skarp",
+    "toolVersion": "{toolVersion}",
+    "root": "\u003Croot\u003E",
+    "cyclomaticPreset": "ours",
+    "parseOptions": "LanguageVersion=CSharp15; DocumentationMode=None; PreprocessorSymbols=(none)",
+    "includeGenerated": false,
+    "parallelism": 2,
+    "includeTests": false,
+    "excludeGlobs": [
+      "tools/**"
+    ],
+    "findings": {
+      "preset": "default",
+      "presetName": "default (composite)",
+      "complexMetric": "cognitive",
+      "longMethodLines": "physical",
+      "recordParameters": "exempt",
+      "overrides": [
+        "long-method.notice=20"
+      ],
+      "rules": [
+        {
+          "rule": "complex-method",
+          "preset": "default",
+          "notice": "cognitive over 15",
+          "noticeSource": "default: Sonar S3776, PMD, detekt and Lizard: 15"
+        },
+        {
+          "rule": "deep-nesting",
+          "preset": "default",
+          "notice": "nesting over 3",
+          "noticeSource": "default: CodeScene: depth 4"
+        },
+        {
+          "rule": "long-method",
+          "preset": "default",
+          "notice": "physicalLines over 20",
+          "warning": "physicalLines over 70",
+          "noticeSource": "custom: custom (threshold override)",
+          "warningSource": "default: CodeScene: 70 lines"
+        },
+        {
+          "rule": "large-type",
+          "preset": "default",
+          "notice": "sourceLines over 100 or wmc over 20",
+          "noticeSource": "default: Clean-CaDET: 100 lines or WMC 20, measured on 920 C# classes"
+        },
+        {
+          "rule": "large-file",
+          "preset": "default",
+          "notice": "sourceLines over 1000",
+          "warning": "sourceLines over 5000",
+          "noticeSource": "default: CodeScene: 1000 lines",
+          "warningSource": "default: CodeScene: 5000 lines, alert"
+        },
+        {
+          "rule": "too-many-parameters",
+          "preset": "default",
+          "notice": "parameters over 4 or constructorParameters over 5",
+          "warning": "parameters at least 8",
+          "noticeSource": "default: CodeScene: 4 arguments, 5 for constructors",
+          "warningSource": "default: NDepend: 8 or more"
+        },
+        {
+          "rule": "path-explosion",
+          "preset": "default",
+          "notice": "npath over 200",
+          "noticeSource": "default: Nejmeh 1988, ReportGenerator, Checkstyle and PMD: 200"
+        },
+        {
+          "rule": "active-complex-file",
+          "preset": "default",
+          "notice": "activityShare at least 4",
+          "noticeSource": "default: CodeScene: 2 to 4 percent, Tornhill: 1 to 3 percent; Skarp uses 4",
+          "parameters": {
+            "share": "4"
+          }
+        },
+        {
+          "rule": "bumpy-road",
+          "preset": "default",
+          "notice": "bumps at least 2",
+          "noticeSource": "default: CodeScene: 2 bumps at depth 2",
+          "parameters": {
+            "depth": "2"
+          }
+        },
+        {
+          "rule": "complex-condition",
+          "preset": "default",
+          "notice": "booleanOperators at least 2",
+          "noticeSource": "default: CodeScene: 2; Designite: 3 boolean sub-expressions"
+        },
+        {
+          "rule": "empty-catch",
+          "preset": "default",
+          "notice": "structural",
+          "warning": "structural",
+          "noticeSource": "default: Skarp\u0027s own, after Checkstyle EmptyCatchBlock and Doomen AV1210",
+          "warningSource": "default: Skarp\u0027s own, after Checkstyle EmptyCatchBlock and Doomen AV1210"
+        },
+        {
+          "rule": "magic-number",
+          "preset": "default",
+          "notice": "structural",
+          "noticeSource": "default: Checkstyle MagicNumber: ignores -1, 0, 1, 2; positions after Doomen AV1515",
+          "parameters": {
+            "ignore": "-1,0,1,2"
+          }
+        },
+        {
+          "rule": "duplicate-code",
+          "preset": "default",
+          "notice": "tokens at least 100 and lines at least 10",
+          "warning": "lines at least 50 or copies at least 3",
+          "noticeSource": "default: SonarQube: 100 tokens over at least 10 lines; PMD CPD: 100 tokens",
+          "warningSource": "default: Skarp\u0027s own: a copy of 50 or more lines, or 3 or more copies of copyLines (20) or more lines",
+          "parameters": {
+            "copyLines": "20",
+            "lowContent": "skip"
+          }
+        },
+        {
+          "rule": "duplicate-code-near",
+          "preset": "default",
+          "notice": "similarity at least 0.75 and lines at least 10",
+          "noticeSource": "default: Skarp\u0027s own, after CodeScene\u0027s method similarity: 0.75 similar and 10 lines"
+        },
+        {
+          "rule": "suppression-without-justification",
+          "preset": "default",
+          "notice": "structural",
+          "noticeSource": "default: Skarp\u0027s own: a suppression must say why"
+        }
+      ],
+      "notes": [
+        "active-complex-file skipped: no git history (not a repository, git missing or history off)"
+      ]
+    },
+    "settingsFiles": [
+      {
+        "level": "repository",
+        "path": "\u003Croot\u003E/.skarp.json"
+      }
+    ],
+    "semantic": {
+      "status": "not evaluated",
+      "reason": "no .sln or .slnx file found",
+      "hint": "the semantic tier needs a solution; pass one with --solution \u003Cfile\u003E or use --no-semantic"
+    }
+  },
+  "repository": {
+    "files": 2,
+    "generatedFiles": 0,
+    "testFiles": 0,
+    "excludedFiles": 1,
+    "filesWithErrors": 0,
+    "members": 5,
+    "nestedBodies": 3,
+    "lines": {
+      "physical": 85,
+      "blank": 7,
+      "comment": 0,
+      "mixed": 0,
+      "source": 78,
+      "directive": 0,
+      "inactive": 0
+    },
+    "metrics": [
+      {
+        "metric": "cyclomatic",
+        "sum": 28,
+        "max": 11,
+        "mean": 5.6,
+        "p90": 11,
+        "warnThreshold": 10,
+        "overWarn": 1
+      },
+      {
+        "metric": "cognitive",
+        "sum": 35,
+        "max": 12,
+        "mean": 7,
+        "p90": 12,
+        "warnThreshold": 15,
+        "overWarn": 0
+      },
+      {
+        "metric": "npath",
+        "sum": 41,
+        "max": 20,
+        "mean": 8.2,
+        "p90": 20,
+        "warnThreshold": 200,
+        "overWarn": 0
+      },
+      {
+        "metric": "nesting",
+        "sum": 12,
+        "max": 4,
+        "mean": 2.4,
+        "p90": 4,
+        "warnThreshold": 3,
+        "overWarn": 2
+      },
+      {
+        "metric": "statements",
+        "sum": 35,
+        "max": 16,
+        "mean": 7,
+        "p90": 16,
+        "warnThreshold": 30,
+        "overWarn": 0
+      },
+      {
+        "metric": "sourceLines",
+        "sum": 70,
+        "max": 25,
+        "mean": 14,
+        "p90": 25,
+        "warnThreshold": 0,
+        "overWarn": 0
+      }
+    ],
+    "duplication": {
+      "groups": 0,
+      "nearGroups": 0,
+      "instances": 0,
+      "duplicatedLines": 0,
+      "share": 0
+    }
+  },
+  "types": [
+    {
+      "name": "Sample.OrderBook",
+      "kind": "class",
+      "path": "src/OrderBook.cs",
+      "line": 5,
+      "sourceLines": 62,
+      "declarations": 1,
+      "fields": 2,
+      "properties": 0,
+      "methods": 4,
+      "constructors": 0,
+      "events": 0,
+      "nestedTypes": 0,
+      "publicMembers": 4,
+      "sumCyclomatic": 21,
+      "maxCyclomatic": 11,
+      "sumCognitive": 23,
+      "statements": 28
+    },
+    {
+      "name": "Sample.OrderLine",
+      "kind": "record",
+      "path": "src/OrderBook.cs",
+      "line": 3,
+      "sourceLines": 1,
+      "declarations": 1,
+      "fields": 0,
+      "properties": 0,
+      "methods": 0,
+      "constructors": 0,
+      "events": 0,
+      "nestedTypes": 0,
+      "publicMembers": 0,
+      "sumCyclomatic": 0,
+      "maxCyclomatic": 0,
+      "sumCognitive": 0,
+      "statements": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "Program.cs",
+      "generated": false,
+      "lines": {
+        "physical": 15,
+        "blank": 1,
+        "comment": 0,
+        "mixed": 0,
+        "source": 14,
+        "directive": 0,
+        "inactive": 0
+      },
+      "topLevelTypes": 0,
+      "types": [],
+      "members": [
+        {
+          "id": "Program.cs::\u003Ctop-level\u003E",
+          "key": "\u003Ctop-level\u003E",
+          "name": "\u003Ctop-level\u003E",
+          "kind": "TopLevel",
+          "type": "\u003Ctop-level\u003E",
+          "startLine": 3,
+          "endLine": 15,
+          "cyclomatic": 7,
+          "cyclomaticMicrosoft": 7,
+          "cognitive": 12,
+          "npath": 7,
+          "npathLog2": 2,
+          "npathSaturated": false,
+          "nesting": 4,
+          "statements": 7,
+          "lines": {
+            "physical": 13,
+            "blank": 0,
+            "comment": 0,
+            "mixed": 0,
+            "source": 13,
+            "directive": 0,
+            "inactive": 0
+          },
+          "nestedBlocks": [
+            {
+              "seq": 1,
+              "startLine": 4,
+              "endLine": 14,
+              "depth": 4
+            }
+          ],
+          "booleanOperatorsMax": 1,
+          "booleanOperatorsLine": 6,
+          "numericLiterals": [
+            {
+              "line": 4,
+              "text": "0",
+              "value": 0
+            },
+            {
+              "line": 4,
+              "text": "3",
+              "value": 3
+            },
+            {
+              "line": 6,
+              "text": "0",
+              "value": 0
+            },
+            {
+              "line": 15,
+              "text": "42",
+              "value": 42
+            }
+          ]
+        }
+      ],
+      "health": {
+        "score": 9.45,
+        "band": "healthy",
+        "kind": "syntax",
+        "penalty": 0.55,
+        "baselineScore": 9.95,
+        "contributions": [
+          {
+            "rule": "deep-nesting",
+            "severity": "notice",
+            "count": 1,
+            "points": 0.5
+          },
+          {
+            "rule": "magic-number",
+            "severity": "notice",
+            "count": 1,
+            "points": 0.05
+          }
+        ]
+      }
+    },
+    {
+      "path": "src/OrderBook.cs",
+      "generated": false,
+      "lines": {
+        "physical": 70,
+        "blank": 6,
+        "comment": 0,
+        "mixed": 0,
+        "source": 64,
+        "directive": 0,
+        "inactive": 0
+      },
+      "topLevelTypes": 2,
+      "types": [
+        {
+          "name": "Sample.OrderLine",
+          "kind": "record",
+          "partial": false,
+          "fields": 0,
+          "properties": 0,
+          "methods": 0,
+          "constructors": 0,
+          "events": 0,
+          "nestedTypes": 0,
+          "publicMembers": 0,
+          "startLine": 3,
+          "endLine": 3,
+          "sourceLines": 1,
+          "primaryConstructorParameters": 6
+        },
+        {
+          "name": "Sample.OrderBook",
+          "kind": "class",
+          "partial": false,
+          "fields": 2,
+          "properties": 0,
+          "methods": 4,
+          "constructors": 0,
+          "events": 0,
+          "nestedTypes": 0,
+          "publicMembers": 4,
+          "startLine": 5,
+          "endLine": 70,
+          "sourceLines": 62
+        }
+      ],
+      "members": [
+        {
+          "id": "Sample.OrderBook::Total(int)",
+          "key": "Sample.OrderBook::Total",
+          "name": "Total",
+          "kind": "Method",
+          "type": "Sample.OrderBook",
+          "startLine": 10,
+          "endLine": 30,
+          "cyclomatic": 7,
+          "cyclomaticMicrosoft": 7,
+          "cognitive": 10,
+          "npath": 20,
+          "npathLog2": 4,
+          "npathSaturated": false,
+          "nesting": 3,
+          "statements": 9,
+          "lines": {
+            "physical": 21,
+            "blank": 0,
+            "comment": 0,
+            "mixed": 0,
+            "source": 21,
+            "directive": 0,
+            "inactive": 0
+          },
+          "parameters": 1,
+          "nestedBlocks": [
+            {
+              "seq": 1,
+              "startLine": 13,
+              "endLine": 26,
+              "depth": 3
+            }
+          ],
+          "booleanOperatorsMax": 2,
+          "booleanOperatorsLine": 27,
+          "numericLiterals": [
+            {
+              "line": 12,
+              "text": "0",
+              "value": 0
+            },
+            {
+              "line": 15,
+              "text": "0",
+              "value": 0
+            },
+            {
+              "line": 19,
+              "text": "1.25m",
+              "value": 1.25
+            },
+            {
+              "line": 27,
+              "text": "1000",
+              "value": 1000
+            },
+            {
+              "line": 27,
+              "text": "500",
+              "value": 500
+            },
+            {
+              "line": 27,
+              "text": "7",
+              "value": 7
+            },
+            {
+              "line": 28,
+              "text": "15",
+              "value": 15
+            }
+          ]
+        },
+        {
+          "id": "Sample.OrderBook::Total(string)",
+          "key": "Sample.OrderBook::Total#2",
+          "name": "Total",
+          "kind": "Method",
+          "type": "Sample.OrderBook",
+          "startLine": 32,
+          "endLine": 32,
+          "cyclomatic": 1,
+          "cyclomaticMicrosoft": 1,
+          "cognitive": 0,
+          "npath": 1,
+          "npathLog2": 0,
+          "npathSaturated": false,
+          "nesting": 0,
+          "statements": 1,
+          "lines": {
+            "physical": 1,
+            "blank": 0,
+            "comment": 0,
+            "mixed": 0,
+            "source": 1,
+            "directive": 0,
+            "inactive": 0
+          },
+          "parameters": 1
+        },
+        {
+          "id": "Sample.OrderBook::Total(string)/lambda@32:59",
+          "key": "Sample.OrderBook::Total#2/lambda1",
+          "name": "Total/lambda1",
+          "kind": "Lambda",
+          "parent": "Sample.OrderBook::Total(string)",
+          "type": "Sample.OrderBook",
+          "startLine": 32,
+          "endLine": 32,
+          "cyclomatic": 1,
+          "cyclomaticMicrosoft": 1,
+          "cognitive": 0,
+          "npath": 1,
+          "npathLog2": 0,
+          "npathSaturated": false,
+          "nesting": 0,
+          "statements": 1,
+          "lines": {
+            "physical": 1,
+            "blank": 0,
+            "comment": 0,
+            "mixed": 0,
+            "source": 1,
+            "directive": 0,
+            "inactive": 0
+          },
+          "parameters": 1
+        },
+        {
+          "id": "Sample.OrderBook::Total(string)/lambda@32:92",
+          "key": "Sample.OrderBook::Total#2/lambda2",
+          "name": "Total/lambda2",
+          "kind": "Lambda",
+          "parent": "Sample.OrderBook::Total(string)",
+          "type": "Sample.OrderBook",
+          "startLine": 32,
+          "endLine": 32,
+          "cyclomatic": 1,
+          "cyclomaticMicrosoft": 1,
+          "cognitive": 0,
+          "npath": 1,
+          "npathLog2": 0,
+          "npathSaturated": false,
+          "nesting": 0,
+          "statements": 1,
+          "lines": {
+            "physical": 1,
+            "blank": 0,
+            "comment": 0,
+            "mixed": 0,
+            "source": 1,
+            "directive": 0,
+            "inactive": 0
+          },
+          "parameters": 1
+        },
+        {
+          "id": "Sample.OrderBook::Add(string,int,decimal,decimal,string,bool,bool,string)",
+          "key": "Sample.OrderBook::Add",
+          "name": "Add",
+          "kind": "Method",
+          "type": "Sample.OrderBook",
+          "startLine": 34,
+          "endLine": 43,
+          "cyclomatic": 2,
+          "cyclomaticMicrosoft": 1,
+          "cognitive": 1,
+          "npath": 2,
+          "npathLog2": 1,
+          "npathSaturated": false,
+          "nesting": 1,
+          "statements": 2,
+          "lines": {
+            "physical": 10,
+            "blank": 0,
+            "comment": 0,
+            "mixed": 0,
+            "source": 10,
+            "directive": 0,
+            "inactive": 0
+          },
+          "parameters": 8,
+          "emptyCatches": [
+            {
+              "line": 40,
+              "hasComment": false,
+              "hasFilter": false
+            }
+          ]
+        },
+        {
+          "id": "Sample.OrderBook::Describe(int)",
+          "key": "Sample.OrderBook::Describe",
+          "name": "Describe",
+          "kind": "Method",
+          "type": "Sample.OrderBook",
+          "startLine": 45,
+          "endLine": 69,
+          "cyclomatic": 11,
+          "cyclomaticMicrosoft": 12,
+          "cognitive": 12,
+          "npath": 11,
+          "npathLog2": 3,
+          "npathSaturated": false,
+          "nesting": 4,
+          "statements": 16,
+          "lines": {
+            "physical": 25,
+            "blank": 0,
+            "comment": 0,
+            "mixed": 0,
+            "source": 25,
+            "directive": 0,
+            "inactive": 0
+          },
+          "parameters": 1,
+          "nestedBlocks": [
+            {
+              "seq": 0,
+              "startLine": 47,
+              "endLine": 68,
+              "depth": 4
+            }
+          ],
+          "numericLiterals": [
+            {
+              "line": 49,
+              "text": "1",
+              "value": 1
+            },
+            {
+              "line": 50,
+              "text": "2",
+              "value": 2
+            },
+            {
+              "line": 51,
+              "text": "3",
+              "value": 3
+            },
+            {
+              "line": 52,
+              "text": "4",
+              "value": 4
+            },
+            {
+              "line": 53,
+              "text": "5",
+              "value": 5
+            },
+            {
+              "line": 54,
+              "text": "6",
+              "value": 6
+            },
+            {
+              "line": 55,
+              "text": "7",
+              "value": 7
+            },
+            {
+              "line": 58,
+              "text": "0",
+              "value": 0
+            },
+            {
+              "line": 60,
+              "text": "2",
+              "value": 2
+            },
+            {
+              "line": 60,
+              "text": "0",
+              "value": 0
+            },
+            {
+              "line": 62,
+              "text": "3",
+              "value": 3
+            },
+            {
+              "line": 62,
+              "text": "0",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "id": "Sample.OrderBook::_net/lambda@8:46",
+          "key": "Sample.OrderBook::_net/lambda1",
+          "name": "_net/lambda1",
+          "kind": "Lambda",
+          "parent": "Sample.OrderBook::_net",
+          "type": "Sample.OrderBook",
+          "startLine": 8,
+          "endLine": 8,
+          "cyclomatic": 4,
+          "cyclomaticMicrosoft": 4,
+          "cognitive": 2,
+          "npath": 4,
+          "npathLog2": 2,
+          "npathSaturated": false,
+          "nesting": 0,
+          "statements": 1,
+          "lines": {
+            "physical": 1,
+            "blank": 0,
+            "comment": 0,
+            "mixed": 0,
+            "source": 1,
+            "directive": 0,
+            "inactive": 0
+          },
+          "parameters": 1,
+          "booleanOperatorsMax": 2,
+          "booleanOperatorsLine": 8,
+          "numericLiterals": [
+            {
+              "line": 8,
+              "text": "0",
+              "value": 0
+            },
+            {
+              "line": 8,
+              "text": "0",
+              "value": 0
+            },
+            {
+              "line": 8,
+              "text": "0",
+              "value": 0
+            }
+          ]
+        }
+      ],
+      "health": {
+        "score": 6.93,
+        "band": "problematic",
+        "kind": "syntax",
+        "penalty": 3.08,
+        "baselineScore": 6.93,
+        "contributions": [
+          {
+            "rule": "empty-catch",
+            "severity": "warning",
+            "count": 1,
+            "points": 0.8
+          },
+          {
+            "rule": "long-method",
+            "severity": "notice",
+            "count": 2,
+            "points": 0.68
+          },
+          {
+            "rule": "complex-condition",
+            "severity": "notice",
+            "count": 2,
+            "points": 0.51
+          },
+          {
+            "rule": "deep-nesting",
+            "severity": "notice",
+            "count": 1,
+            "points": 0.5
+          },
+          {
+            "rule": "too-many-parameters",
+            "severity": "warning",
+            "count": 1,
+            "points": 0.3
+          },
+          {
+            "rule": "large-type",
+            "severity": "notice",
+            "count": 1,
+            "points": 0.2
+          },
+          {
+            "rule": "magic-number",
+            "severity": "notice",
+            "count": 2,
+            "points": 0.09
+          }
+        ]
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "deep-nesting|Program.cs|\u003Ctop-level\u003E",
+      "handle": "984d5d0e",
+      "rule": "deep-nesting",
+      "severity": "notice",
+      "path": "Program.cs",
+      "line": 3,
+      "member": "Program.cs::\u003Ctop-level\u003E",
+      "value": 4,
+      "metric": "nesting",
+      "threshold": 3,
+      "comparison": "over",
+      "preset": "default",
+      "thresholdSource": "CodeScene: depth 4",
+      "message": "nesting depth 4",
+      "baselineState": "new"
+    },
+    {
+      "id": "magic-number|Program.cs|\u003Ctop-level\u003E",
+      "handle": "9ed068cd",
+      "rule": "magic-number",
+      "severity": "notice",
+      "path": "Program.cs",
+      "line": 4,
+      "member": "Program.cs::\u003Ctop-level\u003E",
+      "value": 2,
+      "metric": "magicNumbers",
+      "preset": "default",
+      "thresholdSource": "Checkstyle MagicNumber: ignores -1, 0, 1, 2; positions after Doomen AV1515",
+      "message": "2 magic numbers: 3, 42",
+      "baselineState": "known",
+      "baselineValue": 2
+    },
+    {
+      "id": "deep-nesting|src/OrderBook.cs|Sample.OrderBook::Describe",
+      "handle": "b4a90bd3",
+      "rule": "deep-nesting",
+      "severity": "notice",
+      "path": "src/OrderBook.cs",
+      "line": 45,
+      "member": "Sample.OrderBook::Describe(int)",
+      "value": 4,
+      "metric": "nesting",
+      "threshold": 3,
+      "comparison": "over",
+      "preset": "default",
+      "thresholdSource": "CodeScene: depth 4",
+      "message": "nesting depth 4",
+      "baselineState": "known",
+      "baselineValue": 4
+    },
+    {
+      "id": "long-method|src/OrderBook.cs|Sample.OrderBook::Describe",
+      "handle": "9b6c4c34",
+      "rule": "long-method",
+      "severity": "notice",
+      "path": "src/OrderBook.cs",
+      "line": 45,
+      "member": "Sample.OrderBook::Describe(int)",
+      "value": 25,
+      "metric": "physicalLines",
+      "threshold": 20,
+      "comparison": "over",
+      "preset": "custom",
+      "thresholdSource": "custom (threshold override)",
+      "message": "25 physical lines",
+      "baselineState": "worsened",
+      "baselineValue": 22
+    },
+    {
+      "id": "magic-number|src/OrderBook.cs|Sample.OrderBook::Describe",
+      "handle": "b6370087",
+      "rule": "magic-number",
+      "severity": "notice",
+      "path": "src/OrderBook.cs",
+      "line": 51,
+      "member": "Sample.OrderBook::Describe(int)",
+      "value": 6,
+      "metric": "magicNumbers",
+      "preset": "default",
+      "thresholdSource": "Checkstyle MagicNumber: ignores -1, 0, 1, 2; positions after Doomen AV1515",
+      "message": "6 magic numbers: 3, 4, 5, 6, 7",
+      "baselineState": "known",
+      "baselineValue": 6
+    },
+    {
+      "id": "long-method|src/OrderBook.cs|Sample.OrderBook::Total",
+      "handle": "6e523882",
+      "rule": "long-method",
+      "severity": "notice",
+      "path": "src/OrderBook.cs",
+      "line": 10,
+      "member": "Sample.OrderBook::Total(int)",
+      "value": 21,
+      "metric": "physicalLines",
+      "threshold": 20,
+      "comparison": "over",
+      "preset": "custom",
+      "thresholdSource": "custom (threshold override)",
+      "message": "21 physical lines",
+      "baselineState": "known",
+      "baselineValue": 21
+    },
+    {
+      "id": "complex-condition|src/OrderBook.cs|Sample.OrderBook::Total",
+      "handle": "0ed1ff77",
+      "rule": "complex-condition",
+      "severity": "notice",
+      "path": "src/OrderBook.cs",
+      "line": 27,
+      "member": "Sample.OrderBook::Total(int)",
+      "value": 2,
+      "metric": "booleanOperators",
+      "threshold": 2,
+      "comparison": "at least",
+      "preset": "default",
+      "thresholdSource": "CodeScene: 2; Designite: 3 boolean sub-expressions",
+      "message": "2 boolean operators in one branch condition",
+      "baselineState": "known",
+      "baselineValue": 2
+    },
+    {
+      "id": "magic-number|src/OrderBook.cs|Sample.OrderBook::Total",
+      "handle": "7c6de4dd",
+      "rule": "magic-number",
+      "severity": "notice",
+      "path": "src/OrderBook.cs",
+      "line": 19,
+      "member": "Sample.OrderBook::Total(int)",
+      "value": 5,
+      "metric": "magicNumbers",
+      "preset": "default",
+      "thresholdSource": "Checkstyle MagicNumber: ignores -1, 0, 1, 2; positions after Doomen AV1515",
+      "message": "5 magic numbers: 1.25m, 1000, 500, 7, 15",
+      "baselineState": "known",
+      "baselineValue": 5
+    },
+    {
+      "id": "too-many-parameters|src/OrderBook.cs|Sample.OrderBook::Add",
+      "handle": "1a9e9b41",
+      "rule": "too-many-parameters",
+      "severity": "warning",
+      "path": "src/OrderBook.cs",
+      "line": 34,
+      "member": "Sample.OrderBook::Add(string,int,decimal,decimal,string,bool,bool,string)",
+      "value": 8,
+      "metric": "parameters",
+      "threshold": 8,
+      "comparison": "at least",
+      "preset": "default",
+      "thresholdSource": "NDepend: 8 or more",
+      "message": "8 parameters",
+      "baselineState": "known",
+      "baselineValue": 8
+    },
+    {
+      "id": "empty-catch|src/OrderBook.cs|Sample.OrderBook::Add",
+      "handle": "4a5cab44",
+      "rule": "empty-catch",
+      "severity": "warning",
+      "path": "src/OrderBook.cs",
+      "line": 40,
+      "member": "Sample.OrderBook::Add(string,int,decimal,decimal,string,bool,bool,string)",
+      "preset": "default",
+      "thresholdSource": "Skarp\u0027s own, after Checkstyle EmptyCatchBlock and Doomen AV1210",
+      "message": "empty bare catch without a comment",
+      "baselineState": "known"
+    },
+    {
+      "id": "complex-condition|src/OrderBook.cs|Sample.OrderBook::_net/lambda1",
+      "handle": "0e8c0363",
+      "rule": "complex-condition",
+      "severity": "notice",
+      "path": "src/OrderBook.cs",
+      "line": 8,
+      "member": "Sample.OrderBook::_net/lambda@8:46",
+      "value": 2,
+      "metric": "booleanOperators",
+      "threshold": 2,
+      "comparison": "at least",
+      "preset": "default",
+      "thresholdSource": "CodeScene: 2; Designite: 3 boolean sub-expressions",
+      "message": "2 boolean operators in one branch condition",
+      "baselineState": "known",
+      "baselineValue": 2
+    },
+    {
+      "id": "large-type|src/OrderBook.cs|Sample.OrderBook",
+      "handle": "3877a10f",
+      "rule": "large-type",
+      "severity": "notice",
+      "path": "src/OrderBook.cs",
+      "line": 5,
+      "member": "Sample.OrderBook",
+      "value": 21,
+      "metric": "wmc",
+      "threshold": 20,
+      "comparison": "over",
+      "preset": "default",
+      "thresholdSource": "Clean-CaDET: 100 lines or WMC 20, measured on 920 C# classes",
+      "message": "WMC 21 (also 62 source lines)",
+      "baselineState": "known",
+      "baselineValue": 21
+    }
+  ],
+  "findingCounts": [
+    {
+      "rule": "complex-method",
+      "warning": 0,
+      "notice": 0
+    },
+    {
+      "rule": "deep-nesting",
+      "warning": 0,
+      "notice": 2
+    },
+    {
+      "rule": "long-method",
+      "warning": 0,
+      "notice": 2
+    },
+    {
+      "rule": "large-type",
+      "warning": 0,
+      "notice": 1
+    },
+    {
+      "rule": "large-file",
+      "warning": 0,
+      "notice": 0
+    },
+    {
+      "rule": "too-many-parameters",
+      "warning": 1,
+      "notice": 0
+    },
+    {
+      "rule": "path-explosion",
+      "warning": 0,
+      "notice": 0
+    },
+    {
+      "rule": "active-complex-file",
+      "warning": 0,
+      "notice": 0
+    },
+    {
+      "rule": "bumpy-road",
+      "warning": 0,
+      "notice": 0
+    },
+    {
+      "rule": "complex-condition",
+      "warning": 0,
+      "notice": 2
+    },
+    {
+      "rule": "empty-catch",
+      "warning": 1,
+      "notice": 0
+    },
+    {
+      "rule": "magic-number",
+      "warning": 0,
+      "notice": 3
+    },
+    {
+      "rule": "duplicate-code",
+      "warning": 0,
+      "notice": 0
+    },
+    {
+      "rule": "duplicate-code-near",
+      "warning": 0,
+      "notice": 0
+    },
+    {
+      "rule": "suppression-without-justification",
+      "warning": 0,
+      "notice": 0
+    }
+  ],
+  "excluded": [
+    {
+      "path": "tools/Ignored.cs",
+      "kind": "exclude",
+      "reason": "--exclude tools/**"
+    }
+  ],
+  "baseline": {
+    "path": "\u003Croot\u003E/.skarp-baseline.json",
+    "toolVersion": "0.1.0.0",
+    "preset": "default",
+    "entries": 12,
+    "new": 1,
+    "known": 10,
+    "worsened": 1,
+    "fixed": 1,
+    "settingsChanged": true,
+    "notes": [
+      "rule settings changed since the baseline; new and fixed counts include settings effects; re-run \u0060skarp baseline\u0060 to reset"
+    ],
+    "possiblyRenamed": 0
+  },
+  "health": {
+    "model": "grade",
+    "kind": "syntax",
+    "files": 2,
+    "average": 7.38,
+    "hotspotNote": "hotspot health needs git history",
+    "baseline": {
+      "files": 2,
+      "average": 7.47,
+      "averageNow": 7.38
+    },
+    "worstBelow": 7,
+    "worst": [
+      {
+        "path": "src/OrderBook.cs",
+        "score": 6.93,
+        "band": "problematic",
+        "penalty": 3.08,
+        "contributions": [
+          {
+            "rule": "empty-catch",
+            "severity": "warning",
+            "count": 1,
+            "points": 0.8
+          },
+          {
+            "rule": "long-method",
+            "severity": "notice",
+            "count": 2,
+            "points": 0.68
+          },
+          {
+            "rule": "complex-condition",
+            "severity": "notice",
+            "count": 2,
+            "points": 0.51
+          }
+        ]
+      }
+    ],
+    "folders": [
+      {
+        "path": "src",
+        "average": 6.93,
+        "files": 1,
+        "sourceLines": 64
+      }
+    ]
+  },
+  "composites": []
+}

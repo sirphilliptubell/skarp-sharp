@@ -1,0 +1,61 @@
+run: covering, cap 32, check cap 4; 3 files with #if, 38 variants, capped [Mock.Lib/Versions.cs], 1 unreachable, 9 unplanned, 1 filtered
+Mock.Lib/Features.cs
+  symbols: NET
+  variants: NET10_0
+  source lines: base 11, merged 16
+  Mock.Lib.Features::Flags(int) [Mock.Lib.Features::Flags] NET10_0: cognitive 0, merged 5
+Mock.Lib/Variants.cs
+  symbols: DEBUG, MOCK_DEV_TRACE, MOCK_LIB, NET20, NET48, NET6_0, NET7_0_OR_GREATER, NET8_0, NET8_0_OR_GREATER, NET9_0_OR_GREATER
+  filtered: MOCK_DEV_TRACE
+  variants: NET9_0+DEBUG+MOCK_LIB, NET20, NET48, NET6_0, NET7_0
+  unreachable: line 46 #if NET20 && NET8_0 (exclusive)
+  source lines: base 41, merged 63
+  Mock.Lib.Tagged::Run(int) [Mock.Lib.Tagged::Run] NET9_0+DEBUG+MOCK_LIB: cognitive 0, merged 0
+  Mock.Lib.Tagged::Score(int,int) [Mock.Lib.Tagged::Score] NET9_0+DEBUG+MOCK_LIB: cognitive 0, merged 20
+  Mock.Lib.Platform::Name() [Mock.Lib.Platform::Name] NET48 variant-only: cognitive 0
+  Mock.Lib.Platform::Name()#2 [Mock.Lib.Platform::Name#2] NET9_0+DEBUG+MOCK_LIB variant-only: cognitive 0
+  Mock.Lib.Platform::Build() [Mock.Lib.Platform::Build] NET9_0+DEBUG+MOCK_LIB variant-only: cognitive 0
+  Mock.Lib.Twins::Pick(int)#2 [Mock.Lib.Twins::Pick#2] NET9_0+DEBUG+MOCK_LIB variant-only: cognitive 1
+  Mock.Lib.Exact::Nine() [Mock.Lib.Exact::Nine] NET9_0+DEBUG+MOCK_LIB variant-only: cognitive 0
+  Mock.Lib.Exact::Seven() [Mock.Lib.Exact::Seven] NET7_0 variant-only: cognitive 0
+  Mock.Lib.Exact::Six() [Mock.Lib.Exact::Six] NET6_0 variant-only: cognitive 0
+Mock.Lib/Versions.cs
+  symbols: NET10_0, NET11_0, NET12_0, NET13_0, NET14_0, NET15_0, NET16_0, NET17_0, NET18_0, NET19_0, NET20_0, NET21_0, NET22_0, NET23_0, NET24_0, NET25_0, NET26_0, NET27_0, NET28_0, NET29_0, NET30_0, NET31_0, NET32_0, NET33_0, NET34_0, NET35_0, NET36_0, NET37_0, NET38_0, NET39_0, NET40_0, NET41_0, NET42_0, NET43_0, NET44_0, NET5_0, NET6_0, NET7_0, NET8_0, NET9_0
+  variants: NET44_0, NET5_0, NET6_0, NET7_0, NET8_0, NET9_0, NET10_0, NET11_0, NET12_0, NET13_0, NET14_0, NET15_0, NET16_0, NET17_0, NET18_0, NET19_0, NET20_0, NET21_0, NET22_0, NET23_0, NET24_0, NET25_0, NET26_0, NET27_0, NET28_0, NET29_0, NET30_0, NET31_0, NET32_0, NET33_0, NET34_0, NET35_0 (capped)
+  source lines: base 45, merged 46
+  Mock.Lib.Versions::Major() [Mock.Lib.Versions::Major] NET5_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#2 [Mock.Lib.Versions::Major#2] NET6_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#3 [Mock.Lib.Versions::Major#3] NET7_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#4 [Mock.Lib.Versions::Major#4] NET8_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#5 [Mock.Lib.Versions::Major#5] NET9_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#6 [Mock.Lib.Versions::Major#6] NET10_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#7 [Mock.Lib.Versions::Major#7] NET11_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#8 [Mock.Lib.Versions::Major#8] NET12_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#9 [Mock.Lib.Versions::Major#9] NET13_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#10 [Mock.Lib.Versions::Major#10] NET14_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#11 [Mock.Lib.Versions::Major#11] NET15_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#12 [Mock.Lib.Versions::Major#12] NET16_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#13 [Mock.Lib.Versions::Major#13] NET17_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#14 [Mock.Lib.Versions::Major#14] NET18_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#15 [Mock.Lib.Versions::Major#15] NET19_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#16 [Mock.Lib.Versions::Major#16] NET20_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#17 [Mock.Lib.Versions::Major#17] NET21_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#18 [Mock.Lib.Versions::Major#18] NET22_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#19 [Mock.Lib.Versions::Major#19] NET23_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#20 [Mock.Lib.Versions::Major#20] NET24_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#21 [Mock.Lib.Versions::Major#21] NET25_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#22 [Mock.Lib.Versions::Major#22] NET26_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#23 [Mock.Lib.Versions::Major#23] NET27_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#24 [Mock.Lib.Versions::Major#24] NET28_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#25 [Mock.Lib.Versions::Major#25] NET29_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#26 [Mock.Lib.Versions::Major#26] NET30_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#27 [Mock.Lib.Versions::Major#27] NET31_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#28 [Mock.Lib.Versions::Major#28] NET32_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#29 [Mock.Lib.Versions::Major#29] NET33_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#30 [Mock.Lib.Versions::Major#30] NET34_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#31 [Mock.Lib.Versions::Major#31] NET35_0 variant-only: cognitive 0
+  Mock.Lib.Versions::Major()#32 [Mock.Lib.Versions::Major#32] NET44_0 variant-only: cognitive 0
+findings naming a variant:
+  notice complex-method|Mock.Lib/Variants.cs|Mock.Lib.Tagged::Score: cognitive complexity 20 (with NET9_0, DEBUG and MOCK_LIB on)
+  notice deep-nesting|Mock.Lib/Variants.cs|Mock.Lib.Tagged::Score: nesting depth 4 (with NET9_0, DEBUG and MOCK_LIB on)
+  notice complex-condition|Mock.Lib/Variants.cs|Mock.Lib.Tagged::Score: 2 boolean operators in one branch condition (with NET9_0, DEBUG and MOCK_LIB on)

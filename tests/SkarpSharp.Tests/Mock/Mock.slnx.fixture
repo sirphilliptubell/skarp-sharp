@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Mock.Lib/Mock.Lib.csproj" />
+  <Project Path="Mock.Lib.Tests/Mock.Lib.Tests.csproj" />
+  <Project Path="Mock.Untested/Mock.Untested.csproj" />
+</Solution>

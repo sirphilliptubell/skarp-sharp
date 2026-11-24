@@ -1,0 +1,14 @@
+=== frame 4 after s
+H|Skarp setup  personal  machine/personal.json  1 changed
+.|Preview of the changes
+ |  machine/personal.json (personal): 1 change
+ |    rules.complex-method: (inherit) → false (no effect here: repository sets true)
+ |  saving removes 1 comment; the original is kept as machine/personal.json.bak
+ |  changes findings: the next run's settings fingerprint will differ from the baseline (re-record the baseline when you are done)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |y saves, n goes back to editing.
+ |
+ |
+ |
+.|Save? y yes  n no

@@ -1,0 +1,130 @@
+skarp {toolVersion} config <root>
+settings levels (lowest first; each overrides the ones before):
+  default       skarp's built-in defaults
+  plugin        (reserved; empty)
+  repository    <root>/.skarp.json (applied)
+  command line  flags
+baseline file: <root>/.skarp-baseline.json
+
+  setting                                  value                    origin
+  preset                                   default                  default
+  complexMetric                            cognitive                default
+  longMethodLines                          physical                 default
+  recordParameters                         exempt                   default
+  magicNumbers                             count                    default
+  rules.complex-method                     on                       default
+  rules.deep-nesting                       on                       default
+  rules.long-method                        on                       default
+  rules.large-type                         on                       default
+  rules.large-file                         on                       default
+  rules.too-many-parameters                on                       default
+  rules.path-explosion                     on                       default
+  rules.active-complex-file                on                       default
+  rules.bumpy-road                         on                       default
+  rules.complex-condition                  on                       default
+  rules.empty-catch                        on                       default
+  rules.magic-number                       on                       default
+  rules.duplicate-code                     on                       default
+  rules.duplicate-code-near                on                       default
+  rules.suppression-without-justification  on                       default
+  rules.high-coupling                      on                       default
+  rules.god-class                          on                       default
+  rules.unused-member                      on                       default
+  rules.unused-type                        on                       default
+  rules.used-only-by-tests                 on                       default
+  rules.unread-member                      on                       default
+  rules.namespace-cycle                    on                       default
+  includeTests                             false                    default
+  include                                  (none)                   default
+  exclude                                  tools/**                 repository
+  top                                      5                        command line
+  history.enabled                          false                    repository
+  history.window                           12                       default
+  history.since                            (none)                   default
+  history.allHistory                       false                    default
+  history.ignoreWhitespace                 false                    default
+  history.bulkFlag                         300                      default
+  history.bulkDrop                         (none)                   default
+  history.includeBots                      false                    default
+  history.botPatterns                      (none)                   default
+  report.perFile                           3                        default
+  gate.enabled                             false                    default
+  gate.on                                  *:warning                default
+  gate.health.maxDrop                      1.0                      default
+  gate.health.newFileMin                   6.5                      default
+  gate.health.floor                        6.5                      default
+  semantic.enabled                         true                     default
+  semantic.solution                        (automatic)              default
+  semantic.generators                      true                     default
+  semantic.targets                         highest                  default
+  unusedCode.allow                         (none)                   default
+  namespaceCycles.includeGeneratedTargets  false                    default
+  saveLastRun                              true                     default
+  output.checkMaxLines                     5                        default
+  output.gateMaxLines                      50                       default
+  tracking.retentionDays                   30                       default
+  tracking.lookbackDays                    14                       default
+  score.model                              grade                    default
+  score.decay                              0.7                      default
+  score.weights                            (table)                  default
+  score.worst.count                        10                       default
+  score.worst.below                        7                        default
+  symbols                                  (automatic)              default
+  variants.cap                             32                       default
+  variants.checkCap                        4                        default
+
+Thresholds in effect (origin: the preset, or the level that changed the value):
+  rule                 level   value                                                origin
+  complex-method       notice  cognitive over 15                                    preset default
+  complex-method       warning blank                                                preset default
+  deep-nesting         notice  nesting over 5                                       command line
+  deep-nesting         warning blank                                                preset default
+  long-method          notice  physicalLines over 20                                repository
+  long-method          warning physicalLines over 70                                preset default
+  large-type           notice  sourceLines over 100 or wmc over 20                  preset default
+  large-type           warning blank                                                preset default
+  large-file           notice  sourceLines over 1000                                preset default
+  large-file           warning sourceLines over 5000                                preset default
+  too-many-parameters  notice  parameters over 4 or constructorParameters over 5    preset default
+  too-many-parameters  warning parameters at least 8                                preset default
+  path-explosion       notice  npath over 200                                       preset default
+  path-explosion       warning blank                                                preset default
+  active-complex-file  notice  activityShare at least 4                             preset default
+  active-complex-file  warning blank                                                preset default
+  active-complex-file  share   4                                                    preset default
+  bumpy-road           notice  bumps at least 2                                     preset default
+  bumpy-road           warning blank                                                preset default
+  bumpy-road           depth   2                                                    preset default
+  complex-condition    notice  booleanOperators at least 2                          preset default
+  complex-condition    warning blank                                                preset default
+  empty-catch          notice  structural                                           preset default
+  empty-catch          warning structural                                           preset default
+  magic-number         notice  structural                                           preset default
+  magic-number         warning blank                                                preset default
+  magic-number         ignore  -1,0,1,2                                             preset default
+  duplicate-code       notice  tokens at least 100 and lines at least 10            preset default
+  duplicate-code       warning lines at least 50 or copies at least 3               preset default
+  duplicate-code       copyLines 20                                                   preset default
+  duplicate-code       lowContent skip                                                 preset default
+  duplicate-code-near  notice  similarity at least 0.75 and lines at least 10       preset default
+  duplicate-code-near  warning blank                                                preset default
+  suppression-without-justification notice  structural                                           preset default
+  suppression-without-justification warning blank                                                preset default
+  high-coupling        notice  cbo over 20                                          preset default
+  high-coupling        warning blank                                                preset default
+  god-class            notice  WMC at least 47, ATFD over 5, TCC below 1/3          preset default
+  god-class            warning blank                                                preset default
+  god-class            preset  lanza-marinescu-2006                                 preset default
+  unused-member        notice  structural                                           preset default
+  unused-member        warning blank                                                preset default
+  unused-type          notice  structural                                           preset default
+  unused-type          warning blank                                                preset default
+  used-only-by-tests   notice  structural                                           preset default
+  used-only-by-tests   warning blank                                                preset default
+  unread-member        notice  structural                                           preset default
+  unread-member        warning blank                                                preset default
+  namespace-cycle      notice  blank                                                preset default
+  namespace-cycle      warning structural                                           preset default
+  brain-method                 on (composite: groups its parts' findings)           default
+  brain-method         minParts all                                                  preset default
+  brain-method         parts   long-method,complex-method,deep-nesting              preset default

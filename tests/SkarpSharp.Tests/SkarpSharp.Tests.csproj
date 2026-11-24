@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <!-- A TUnit test project is a Microsoft.Testing.Platform executable. -->
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- TUnit on Microsoft.Testing.Platform. TUnit brings Microsoft.Testing.Extensions.CodeCoverage
+         (the coverage option) and Microsoft.Testing.Extensions.TrxReport (the report-trx option); coverlet.collector does not run on MTP. -->
+    <PackageReference Include="TUnit" Version="1.87.12" />
+    <!-- Verify.TUnit is pinned to exactly 32.0.0 (published 2026-08-26), the last version released on or before 2026-09-01.
+         Versions released after that date (32.0.1 on 2026-09-12 and every 33.x) carry Verify's paid maintenance fee, so this
+         pin is never raised. Verify.TUnit 32.0.0 needs TUnit.Core 1.65.63 or later. -->
+    <PackageReference Include="Verify.TUnit" Version="[32.0.0]" />
+    <!-- Validates SARIF output against the official SARIF 2.1.0 schema (JSON Schema draft-04). MIT; test only, never shipped. -->
+    <PackageReference Include="NJsonSchema" Version="11.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- CollectionOrdering.Matching for ordered sequence comparisons (xUnit Assert.Equal on sequences). -->
+    <Using Include="TUnit.Assertions.Enums" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SkarpSharp.Core\SkarpSharp.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- CLI golden test input and expected outputs (CliGoldenTests reads them from the source tree): not compiled. -->
+    <Compile Remove="Golden/**" />
+    <!-- Semantic-tier fixtures (small repositories the tests copy to a temp folder and restore): not compiled here. -->
+    <Compile Remove="Semantic/Fixtures/**" />
+    <!-- The duplicate-code mutation fixture (methods and their mutants): read as text, not compiled. -->
+    <Compile Remove="Clones/Mutations/**" />
+    <None Include="Clones/Mutations/**" CopyToOutputDirectory="PreserveNewest" />
+    <!-- The mock solution (its own projects; MockSolutionTests copies it to a temporary folder, builds it and runs
+         its tests with coverage): not compiled here. -->
+    <Compile Remove="Mock/**" />
+    <None Remove="Mock/**" />
+    <None Remove="Semantic/Fixtures/**" />
+    <None Include="WorkedExamples/*.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Oracle/*.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Reporting/sarif-schema-2.1.0.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

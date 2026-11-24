@@ -1,0 +1,70 @@
+Overrides (repository file; matching entries apply in file order after its own values, later wins key by key, the flags win over all; 2 of 4 analyzed files matched):
+  override 1: files src/Legacy/**; excludeFiles src/Legacy/Keep/**
+    changes: rules magic-number on; thresholds long-method {"notice":100}
+    matches: 1 file
+  override 2: files **/*.Gen.cs
+    changes: rules long-method off, complex-method off
+    matches: 1 file
+  override 3: test code
+    changes: thresholds complex-method {"notice":25}
+    matches: 0 files (matches nothing)
+  override 4: files tools/**
+    changes: rules empty-catch off
+    matches: 0 files (matches nothing)
+
+File src/Legacy/Old.cs: production code; override 1 matches
+  rule                 level     value                                                origin
+  complex-method       notice    cognitive over 15                                    preset default
+  complex-method       warning   cognitive over 40                                    command line
+  deep-nesting         notice    nesting over 3                                       preset default
+  deep-nesting         warning   blank                                                preset default
+  long-method          notice    physicalLines over 100                               override 1
+  long-method          warning   physicalLines over 70                                preset default
+  large-type           notice    sourceLines over 100 or wmc over 20                  preset default
+  large-type           warning   blank                                                preset default
+  large-file           notice    sourceLines over 1000                                preset default
+  large-file           warning   sourceLines over 5000                                preset default
+  too-many-parameters  notice    parameters over 4 or constructorParameters over 5    preset default
+  too-many-parameters  warning   parameters at least 8                                preset default
+  path-explosion       notice    npath over 200                                       preset default
+  path-explosion       warning   blank                                                preset default
+  active-complex-file  notice    activityShare at least 4                             preset default
+  active-complex-file  warning   blank                                                preset default
+  active-complex-file  share     4                                                    preset default
+  bumpy-road           notice    bumps at least 2                                     preset default
+  bumpy-road           warning   blank                                                preset default
+  bumpy-road           depth     2                                                    preset default
+  complex-condition    notice    booleanOperators at least 2                          preset default
+  complex-condition    warning   blank                                                preset default
+  empty-catch          notice    structural                                           preset default
+  empty-catch          warning   structural                                           preset default
+  magic-number         notice    structural                                           preset default
+  magic-number         warning   blank                                                preset default
+  magic-number         ignore    -1,0,1,2                                             preset default
+  duplicate-code       notice    tokens at least 100 and lines at least 10            preset default
+  duplicate-code       warning   lines at least 50 or copies at least 3               preset default
+  duplicate-code       copyLines 20                                                   preset default
+  duplicate-code       lowContent skip                                                 preset default
+  duplicate-code-near  notice    similarity at least 0.75 and lines at least 10       preset default
+  duplicate-code-near  warning   blank                                                preset default
+  suppression-without-justification notice    structural                                           preset default
+  suppression-without-justification warning   blank                                                preset default
+  high-coupling        notice    cbo over 20                                          preset default
+  high-coupling        warning   blank                                                preset default
+  god-class            notice    WMC at least 47, ATFD over 5, TCC below 1/3          preset default
+  god-class            warning   blank                                                preset default
+  god-class            preset    lanza-marinescu-2006                                 preset default
+  unused-member        notice    structural                                           preset default
+  unused-member        warning   blank                                                preset default
+  unused-type          notice    structural                                           preset default
+  unused-type          warning   blank                                                preset default
+  used-only-by-tests   notice    structural                                           preset default
+  used-only-by-tests   warning   blank                                                preset default
+  unread-member        notice    structural                                           preset default
+  unread-member        warning   blank                                                preset default
+  namespace-cycle      notice    blank                                                preset default
+  namespace-cycle      warning   structural                                           preset default
+  brain-method         on/off    on (composite)                                       default
+  brain-method         minParts  all                                                  preset default
+  brain-method         parts     long-method,complex-method,deep-nesting              preset default
+

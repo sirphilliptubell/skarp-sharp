@@ -1,0 +1,11 @@
+<Project>
+  <!-- Mock solution: our own code, built only in a temporary copy by
+       tests/SkarpSharp.Tests/Coverage/MockSolutionTests.cs. This file stops MSBuild from looking further up. -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+</Project>

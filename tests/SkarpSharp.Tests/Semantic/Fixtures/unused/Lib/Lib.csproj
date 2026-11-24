@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Lib.Tests" />
+  </ItemGroup>
+  <!-- A file compiled only for the lower target (its names count as used when only net10.0 is analyzed). -->
+  <ItemGroup>
+    <Compile Remove="Old/**" />
+    <Compile Include="Old/**" Condition="'$(TargetFramework)' == 'net9.0'" />
+  </ItemGroup>
+</Project>

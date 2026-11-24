@@ -1,0 +1,6 @@
+<Project>
+  <!-- Repository build logic imported through CustomAfterMicrosoftCommonCrossTargetingTargets (outer build only). -->
+  <Target Name="RepoCrossTargetingMarker" AfterTargets="Compile">
+    <WriteLinesToFile File="$(MSBuildProjectDirectory)/obj/repo-cross-targeting.marker" Lines="outer build ran the repository's targets" Overwrite="true" />
+  </Target>
+</Project>

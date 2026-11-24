@@ -1,0 +1,349 @@
+[
+  {
+    "example": "1",
+    "title": "nesting versus a switch (paper)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint SumOfPrimes(int max) {\n  int total = 0;\n  for (int i = 1; i <= max; ++i) {        // +1\n    for (int j = 2; j < i; ++j) {         // +2 (nesting 1)\n      if (i % j == 0) {                   // +3 (nesting 2)\n        goto Next;                        // +1 (paper: continue OUT)\n      }\n    }\n    total += i;\n    Next: ;\n  }\n  return total;\n}\nstring GetWords(int n) {\n  switch (n) {                            // +1\n    case 1: return \"one\";\n    case 2: return \"a couple\";\n    case 3: return \"a few\";\n    default: return \"lots\";\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "SumOfPrimes",
+        "metric": "cognitive",
+        "value": 7
+      },
+      {
+        "member": "GetWords",
+        "metric": "cognitive",
+        "value": 1
+      }
+    ],
+    "notes": "Ours 7 and 1 (also Paper values)."
+  },
+  {
+    "example": "2",
+    "title": "nested blocks with try and catch (paper, total 9)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool c1, bool c2) {\n  try {\n    if (c1) {                        // +1\n      for (int i = 0; i < 10; i++) { // +2\n        while (c2) { }               // +3\n      }\n    }\n  } catch (ArgumentException) {      // +1\n    if (c2) { }                      // +2\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 9
+      }
+    ],
+    "notes": "Ours 9."
+  },
+  {
+    "example": "2b",
+    "title": "if nested in a catch inside another if (gold M4 variation)",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool c1, bool c2) { if (c1) { try { } catch (Exception) { if (c2) { } } } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 6
+      }
+    ],
+    "notes": "Entry: if +1, catch +2, inner if +3 = 6 in matkoch and Ours. Snippet reconstructed by us from that description."
+  },
+  {
+    "example": "3",
+    "title": "lambda raises nesting but adds nothing",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool c) {\n  Action r = () => {\n    if (c) { }                       // +2 (nesting 1)\n  };\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 2
+      }
+    ],
+    "notes": "Ours 2. No Ours value is given for the lambda sub-record."
+  },
+  {
+    "example": "4",
+    "title": "if chain and else",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nstring F(int n) {\n  if (n == 1) return \"one\";          // +1\n  else if (n == 2) return \"two\";     // +1\n  else if (n == 3) return \"three\";   // +1\n  else return \"many\";                // +1\n}\n}\n",
+    "expect": [
+      {
+        "member": "F",
+        "metric": "cognitive",
+        "value": 4
+      }
+    ],
+    "notes": "Ours 4."
+  },
+  {
+    "example": "5a",
+    "title": "nested if with else and else-if inside a block",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool a, bool b, bool c) {\n  if (a) {                           // +1\n    if (b) { }                       // +2\n    else if (!b) { }                 // +1\n    else { }                         // +1\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 5
+      }
+    ],
+    "notes": "Ours 5."
+  },
+  {
+    "example": "5b",
+    "title": "else { if } versus else if",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid P(bool a, bool b) { if (a) { } else if (b) { } }          // P\nvoid Q(bool a, bool b) { if (a) { } else { if (b) { } } }      // Q\n}\n",
+    "expect": [
+      {
+        "member": "P",
+        "metric": "cognitive",
+        "value": 2
+      },
+      {
+        "member": "Q",
+        "metric": "cognitive",
+        "value": 4
+      }
+    ],
+    "notes": "Ours."
+  },
+  {
+    "example": "6",
+    "title": "logical operator runs",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid A(bool a, bool b, bool c, bool d) {\n  var x1 = a || b || c;               // +1\n  var x2 = a && !b && c && d;         // +1\n  var x3 = !(a && b && c);            // +1\n}\nvoid B(bool a, bool b, bool c, bool d, bool e, bool f) {\n  if (a                                // +1 for if\n      && b && c                        // +1\n      || d || e                        // +1\n      && f) { }                        // +1\n}\nvoid C(bool a, bool b, bool c) { if (a && !(b && c)) { } }    // paper: 3\nvoid D(bool a, bool b, bool c, bool d) { if ((a && b) || (c && d)) { } }\n}\n",
+    "expect": [
+      {
+        "member": "A",
+        "metric": "cognitive",
+        "value": 3
+      },
+      {
+        "member": "B",
+        "metric": "cognitive",
+        "value": 4
+      },
+      {
+        "member": "C",
+        "metric": "cognitive",
+        "value": 3
+      },
+      {
+        "member": "D",
+        "metric": "cognitive",
+        "value": 4
+      }
+    ],
+    "notes": "Ours. Value for A is the sum of three runs (+1 each). Whether ! on a sub-expression starts a new run (C = 3) is the entry rule; matkoch disagrees (2), not included."
+  },
+  {
+    "example": "7",
+    "title": "switch with nesting inside a case",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nstring M(int n) {\n  switch (n) {                       // +1\n    case 1:\n      if (n > 0) return \"one\";       // +2 (nesting 1)\n      return \"ONE\";\n    case 2: return \"a couple\";\n    default: return \"lots\";\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 3
+      }
+    ],
+    "notes": "Ours 3."
+  },
+  {
+    "example": "8",
+    "title": "catch with filter",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M() {\n  if (true) {                                       // +1\n    try { Work(); }\n    catch (Exception ex) when (ex.Message == \"x\") { }   // catch +2, filter varies\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 3
+      }
+    ],
+    "notes": "Ours 3 (when adds 0 by default; option when:+1+nesting gives 5, not included)."
+  },
+  {
+    "example": "9",
+    "title": "ternary and nested ternary",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nint M(bool a, bool b) { return a ? (b ? 1 : 2) : 3; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 3
+      }
+    ],
+    "notes": "Ours 3."
+  },
+  {
+    "example": "10",
+    "title": "switch expression and patterns",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nstring M(int x) => x switch { 1 or 2 => \"a\", > 10 and < 20 => \"b\", _ => \"c\" };\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 3
+      }
+    ],
+    "notes": "Ours 3 (switch expression +1, one or run, one and run). Paper unspecified: a design choice."
+  },
+  {
+    "example": "11",
+    "title": "switch expression nested in an if",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b, int x) { if (b) { var s = x switch { 1 => \"a\", _ => \"b\" }; } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 3
+      }
+    ],
+    "notes": "Ours 3 (if +1, switch expression at nesting 1 = +2)."
+  },
+  {
+    "example": "12",
+    "title": "recursion",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nbool M2(bool a) { if (a && M2(a)) { return true; } return false; }   // M2\nbool M3(bool a) { return a && !M3(a); }                              // M3\nint Fib(int n) => n <= 1 ? 1 : Fib(n - 1) + Fib(n - 2);              // Fib\n}\n",
+    "expect": [
+      {
+        "member": "M2",
+        "metric": "cognitive",
+        "value": 3
+      },
+      {
+        "member": "M3",
+        "metric": "cognitive",
+        "value": 2
+      },
+      {
+        "member": "Fib",
+        "metric": "cognitive",
+        "value": 2
+      }
+    ],
+    "notes": "Ours; recursion counted once per member. Needs name matching (syntax tier, \"approximate\") or symbols; ambiguity for the implementer which one the default uses."
+  },
+  {
+    "example": "13",
+    "title": "null operators add nothing",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nstring M(object o, string d) { var s = o?.ToString() ?? d; return s; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 0
+      }
+    ],
+    "notes": "Ours 0."
+  },
+  {
+    "example": "14",
+    "title": "local function and lambda inside an if",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool a, bool b) {\n  if (a) {                                          // +1\n    Func<int> f = () => b ? 1 : 2;                  // lambda: level 2; ternary +3\n  }\n  int Local(int x) { if (x > 0) return 1; return 0; }  // level 1; if +2\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 6
+      }
+    ],
+    "notes": "Ours 6. No Ours values for the lambda and local function sub-records."
+  },
+  {
+    "example": "15",
+    "title": "break and continue",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(int[] xs) {\n  foreach (var x in xs) {                 // +1\n    if (x < 0) continue;                  // +2\n    if (x > 9) break;                     // +2\n  }\n}\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 5
+      }
+    ],
+    "notes": "Ours 5 (plain jumps are free)."
+  },
+  {
+    "example": "16a",
+    "title": "await adds nothing",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nasync Task M() { await Task.Yield(); }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 0
+      }
+    ],
+    "notes": "Ours 0."
+  },
+  {
+    "example": "16b",
+    "title": "yield adds nothing",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nIEnumerable<int> M() { yield return 1; }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 0
+      }
+    ],
+    "notes": "Ours 0."
+  },
+  {
+    "example": "16c",
+    "title": "is pattern only the if counts",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(object o) { if (o is string) { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 1
+      }
+    ],
+    "notes": "Ours 1."
+  },
+  {
+    "example": "16d",
+    "title": "try/finally adds nothing",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M() { try { } finally { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 0
+      }
+    ],
+    "notes": "Ours 0."
+  },
+  {
+    "example": "16e",
+    "title": "lock and using add nothing",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(int x) { lock (_l) { using var s = Open(); } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 0
+      }
+    ],
+    "notes": "Ours 0."
+  },
+  {
+    "example": "16f",
+    "title": "five sequential ifs",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b) { if (b) { } if (b) { } if (b) { } if (b) { } if (b) { } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 5
+      }
+    ],
+    "notes": "Entry: flat member of five sequential ifs = 5. Snippet reconstructed."
+  },
+  {
+    "example": "16g",
+    "title": "five nested ifs",
+    "code": "using System;\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\n\nclass C {\nvoid M(bool b) { if (b) { if (b) { if (b) { if (b) { if (b) { } } } } } }\n}\n",
+    "expect": [
+      {
+        "member": "M",
+        "metric": "cognitive",
+        "value": 15
+      }
+    ],
+    "notes": "Entry: 1+2+3+4+5 = 15. Snippet reconstructed."
+  }
+]

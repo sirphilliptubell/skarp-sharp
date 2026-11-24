@@ -1,0 +1,100 @@
+=== frame 7 after Enter
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Lists
+>|>  include                     (none)                  Skarp default
+ |   exclude                     (none)                  Skarp default
+ |   history.botPatterns         (none)                  Skarp default
+ |   gate.on                     *:warning               Skarp default
+ |   semantic.targets            highest                 Skarp default
+ |   unusedCode.allow            (none)                  Skarp default
+ |   coverage                    (none)                  Skarp default
+ |   symbols                     (automatic)             Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Globs that bring back files the test detection left out. Key: include.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 9 after Enter
+H|Skarp setup  repository  .skarp.json  0 changed
+.|Lists
+ |   include                     (none)                  Skarp default
+>|>  exclude                     (none)                  Skarp default
+ |   history.botPatterns         (none)                  Skarp default
+ |   gate.on                     *:warning               Skarp default
+ |   semantic.targets            highest                 Skarp default
+ |   unusedCode.allow            (none)                  Skarp default
+ |   coverage                    (none)                  Skarp default
+ |   symbols                     (automatic)             Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Globs of files and folders to leave out. Key: exclude.
+ |
+ |
+ |
+ |exclude (comma-separated): _
+=== frame 19 after Enter
+H|Skarp setup  repository  .skarp.json  1 changed
+.|Lists
+ |   include                     (none)                  Skarp default
+>|> *exclude                     a/**, b/**              set here
+ |   excludeMode                 replace                 Skarp default
+ |   history.botPatterns         (none)                  Skarp default
+ |   gate.on                     *:warning               Skarp default
+ |   semantic.targets            highest                 Skarp default
+ |   unusedCode.allow            (none)                  Skarp default
+ |   coverage                    (none)                  Skarp default
+ |   symbols                     (automatic)             Skarp default
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |Globs of files and folders to leave out. Key: exclude.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 21 after Enter
+H|Skarp setup  repository  .skarp.json  2 changed
+.|Lists
+ |   include                     (none)                  Skarp default
+ |  *exclude                     a/**, b/**              set here
+>|> *excludeMode                 append                  set here
+ |   history.botPatterns         (none)                  Skarp default
+ |   gate.on                     *:warning               Skarp default
+ |   semantic.targets            highest                 Skarp default
+ |   unusedCode.allow            (none)                  Skarp default
+ |   coverage                    (none)                  Skarp default
+ |   symbols                     (automatic)             Skarp default
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |How this level's exclude meets the inherited one: replace it, or append to it.
+ |Key: excludeMode.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 22 after f
+H|Skarp setup  repository  .skarp.json  2 changed
+.|Lists  (set at this level only)
+>|> *exclude                     a/**, b/**              set here
+ |  *excludeMode                 append                  set here
+.|  1-2 of 2
+.|------------------------------------------------------------------------------
+ |Globs of files and folders to leave out. Key: exclude.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 23 after s
+H|Skarp setup  repository  .skarp.json  2 changed
+.|Preview of the changes
+ |  creates .skarp.json (repository): 2 changes
+ |    exclude: (inherit) → a/**, b/**
+ |    excludeMode: (inherit) → append
+ |  changes findings: the next run's settings fingerprint will differ from the baseline (re-record the baseline when you are done)
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |y saves, n goes back to editing.
+ |
+ |
+ |
+.|Save? y yes  n no

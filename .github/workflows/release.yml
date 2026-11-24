@@ -1,0 +1,74 @@
+# Release: pushing a tag named v<version> (for example v0.1.0, or v0.2.0-rc.1 for a prerelease) runs the full CI
+# workflow, then publishes the NuGet tool packages and creates a GitHub Release with the Native AOT executables.
+# The package version comes from the tag (MinVer).
+#
+# One-time setup (repository owner):
+#   1. nuget.org: create a trusted publishing policy for this repository and workflow file (release.yml) for the package ids
+#      Skarp, Skarp.win-x64, Skarp.linux-x64 and Skarp.any (nuget.org account > Trusted Publishing).
+#   2. GitHub: add the repository variable NUGET_USER with the nuget.org user name (Settings > Secrets and variables >
+#      Actions > Variables). No API key is stored: the login step exchanges a short-lived GitHub OIDC token for one.
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+      security-events: write
+
+  publish:
+    name: publish ${{ github.ref_name }}
+    needs: ci
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write      # create the GitHub Release
+      id-token: write      # trusted publishing to nuget.org (OIDC)
+    steps:
+      - name: Download the release files of both platforms
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          pattern: release-*
+          path: dl
+
+      - name: Collect the packages and archives
+        run: |
+          mkdir -p packages dist
+          # The pointer (Skarp) and the framework-dependent (Skarp.any) packages come from the Linux job; each RID package
+          # from the job of its own platform.
+          cp dl/release-linux-x64/packages/*.nupkg packages/
+          cp dl/release-win-x64/packages/Skarp.win-x64.*.nupkg packages/
+          cp dl/release-*/dist/* dist/
+          ls -l packages dist
+
+      - name: NuGet login (trusted publishing)
+        id: login
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1
+        with:
+          user: ${{ vars.NUGET_USER }}
+
+      - name: Push to nuget.org (RID packages and fallback first, the pointer package last)
+        env:
+          NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
+        run: |
+          # The pointer package lists the other three; every listed package must exist at the same version before it.
+          for f in packages/Skarp.win-x64.*.nupkg packages/Skarp.linux-x64.*.nupkg packages/Skarp.any.*.nupkg; do
+            dotnet nuget push "$f" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          done
+          for f in packages/Skarp.[0-9]*.nupkg; do
+            dotnet nuget push "$f" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          done
+
+      - name: Create the GitHub Release
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3
+        with:
+          files: dist/*
+          generate_release_notes: true
+          prerelease: ${{ contains(github.ref_name, '-') }}

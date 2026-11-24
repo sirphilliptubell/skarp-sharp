@@ -1,0 +1,94 @@
+=== frame 0 after (start)
+H|Skarp setup
+.|Choose the settings level to edit
+ |  system        machine/system.json  not found
+ |  personal      machine/personal.json  found
+>|> repository    .skarp.json  not found
+ |  command line  build a command, save nothing
+ |  Claude Code hooks  run Skarp after each edit and turn (skarp install claude)
+ |  Git hooks          warn before a commit makes code worse (skarp install git-hooks)
+.|  1-6 of 6
+.|------------------------------------------------------------------------------
+ |This repository's .skarp.json, shared with everyone who clones it; it overrides
+ |the system and personal files.
+ |
+ |
+.|Up/Down move  Enter open  Esc quit
+=== frame 1 after Up
+H|Skarp setup
+.|Choose the settings level to edit
+ |  system        machine/system.json  not found
+>|> personal      machine/personal.json  found
+ |  repository    .skarp.json  not found
+ |  command line  build a command, save nothing
+ |  Claude Code hooks  run Skarp after each edit and turn (skarp install claude)
+ |  Git hooks          warn before a commit makes code worse (skarp install git-hooks)
+.|  1-6 of 6
+.|------------------------------------------------------------------------------
+ |Your own settings, for every repository you analyze, under the repository's
+ |file. The gate ignores them.
+ |
+ |
+.|Up/Down move  Enter open  Esc quit
+=== frame 2 after Down
+H|Skarp setup
+.|Choose the settings level to edit
+ |  system        machine/system.json  not found
+ |  personal      machine/personal.json  found
+>|> repository    .skarp.json  not found
+ |  command line  build a command, save nothing
+ |  Claude Code hooks  run Skarp after each edit and turn (skarp install claude)
+ |  Git hooks          warn before a commit makes code worse (skarp install git-hooks)
+.|  1-6 of 6
+.|------------------------------------------------------------------------------
+ |This repository's .skarp.json, shared with everyone who clones it; it overrides
+ |the system and personal files.
+ |
+ |
+.|Up/Down move  Enter open  Esc quit
+=== frame 3 after Down
+H|Skarp setup
+.|Choose the settings level to edit
+ |  system        machine/system.json  not found
+ |  personal      machine/personal.json  found
+ |  repository    .skarp.json  not found
+>|> command line  build a command, save nothing
+ |  Claude Code hooks  run Skarp after each edit and turn (skarp install claude)
+ |  Git hooks          warn before a commit makes code worse (skarp install git-hooks)
+.|  1-6 of 6
+.|------------------------------------------------------------------------------
+ |Build a Skarp command for one run: choose a command, run options and settings
+ |over your settings files, then print it for PowerShell, cmd or sh, or all as
+ |Markdown. Nothing is saved.
+ |
+.|Up/Down move  Enter open  Esc quit
+=== frame 4 after Enter
+H|Skarp setup  command line
+.|Choose the command to build
+>|> analyze   findings report and metrics: the usual run
+ |  baseline  record the current findings in .skarp-baseline.json
+ |  hotspots  the activity hotspot table
+ |  history   git history only
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |Run options and settings come next, shown over your settings files; the command
+ |is printed after the menu closes, for the shell you choose.
+ |
+ |
+.|Up/Down move  Enter choose  Esc back
+=== frame 5 after Esc
+H|Skarp setup
+.|Choose the settings level to edit
+ |  system        machine/system.json  not found
+ |  personal      machine/personal.json  found
+ |  repository    .skarp.json  not found
+>|> command line  build a command, save nothing
+ |  Claude Code hooks  run Skarp after each edit and turn (skarp install claude)
+ |  Git hooks          warn before a commit makes code worse (skarp install git-hooks)
+.|  1-6 of 6
+.|------------------------------------------------------------------------------
+ |Build a Skarp command for one run: choose a command, run options and settings
+ |over your settings files, then print it for PowerShell, cmd or sh, or all as
+ |Markdown. Nothing is saved.
+ |
+.|Up/Down move  Enter open  Esc quit

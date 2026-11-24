@@ -1,0 +1,168 @@
+=== frame 0 after (start)
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|Sections  (the gate ignores system and personal settings)
+>|> Rules       1 set here
+ |  Thresholds  0 set here
+ |  History     0 set here
+ |  Score       0 set here
+ |  Semantic    0 set here
+ |  Agent       1 set here
+ |  Lists       1 set here
+ |  General     0 set here
+ |  Reset everything (empty this level to { "version": 1 })
+.|  1-9 of 9
+.|------------------------------------------------------------------------------
+ |Switch rules on or off.
+ |
+ |
+ |
+.|Up/Down move  Enter open  s save  Esc quit
+=== frame 1 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|Rules  (the gate ignores system and personal settings)
+>|>  complex-method              on                      Skarp default
+ |   deep-nesting                on                      Skarp default
+ |   long-method                 on                      Skarp default
+ |   large-type                  on                      Skarp default
+ |   large-file                  on                      Skarp default
+ |   too-many-parameters         on                      Skarp default
+ |   path-explosion              on                      Skarp default
+ |   active-complex-file         on                      Skarp default
+ |   bumpy-road                  on                      Skarp default
+ |   complex-condition           on                      Skarp default
+ |   empty-catch                 on                      Skarp default
+ |   magic-number                off                     set here
+ |   duplicate-code              on                      Skarp default
+ |   duplicate-code-near         on                      Skarp default
+.|  1-14 of 25  more below
+.|------------------------------------------------------------------------------
+ |Much branching logic in one member makes it hard to follow and to test. Key:
+ |rules.complex-method.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 5 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|Thresholds  (the gate ignores system and personal settings)
+>|>  preset                      default                 Skarp default
+ |   complex-method.notice       16 or more cognitive    Skarp default
+ |   complex-method.warning      off                     Skarp default
+ |   deep-nesting.notice         4 or more nesting depth Skarp default
+ |   deep-nesting.warning        off                     Skarp default
+ |   long-method.notice          51 or more all lines    Skarp default
+ |   long-method.warning         71 or more all lines    Skarp default
+ |   large-type.notice           101 or more source lin~ Skarp default
+ |   large-type.warning          off                     Skarp default
+ |   large-file.notice           1001 or more source li~ Skarp default
+ |   large-file.warning          5001 or more source li~ Skarp default
+ |   too-many-parameters.notice  5 or more parameters, ~ Skarp default
+ |   too-many-parameters.warning 8 or more parameters    Skarp default
+ |   path-explosion.notice       201 or more NPath       Skarp default
+.|  1-14 of 50  more below
+.|------------------------------------------------------------------------------
+ |The threshold preset: whose published values the rules use. Key: preset.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 10 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|History  (the gate ignores system and personal settings)
+>|>  history.enabled             true                    Skarp default
+ |   history.window              24                      from system  (repository overrides: 3)
+ |   history.since               (none)                  Skarp default
+ |   history.allHistory          false                   Skarp default
+ |   history.ignoreWhitespace    false                   Skarp default
+ |   history.bulkFlag            300                     Skarp default
+ |   history.bulkDrop            (none)                  Skarp default
+ |   history.includeBots         false                   Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Read git history (activity, hotspots); off is faster. Key: history.enabled.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 16 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|Score  (the gate ignores system and personal settings)
+>|>  score.model                 grade                   Skarp default
+ |   score.decay                 0.7                     Skarp default
+ |   score.worst.count           10                      Skarp default
+ |   score.worst.below           7                       Skarp default
+.|  1-4 of 4
+.|------------------------------------------------------------------------------
+ |The score model. Key: score.model.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 23 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|Semantic  (the gate ignores system and personal settings)
+>|>  semantic.enabled            true                    Skarp default
+ |   semantic.generators         true                    Skarp default
+ |   namespaceCycles.includeGen~ false                   Skarp default
+.|  1-3 of 3
+.|------------------------------------------------------------------------------
+ |Run the semantic tier (a design-time build of the solution) when the inputs
+ |allow. Key: semantic.enabled.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 31 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|Agent  (the gate ignores system and personal settings)
+>|>  saveLastRun                 true                    Skarp default
+ |   output.checkMaxLines        9                       set here
+ |   output.gateMaxLines         50                      Skarp default
+ |   tracking.retentionDays      30                      Skarp default
+ |   tracking.lookbackDays       14                      Skarp default
+.|  1-5 of 5
+.|------------------------------------------------------------------------------
+ |Save each analyze run under .skarp/last-run/ for skarp show. Key: saveLastRun.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 40 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|Lists  (the gate ignores system and personal settings)
+>|>  include                     (none)                  Skarp default
+ |   exclude                     gen/**                  set here
+ |   excludeMode                 replace                 Skarp default
+ |   history.botPatterns         (none)                  Skarp default
+ |   gate.on                     *:warning               Skarp default
+ |   semantic.targets            highest                 Skarp default
+ |   unusedCode.allow            (none)                  Skarp default
+ |   symbols                     (automatic)             Skarp default
+.|  1-8 of 8
+.|------------------------------------------------------------------------------
+ |Globs that bring back files the test detection left out. Key: include.
+ |
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back
+=== frame 50 after Enter
+H|Skarp setup  personal  machine/personal.json  0 changed
+.|General  (the gate ignores system and personal settings)
+>|>  useInRepositories           true                    Skarp default
+ |   complexMetric               cognitive               Skarp default
+ |   longMethodLines             physical                Skarp default
+ |   recordParameters            exempt                  Skarp default
+ |   magicNumbers                count                   Skarp default
+ |   includeTests                false                   Skarp default
+ |   top                         20                      Skarp default
+ |   report.perFile              3                       Skarp default
+ |   gate.health.maxDrop         1.0                     Skarp default
+ |   gate.health.newFileMin      6.5                     Skarp default
+ |   gate.health.floor           6.5                     Skarp default
+ |   variants.cap                32                      Skarp default
+ |   variants.checkCap           4                       Skarp default
+.|  1-13 of 13
+.|------------------------------------------------------------------------------
+ |Apply this file inside repositories too; false keeps it for folders outside any
+ |repository. Key: useInRepositories.
+ |
+ |
+.|Enter edit  Space toggle  Del inherit  f set here only  u revert  s save  Esc back

@@ -1,0 +1,18 @@
+Skarp: analyze <root>, 2 files, health 7.4 average, was 7.5 (10 = healthy)
+1 new, 1 worse than the baseline. 2 warnings, 10 notices at 6 places in 2 files; showing the 4 worst (magic numbers counted, not listed).
+
+src/OrderBook.cs health 6.9
+  notice line 10 OrderBook.Total long-method: physical lines 21 (limit 20) [6e523882]
+  notice line 27 OrderBook.Total complex-condition: boolean operators 2 (limit at least 2) [0ed1ff77]
+  warning line 34 OrderBook.Add too-many-parameters: parameters 8 (limit at least 8) [1a9e9b41]
+  warning line 40 OrderBook.Add empty-catch: empty bare catch without a comment [4a5cab44]
+  notice line 45 OrderBook.Describe deep-nesting: nesting depth 4 (limit 3) [b4a90bd3]
+  notice line 45 OrderBook.Describe long-method: physical lines 25 (limit 20) [9b6c4c34]
+  +2 more in this file (--per-file 0 or --all lists them)
+
+Program.cs health 9.5
+  notice line 3 <top-level> deep-nesting: nesting depth 4 (limit 3) [984d5d0e]
+
+Baseline: rule settings changed since the baseline; new and fixed counts include settings effects; re-run `skarp baseline` to reset.
+History and semantic analysis were off. `skarp analyze --verbose` shows the run details.
+About the rules: `skarp explain <rule>` eg: `skarp explain long-method`
