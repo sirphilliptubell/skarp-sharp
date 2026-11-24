@@ -1098,7 +1098,7 @@
   ],
   "baseline": {
     "path": "\u003Croot\u003E/.skarp-baseline.json",
-    "toolVersion": "0.1.0.0",
+    "toolVersion": "0.0.0.7",
     "preset": "default",
     "entries": 12,
     "new": 1,

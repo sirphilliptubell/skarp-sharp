@@ -1,7 +1,7 @@
 {
   "version": 1,
   "type": "baseline",
-  "toolVersion": "0.1.0.0",
+  "toolVersion": "0.0.0.7",
   "preset": "default",
   "complexMetric": "cognitive",
   "longMethodLines": "physical",
