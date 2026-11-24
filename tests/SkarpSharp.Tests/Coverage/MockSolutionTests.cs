@@ -156,8 +156,11 @@ public sealed class MockSolutionTests
         // Edit a fully covered file after the report: three lines inserted after the class's opening brace move its code.
         var grades = Path.Combine(m.Root, "Mock.Lib", "Grades.cs");
         var text = File.ReadAllText(grades);
-        int brace = text.IndexOf("{\n", text.IndexOf("class Grades", StringComparison.Ordinal), StringComparison.Ordinal) + 2;
-        File.WriteAllText(grades, text[..brace] + "    // inserted after the report\n\n    // so the covered lines moved\n" + text[brace..]);
+        // The checkout may have CRLF line endings (Windows), so find the line break after the brace instead of assuming "\n".
+        int open = text.IndexOf('{', text.IndexOf("class Grades", StringComparison.Ordinal));
+        int brace = text.IndexOf('\n', open) + 1;
+        string eol = text[..brace].EndsWith("\r\n", StringComparison.Ordinal) ? "\r\n" : "\n";
+        File.WriteAllText(grades, text[..brace] + "    // inserted after the report" + eol + eol + "    // so the covered lines moved" + eol + text[brace..]);
         File.SetLastWriteTimeUtc(grades, DateTime.UtcNow.AddHours(1));
         try
         {

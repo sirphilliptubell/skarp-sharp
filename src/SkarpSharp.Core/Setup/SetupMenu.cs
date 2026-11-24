@@ -35,12 +35,14 @@ public sealed class SetupMenuStart(IReadOnlyList<LevelChoice> levels, int highli
 }
 
 /// <summary>The menu's keys and terminal; <see cref="Color"/> false draws no SGR codes; <see cref="OnFrame"/> sees each frame.</summary>
-public sealed class MenuConsole(IKeySource keys, ITerminal terminal, bool color = true, Action<Frame>? onFrame = null)
+public sealed class MenuConsole(IKeySource keys, ITerminal terminal, bool color = true, Action<Frame>? onFrame = null, Shell? defaultShell = null)
 {
     public IKeySource Keys { get; } = keys;
     public ITerminal Terminal { get; } = terminal;
     public bool Color { get; } = color;
     public Action<Frame>? OnFrame { get; } = onFrame;
+    /// <summary>The shell the command builder starts on; null picks PowerShell on Windows and sh elsewhere.</summary>
+    public Shell? DefaultShell { get; } = defaultShell;
 }
 
 /// <summary>
@@ -97,6 +99,7 @@ public sealed partial class SetupMenu
         _terminal = console.Terminal;
         _writer = new FrameWriter(console.Terminal, console.Color);
         _onFrame = console.OnFrame;
+        if (console.DefaultShell is { } shell) _shellList.Index = (int)shell;
         _screen = start.Model is null ? Screen.Levels : Screen.Sections;
         _openCommand = start.OpenCommand;
         if (start.StartWithCommands) _screen = Screen.Commands;

@@ -407,7 +407,8 @@ public static class SetupCommand
         var frames = new StringBuilder();
         int n = 0;
         var menu = new SetupMenu(start, new MenuConsole(keys, terminal, color,
-            f => frames.Append("=== frame ").Append(n++).Append(" after ").Append(keys.Last ?? "(start)").Append('\n').Append(f.ToSnapshot())));
+            f => frames.Append("=== frame ").Append(n++).Append(" after ").Append(keys.Last ?? "(start)").Append('\n').Append(f.ToSnapshot()),
+            Shell.PowerShell));
         int exit = menu.Run();
         io.Out.Write(frames.ToString());
         io.Out.Write("=== raw\n");
