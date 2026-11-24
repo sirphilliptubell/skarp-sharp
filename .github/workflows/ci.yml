@@ -86,6 +86,8 @@ jobs:
           --results-directory artifacts/test-results --report-trx --report-trx-filename tests.trx
           --coverage --coverage-output-format cobertura --coverage-output coverage.cobertura.xml
 
+      # Windows runs every test, so nothing may be skipped there. Linux skips the tests that run cmd and Windows
+      # PowerShell 5.1 for real, so on Linux only a failed test fails this step.
       - name: No skipped tests
         run: |
           trx=$(find artifacts/test-results -name '*.trx' | head -n 1)
@@ -94,8 +96,9 @@ jobs:
             const c = t.match(/<Counters [^>]*>/)[0];
             const get = k => Number((c.match(new RegExp(k + "=\"(\\d+)\"")) || [0, 0])[1]);
             console.log(c);
-            if (get("total") !== get("passed")) { console.error("not every test passed (skipped or failed tests)"); process.exit(1); }
-          ' "$trx"
+            if (get("failed") + get("error") + get("timeout") + get("aborted") > 0) { console.error("failed tests"); process.exit(1); }
+            if (process.argv[2] === "Windows" && get("total") !== get("passed")) { console.error("skipped tests on Windows"); process.exit(1); }
+          ' "$trx" "$RUNNER_OS"
 
       - name: Coverage summary (report only)
         run: |
