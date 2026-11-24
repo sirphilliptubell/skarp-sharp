@@ -4,7 +4,7 @@ All notable changes to Skarp are recorded here, in the [Keep a Changelog](https:
 
 ## [Unreleased]
 
-## [0.1.0] - unreleased (date set at tagging)
+## [0.1.0] - 2026-11-24
 
 First public release. Formats are versioned and documented but may still change before 1.0. Experimental commands are marked as such.
 
